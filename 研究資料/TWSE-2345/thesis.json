@@ -1,40 +1,152 @@
 {
- "security": "TWSE:2345", "name": "智邦科技", "asof": "2026-10-01", "version": 1, "industry_profile": "growth-manufacturing",
+ "security": "TWSE:2345",
+ "name": "智邦科技",
+ "asof": "2026-10-01",
+ "version": 2,
+ "industry_profile": "growth-manufacturing",
  "data_status": "provisional：官方 MOPS/TWSE 被環境網路政策封鎖；財報數字取自 Bigdata.com（FMP）與 Kevin workbook（季報調節頁，MOPS 來源），月營收取自鉅亨/經濟日報，未以 MOPS 原檔逐字核對",
- "conclusion": "AI 資料中心白牌交換器龍頭，2026 年營收與獲利加速，Kevin 模型（CPO 錨定）情境 A 目標價 NT$2,262（+19%）、情境 B NT$2,599（+37%），PEG 0.39 偏便宜；主要風險是存貨暴增帶來的負營業現金流與客戶集中。",
+ "conclusion": "AI 資料中心白牌交換器龍頭，2026 年營收與獲利加速，Kevin 模型（CPO 錨定）情境 A 目標價 NT$2,262（+19%）、情境 B NT$2,599（+37%），PEG 0.39 偏便宜；主要風險是存貨暴增帶來的負營業現金流與客戶集中。同業相對估值：TTM PE 29.9x 為同業中位數 38.3x 的 0.78 倍，毛利率與營收成長皆高於中位數 → 相對偏低估（優質但未給溢價）。",
  "theses": [
-  {"id":"T1","claim":"AI 網通升級（400G→800G→1.6T）+ AWS 三線業務（scale-out 交換器、compute tray AI 卡、scale-up switch tray）推動 2026–27 高成長",
-   "support":["1–8月營收 2,460.04 億、年增 61.9%；8月 408.73 億創新高","2026Q2 EPS 19.78、毛利率 19.7%","凱基：AWS 擴至三線、Meta 2026 回歸 800G 供應鏈"],
-   "counter":["客戶代料（consignment）模式會壓低帳面營收成長","1.6T 放量時程依賴 Broadcom Tomahawk 6 與客戶部署"],
-   "pending":["Q3 營收是否 ≥ 1,143 億市場共識（7+8月已 803 億）","9月營收（10/10 前公告）"],
-   "catalysts":["10/10 前 9月營收","2026-11-06 Q3 法說","1.6T 交換器與次世代 AI 加速卡相關產品量產"],
-   "invalidation":["單月營收連續兩月月減 >10%","毛利率跌回 17% 以下（2025Q3 水位）"]},
-  {"id":"T2","claim":"毛利率結構改善：產品組合往高階資料中心移動，Meta 加入改善客戶組合",
-   "support":["毛利率 2025Q3 16.9% → 2026Q2 19.7%","營業利益率 2026Q2 15.0%"],
-   "counter":["AI 加速卡/compute tray 毛利率通常低於交換器","大客戶議價力強"],
-   "pending":["Q3 毛利率"],"catalysts":["consignment 降低營收基數、推升毛利率"],"invalidation":["毛利率連兩季下滑"]},
-  {"id":"T3","claim":"估值未反映成長：現價 1,900 對模型 EPS 76.9 為 24.7x，PEG 0.39；股價自 7/6 高點 2,825 回檔 33%",
-   "support":["FactSet 2026 EPS 中位數 83.78–86.43、目標價中位 3,500","TTM PE 29.9x"],
-   "counter":["大盤 PE 31.26 已處高檔（M_adj=0.85）","AI 族群資金面修正風險"],
-   "pending":["錨定值 9/11 版，大盤 PE 取 7/09 水位"],"catalysts":["Q3 財報上修"],"invalidation":["法人 2027 EPS 下修 >10%"]}
+  {
+   "id": "T1",
+   "claim": "AI 網通升級（400G→800G→1.6T）+ AWS 三線業務（scale-out 交換器、compute tray AI 卡、scale-up switch tray）推動 2026–27 高成長",
+   "support": [
+    "1–8月營收 2,460.04 億、年增 61.9%；8月 408.73 億創新高",
+    "2026Q2 EPS 19.78、毛利率 19.7%",
+    "凱基：AWS 擴至三線、Meta 2026 回歸 800G 供應鏈"
+   ],
+   "counter": [
+    "客戶代料（consignment）模式會壓低帳面營收成長",
+    "1.6T 放量時程依賴 Broadcom Tomahawk 6 與客戶部署"
+   ],
+   "pending": [
+    "Q3 營收是否 ≥ 1,143 億市場共識（7+8月已 803 億）",
+    "9月營收（10/10 前公告）"
+   ],
+   "catalysts": [
+    "10/10 前 9月營收",
+    "2026-11-06 Q3 法說",
+    "1.6T 交換器與次世代 AI 加速卡相關產品量產"
+   ],
+   "invalidation": [
+    "單月營收連續兩月月減 >10%",
+    "毛利率跌回 17% 以下（2025Q3 水位）"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "毛利率結構改善：產品組合往高階資料中心移動，Meta 加入改善客戶組合",
+   "support": [
+    "毛利率 2025Q3 16.9% → 2026Q2 19.7%",
+    "營業利益率 2026Q2 15.0%"
+   ],
+   "counter": [
+    "AI 加速卡/compute tray 毛利率通常低於交換器",
+    "大客戶議價力強"
+   ],
+   "pending": [
+    "Q3 毛利率"
+   ],
+   "catalysts": [
+    "consignment 降低營收基數、推升毛利率"
+   ],
+   "invalidation": [
+    "毛利率連兩季下滑"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "估值未反映成長：現價 1,900 對模型 EPS 76.9 為 24.7x，PEG 0.39；股價自 7/6 高點 2,825 回檔 33%",
+   "support": [
+    "FactSet 2026 EPS 中位數 83.78–86.43、目標價中位 3,500",
+    "TTM PE 29.9x"
+   ],
+   "counter": [
+    "大盤 PE 31.26 已處高檔（M_adj=0.85）",
+    "AI 族群資金面修正風險"
+   ],
+   "pending": [
+    "錨定值 9/11 版，大盤 PE 取 7/09 水位"
+   ],
+   "catalysts": [
+    "Q3 財報上修"
+   ],
+   "invalidation": [
+    "法人 2027 EPS 下修 >10%"
+   ]
+  }
  ],
- "bear_case": {"score": 5.0, "summary": "存貨與應收急增、營業現金流連兩季為負；客戶高度集中於 AWS/Meta；consignment 與 Nvidia 整合式網通方案可能侵蝕白牌份額。",
-  "points":[
-   ["盈餘品質/現金流","存貨 25Q4 302 億 → 26Q2 770 億（+155%）；H1 營業現金流 −149 億、FCF −186 億；應收 548 億。若下游拉貨放緩，存貨跌價與現金壓力同時出現。"],
-   ["客戶集中","AWS+Meta 營收占比 2025 約 70%、2027 估 80%（凱基）；單一客戶規格或採購轉向即重創營收。"],
-   ["競爭/替代","Celestica 在 800G/1.6T 白牌交換器正面競爭；Nvidia Spectrum-X/NVLink 整合方案、Arista 品牌機在 AI back-end 網路搶份額。"],
-   ["營收認列","客戶代料模式使零組件成本不入營收，Kevin 模型以營收年化會低估 EPS 也會讓 YoY 失真。"],
-   ["估值/資金面","股價 YTD 仍 +60%，大盤 PE 31x 位於 10 年中位數 1.84 倍；AI 資本支出預期任何下修都會先殺估值。"],
-   ["總體/關稅","美國關稅與出口管制；產能在台灣/越南，若關稅擴及網通設備將壓縮毛利。"]],
-  "downside_target": 1500, "downside_logic": "情境：EPS 回到 Kevin A 76.9、PE 收斂至 19.5x（Low band 下緣 −20%）",
-  "thesis_killers":["Q3 營收 ≥1,150 億且毛利率 ≥19.5%","Q3 營業現金流轉正、存貨天數下降","2027 法人 EPS 持續上修"]},
+ "bear_case": {
+  "score": 5.0,
+  "summary": "存貨與應收急增、營業現金流連兩季為負；客戶高度集中於 AWS/Meta；consignment 與 Nvidia 整合式網通方案可能侵蝕白牌份額。",
+  "points": [
+   [
+    "盈餘品質/現金流",
+    "存貨 25Q4 302 億 → 26Q2 770 億（+155%）；H1 營業現金流 −149 億、FCF −186 億；應收 548 億。若下游拉貨放緩，存貨跌價與現金壓力同時出現。"
+   ],
+   [
+    "客戶集中",
+    "AWS+Meta 營收占比 2025 約 70%、2027 估 80%（凱基）；單一客戶規格或採購轉向即重創營收。"
+   ],
+   [
+    "競爭/替代",
+    "Celestica 在 800G/1.6T 白牌交換器正面競爭；Nvidia Spectrum-X/NVLink 整合方案、Arista 品牌機在 AI back-end 網路搶份額。"
+   ],
+   [
+    "營收認列",
+    "客戶代料模式使零組件成本不入營收，Kevin 模型以營收年化會低估 EPS 也會讓 YoY 失真。"
+   ],
+   [
+    "估值/資金面",
+    "股價 YTD 仍 +60%，大盤 PE 31x 位於 10 年中位數 1.84 倍；AI 資本支出預期任何下修都會先殺估值。"
+   ],
+   [
+    "總體/關稅",
+    "美國關稅與出口管制；產能在台灣/越南，若關稅擴及網通設備將壓縮毛利。"
+   ]
+  ],
+  "downside_target": 1500,
+  "downside_logic": "情境：EPS 回到 Kevin A 76.9、PE 收斂至 19.5x（Low band 下緣 −20%）",
+  "thesis_killers": [
+   "Q3 營收 ≥1,150 億且毛利率 ≥19.5%",
+   "Q3 營業現金流轉正、存貨天數下降",
+   "2027 法人 EPS 持續上修"
+  ]
+ },
  "peers": [
-  {"name":"Celestica","code":"NYSE:CLS","type":"完全可比（白牌資料中心交換器 ODM）","reason":"10-K 自列 Accton 為 ODM 競爭者；800G/1.6T 交換器直接競爭"},
-  {"name":"Arista Networks","code":"NYSE:ANET","type":"替代可比（品牌交換器 OEM）","reason":"AI back-end 網路的品牌替代方案"},
-  {"name":"啟碁 WNC","code":"TWSE:6285","type":"相鄰可比（網通 ODM）","reason":"台灣網通三雄之一，產品偏企業/衛星/車用，資料中心比重低"},
-  {"name":"緯穎","code":"TWSE:6669","type":"相鄰可比（AI 伺服器 ODM）","reason":"同屬 CSP 白牌供應鏈、客戶重疊"}
+  {
+   "name": "Celestica",
+   "code": "NYSE:CLS",
+   "type": "完全可比（白牌資料中心交換器 ODM）",
+   "reason": "10-K 自列 Accton 為 ODM 競爭者；800G/1.6T 交換器直接競爭"
+  },
+  {
+   "name": "Arista Networks",
+   "code": "NYSE:ANET",
+   "type": "替代可比（品牌交換器 OEM）",
+   "reason": "AI back-end 網路的品牌替代方案"
+  },
+  {
+   "name": "啟碁 WNC",
+   "code": "TWSE:6285",
+   "type": "相鄰可比（網通 ODM）",
+   "reason": "台灣網通三雄之一，產品偏企業/衛星/車用，資料中心比重低"
+  }
  ],
- "peer_note": "同業估值數字未抓取（需使用者確認同業組合後再跑 Kevin 同業模式），列表僅說明可比理由。",
- "gaps": ["官方身分查核（MOPS 公司基本資料）","MOPS 2026Q2 財報原檔逐項核對（已用 workbook 季報調節頁與 FMP 交叉）","9月營收（10/10 前公告）","Q2 法說會逐字稿/簡報（Bigdata 未收錄）","同業估值數字","大盤 PE 最新值（workbook 取 7/09 水位）"],
- "signal": {"signal":"BULLISH","confidence":"MEDIUM","horizon":"MEDIUM-TERM","score":6.5,"action":"HOLD / 分批布局","conviction":"MODERATE"}
+ "peer_note": "同業組合經使用者確認（Celestica、Arista、啟碁）；數字見 財務數據/peers-20261001.json。",
+ "gaps": [
+  "官方身分查核（MOPS 公司基本資料）",
+  "MOPS 2026Q2 財報原檔逐項核對（已用 workbook 季報調節頁與 FMP 交叉）",
+  "9月營收（10/10 前公告）",
+  "Q2 法說會逐字稿/簡報（Bigdata 未收錄）",
+  "大盤 PE 最新值（workbook 取 7/09 水位）"
+ ],
+ "signal": {
+  "signal": "BULLISH",
+  "confidence": "MEDIUM",
+  "horizon": "MEDIUM-TERM",
+  "score": 6.5,
+  "action": "HOLD / 分批布局",
+  "conviction": "MODERATE"
+ }
 }

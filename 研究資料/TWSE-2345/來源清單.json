@@ -112,6 +112,34 @@
     "note": ""
   },
   {
+    "id": "2901c5d89da9a615aa934d5ae1bedaaf08d290840389183b82d5de2ca0c360ff",
+    "identity": "TWSE:2345",
+    "category": "peers",
+    "url": "https://news.cnyes.com/news/id/6600768",
+    "title": "鉅亨：啟碁8月營收157.04億、年增81.21%",
+    "published": "2026-09",
+    "period": null,
+    "acquired": "2026-10-02T00:28:59+08:00",
+    "status": "metadata",
+    "sha256": "",
+    "path": "",
+    "note": ""
+  },
+  {
+    "id": "9686848932ef1dbc982ea21383848c9145940514399a8f7231f739eccda1df6d",
+    "identity": "TWSE:2345",
+    "category": "peers",
+    "url": "https://app.bigdata.com/ (company tearsheets 0AB758, 3DC887, E18222)",
+    "title": "Bigdata.com 同業 tearsheet：Celestica、Arista、啟碁",
+    "published": "2026-10-01",
+    "period": null,
+    "acquired": "2026-10-02T00:28:59+08:00",
+    "status": "metadata",
+    "sha256": "",
+    "path": "",
+    "note": ""
+  },
+  {
     "id": "be4a8463a4ecfbeb10c7e8bd1efddb03855499b6dda86b559cac8683a25ee8b3",
     "identity": "TWSE:2345",
     "category": "research_news",
