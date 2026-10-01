@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 ~$*
 .DS_Store
+
+# plugin 研究資料夾內的 SQLite 暫存
+*.sqlite-journal
+*.db-journal

@@ -2,7 +2,8 @@
 
 | 專案 | 內容 |
 |---|---|
-| [`個股研究/`](個股研究/README.md) | 台股個股研究標準流程：Kevin 股價模型 → 雙法估值 → 產業鏈 → 競爭 → DCF → Bear case，產出連動 Excel 與 Word 報告。對 Claude 輸入「個股研究 <代號>」即執行 |
+| [`plugins/kevin-stock-research/`](plugins/kevin-stock-research/README.md) | Kevin 股票研究 plugin 0.2.2：每股研究資料夾＋證據庫、產業模板、Kevin 雙層錨定估值、報告驗證、盤後追蹤。對 Claude 輸入「完整研究 TWSE:XXXX」即執行（由 `.claude/settings.json` 自動啟用） |
+| [`個股研究/`](個股研究/README.md) | 舊版個股研究框架（公式未更新到 2026-10 版，待決定去留） |
 | [`三電系統開發/`](三電系統開發/README.md) | 達方 E-mobility 三電系統（電池／馬達／電控）：BOM 成本結構、訂閱制商業模式評估 |
 
 工作規範見 `CLAUDE.md`。非投資建議。
