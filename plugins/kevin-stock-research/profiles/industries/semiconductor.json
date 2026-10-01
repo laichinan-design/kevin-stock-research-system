@@ -1,0 +1,26 @@
+{
+  "id": "semiconductor",
+  "version": 1,
+  "name": "半導體供應鏈",
+  "required_kpis": [
+    "產品與技術節點",
+    "稼動率",
+    "capex／折舊",
+    "供應鏈位置",
+    "客戶與訂單證據"
+  ],
+  "candidate_methods": [
+    "scenario_pe",
+    "kevin_legacy"
+  ],
+  "guards": [
+    "不以題材推定供貨",
+    "不同商業模式不得直接套同業倍數"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}

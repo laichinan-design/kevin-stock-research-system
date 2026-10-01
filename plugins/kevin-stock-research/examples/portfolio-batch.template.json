@@ -1,0 +1,14 @@
+{
+  "account": {
+    "account_id": null,
+    "snapshot_id": null,
+    "asof": null,
+    "currency": "TWD",
+    "investable_assets": null,
+    "available_cash": null,
+    "loss_budget_remaining": null,
+    "sector_values": {}
+  },
+  "requests": [],
+  "note": "requests 每項需 security/currency/sector/personal/signal。只按輸入順序分配；不是自動最佳化或可同時執行的獨立方案。"
+}

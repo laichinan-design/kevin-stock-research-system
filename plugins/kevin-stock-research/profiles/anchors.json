@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "description": "Kevin 雙層錨定法：base_pe_p = ETF PE × ratio_p × M_adj；base_pe_q = ETF PE × ratio_q × M_adj。",
+  "rule": {
+    "high_ratio": 1.3,
+    "low_ratio": 0.8,
+    "high_adj": 0.85,
+    "low_adj": 1.15,
+    "description": "M = 大盤 PE ÷ 10 年中位 PE；M > 1.3 → 0.85，M < 0.8 → 1.15，其餘 1.0（邊界值不調整）。"
+  },
+  "categories": {
+    "portfolio": {
+      "name": "投資組合",
+      "etf": "0050",
+      "ratio_p": 0.75,
+      "ratio_q": 0.55
+    },
+    "cpo": {
+      "name": "CPO概念",
+      "etf": "00891",
+      "ratio_p": 0.85,
+      "ratio_q": 0.62
+    },
+    "potential": {
+      "name": "潛力股",
+      "etf": "00935",
+      "ratio_p": 0.85,
+      "ratio_q": 0.62
+    }
+  },
+  "note": "本檔只放方法參數。ETF PE、大盤 PE、10 年中位 PE 每月變動，須在估值請求的 inputs.anchor 提供，並附 asof 與來源。"
+}

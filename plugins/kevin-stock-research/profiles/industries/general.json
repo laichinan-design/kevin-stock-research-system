@@ -1,0 +1,28 @@
+{
+  "id": "general",
+  "version": 2,
+  "name": "一般企業",
+  "required_kpis": [
+    "商業模式",
+    "競爭位置",
+    "收入結構",
+    "獲利品質",
+    "現金流與負債"
+  ],
+  "candidate_methods": [
+    "kevin_legacy",
+    "scenario_pe",
+    "scenario_pb",
+    "nav"
+  ],
+  "guards": [
+    "資料不足時只研究，不輸出價格",
+    "Kevin 僅適用正盈餘、非負成長；循環股、金融、資產型、虧損型另選方法"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}
