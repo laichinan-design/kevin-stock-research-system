@@ -102,4 +102,13 @@ class ReadmeTests(unittest.TestCase):
         self.assertEqual(read(self.root/'config.json')['industry'],'semiconductor-equipment')
         self.assertNotEqual(cli(self.root,'set-industry','--industry','nope',check=False).returncode,0)
 
+    def test_set_industry_networking(self):
+        r=cli(self.root,'set-industry','--industry','datacenter-networking')
+        self.assertEqual(r['profile']['id'],'datacenter-networking')
+        self.assertTrue(any('pass-through' in k for k in r['profile']['required_kpis']))
+        self.assertTrue(r['profile']['visual_templates']);self.assertIn('kevin_legacy',r['profile']['candidate_methods'])
+        self.assertEqual(read(self.root/'config.json')['industry'],'datacenter-networking')
+        c=onboard(self.root.parent/'TWSE-2345','TWSE','2345','智邦','datacenter-networking')
+        self.assertEqual(c['industry'],'datacenter-networking');validate_config(c)
+
 if __name__=='__main__':unittest.main()

@@ -1,3 +1,9 @@
+# 0.6.0 — 2026-10-02
+- 新產業模組 datacenter-networking（資料中心網通與交換器 ODM／JDM）：KPI 為速率世代組合、交換晶片平台與客戶專案、客戶集中度、產品組合、毛利率／營益率結構（料件 pass-through）、存貨與營業現金流、產能地點；guards 涵蓋 pass-through、世代轉換備料、未公告專案與 CPO／LPO、匯兌、單一客戶；同業規則分白牌 ODM／JDM、品牌、EMS。init／set-industry 可用，產業模板 8→9。網通公司不再套 semiconductor-equipment。
+- 產業 profile 新增選用欄位 visual_templates（工程圖解建議圖組）與 deck_focus（整合簡報重點）；semiconductor-equipment 同步補上。engineering-visuals 改為優先依 profile 選圖，integrated-deck 依 deck_focus 安排財務與競爭頁。
+- 修正：semiconductor-equipment 模板列有 kevin_legacy，但 value 仍回 industry not supported；改以 KEVIN_INDUSTRIES 判定，設備與網通都可跑 Kevin 模型，循環／金融／資產／虧損型仍擋。
+- validate_package 檢查每個產業 profile 的 id、必要欄位、估值方法名稱與選用欄位格式；測試確認 profile 檔案與程式登記一致。測試 119→122。
+
 # 0.5.0 — 2026-10-02
 - Google Drive 同步（scripts/storage.py）：config.storage（drive_folder、local_sync_root、connector_max_bytes），init 預設 投資組合-台股/{簡稱}{代碼}/{簡稱}{代碼}研究；set-storage、drive-sync（SHA256 變動偵測，dry-run 預設；本機 Google Drive 桌面版直接複製並驗雜湊，雲端則分 connector／manual 並寫 待手動上傳.md）、drive-record（上傳後標記，可存 Drive file id）；永不刪 Drive 檔，資料夾改變時全部重送。
 - 缺口與待下載（scripts/gaps.py）：gaps 依一般業法定期限推算應公告的年度財報、季報、年報，與分類PDF／索引／證據庫比對，列 MOPS 代碼、discover 參數與預期檔名；併列被擋來源、未驗證身分；手動缺口保留。coverage-set 記錄部分覆蓋。輸出 缺口清單.json、待下載清單.md。
