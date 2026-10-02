@@ -2,7 +2,7 @@
 import ast,json,re,sys
 from pathlib import Path
 
-VERSION='0.3.0'
+VERSION='0.4.0'
 
 def validate(root):
     root=Path(root);errors=[];manifests=[]
@@ -26,7 +26,7 @@ def validate(root):
                 try:ast.parse(text)
                 except SyntaxError as e:errors.append(relative+': '+str(e))
     skills=list((root/'skills').glob('*/SKILL.md'))
-    if len(skills)!=8:errors.append('expected 8 skills')
+    if len(skills)!=10:errors.append('expected 10 skills')
     for p in skills:
         text=p.read_text(encoding='utf-8');m=re.match(r'^---\nname: ([a-z0-9-]+)\ndescription: ([^\n]+)\n---\n',text)
         if not m or m[1]!=p.parent.name:errors.append('invalid minimal skill frontmatter: '+p.parent.name)

@@ -12,6 +12,13 @@ python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json]
 python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json] --apply
 python scripts/workflow.py --root ROOT extract --evidence-id SOURCE_ID
 python scripts/workflow.py --root ROOT facts --file facts.json --asof YYYY-MM-DD
+python scripts/workflow.py --root ROOT set-deck-style --palette 07 --font C [--cjk-font "Noto Sans TC"]
+python scripts/workflow.py --root ROOT visual-build --spec 01.json 02.json [--font-dir DIR]
+python scripts/workflow.py --root ROOT visual-outline [--file old.svg ...] [--font-dir DIR]
+python scripts/workflow.py --root ROOT visual-check [--file x.svg ...]
+python scripts/workflow.py --root ROOT deck-build --spec deck.json --pdf
+python scripts/workflow.py --root ROOT deck-check --file deck.pptx
+python scripts/workflow.py --root ROOT deck-fonts --file deck.pptx
 python scripts/workflow.py --root ROOT audit-model original.xlsx
 python scripts/workflow.py --root ROOT update-model --original original.xlsx --destination new-copy.xlsx --mapping mapping.json --changes changes.json
 python scripts/workflow.py --root ROOT value --request valuation.json
@@ -47,6 +54,19 @@ ingest 對遠端來源套用同一檢查，略過者列在 skipped_already_held�
 classify.json：陣列。新增本機檔用 {"local_path":...,"url":...}；指定或更正分類用 sha256／evidence_id／original_filename 擇一比對（須唯一），欄位 category、label、title、language（中文／英文）、publisher、note、classification_basis。
 預設 dry-run 不寫檔；--apply 建立硬連結（跨磁碟才複製，storage=copy）、空類別放 目前無檔案.txt，並輸出 PDF分類索引.json／.xlsx、PDF分類目錄.html、整理說明.md。
 既有分類檔不改名不搬移；計算類別與所在資料夾不同時列 conflicts。MOPS 檔名屬其他代碼、無法判定類別、規則不符者列 unclassified。index 欄位與健策 3653 版相容（files[]、label、date_meaning、source_urls、storage）。
+
+## 工程圖解（visual-build／visual-outline／visual-check）
+SVG 的 <text> 依賴檢視端字型：Drive 預覽、郵件、沒裝思源黑體的電腦會整段空白或豆腐字。本包輸出的 SVG 一律把文字轉成字形外框（<defs> 每字一份、<use> 重複引用），任何檢視器都能顯示；可編修母檔是 原始碼/*.json。
+diagram spec：{"id":"01","name":"系統架構總覽","title":"…","subtitle":"…","source":"2025 年報 p.70–74","illustrative":true,"palette":"07"（省略用 deck_style）,"elements":[…]}。
+elements：box {id,x,y,w,h,title,lines[],style: primary|muted|solid|secondary}；arrow {from,to} 或 {points:[x1,y1,x2,y2]}，可加 label、dash、color: secondary；lane {x,y,w,h,label}；line {points:[…],color,width}；text {x,y,text,size,anchor,weight,color}。畫布預設 1600×900，頁首標題、頁腳來源與「示意圖，非公司原圖」自動加上。source 必須含頁碼、網址或公告。
+字型順序：--font-dir／KEVIN_FONT_DIR（可放 Noto Sans TC 的 otf／ttf，或 Google Fonts 切片 woff2 的 regular、bold 子資料夾）→ 已安裝的 Noto Sans TC → 微軟正黑體（msjh.ttc／msjhbd.ttc）→ 蘋方 → fontconfig；另補 Segoe UI／Arial／DejaVu 的希臘字母與符號。缺字報錯不輸出。
+visual-outline 不帶 --file 時處理 工程圖解/*.svg（原地轉外框）並重產 PNG預覽；結果寫 工程圖解/驗證紀錄.json。
+
+## 整合簡報（set-deck-style／deck-build／deck-check／deck-fonts）
+deck_style 存在 config.json：palette 01–10、font A/B/C（同 ppt-style-picker），中文字型預設 cjk_portable（A：新細明體；B／C：微軟正黑體），--cjk-font 可改。profiles/deck_styles.json 為配色字型資料。
+deck spec：{"topic":"產品供應鏈與工程競爭分析","asof":"YYYY-MM-DD","default_source":"…","slides":[…]}，最後一頁必須 closing。slide 型別：
+title {title,subtitle,note}｜section {title,subtitle}｜bullets {title,bullets:[str 或 [子項…]],takeaway?,source?}｜cards {title,cards:[{title,body}] 1–4}｜kpi {title,stats:[{value,label,note}] 1–4,bullets?}｜image {title,image:"工程圖解/PNG預覽/01_x.png",caption}｜chart {title,chart: column|bar|line|doughnut|pie,categories,series:[{name,values}],number_format,takeaway?,chart_title?}｜table {title,columns,rows}｜closing {title,bullets,disclaimer?}。
+相對路徑以研究 root 為基準。輸出 整合簡報/{公司}{代碼}_{topic}_{N}頁_{日期}.pptx；--pdf 需 LibreOffice（含 Impress），無則 render_qa=skipped。deck-check 檢查：物件超出頁面、可能溢字、長條圖數值軸未從 0 起算、缺來源頁碼、最後一頁缺非投資建議，並列出實際字型。
 
 ## 模型 changes.json
 JSON陣列，每筆例如：

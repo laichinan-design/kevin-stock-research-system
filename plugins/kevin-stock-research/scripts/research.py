@@ -5,7 +5,7 @@ import urllib.request, urllib.parse
 from datetime import datetime, date, timezone, timedelta
 from pathlib import Path
 
-VERSION = '0.3.0'
+VERSION = '0.4.0'
 TZ = timezone(timedelta(hours=8))
 def now(): return datetime.now(TZ).isoformat(timespec='seconds')
 def digest(b): return hashlib.sha256(b).hexdigest()

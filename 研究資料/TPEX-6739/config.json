@@ -25,5 +25,9 @@
     "live_market": "unsupported_use_verified_import",
     "portfolio": "same_currency_combined_proposals",
     "scheduling": "host_specific_user_request_required"
+  },
+  "deck_style": {
+    "palette": "07",
+    "font": "C"
   }
 }

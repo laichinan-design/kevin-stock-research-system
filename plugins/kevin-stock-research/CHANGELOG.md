@@ -1,3 +1,11 @@
+# 0.4.0 — 2026-10-02
+- 新技能 engineering-visuals 與 scripts/visuals.py：diagram spec（box／arrow／lane／line／text）產生工程圖，頁首頁腳、來源頁碼、示意圖標示自動加上；SVG 文字一律轉成字形外框（修正 Drive 預覽與未安裝思源黑體時文字不顯示），原始碼 JSON 為可編修母檔，另產 PNG預覽。字型自動探測（Noto Sans TC → 微軟正黑體 → 蘋方 → fontconfig）並以 Segoe UI／Arial／DejaVu 補 μ、Ω、±；缺字直接報錯。指令 visual-build／visual-outline（修舊 SVG）／visual-check。
+- 新技能 integrated-deck 與 scripts/deck.py：profiles/deck_styles.json（ppt-style-picker 10 配色×3 字型）、set-deck-style 寫入 config；deck spec 九種版型，python-pptx 原生可編輯圖表（長條圖數值軸強制從 0）；中文字型預設微軟正黑體確保顯示；deck-check 檢查溢字、出界、0 軸、來源、非投資建議；--pdf 經 LibreOffice 匯出；deck-fonts 修既有簡報字型。
+- research-router full：…→fundamental-research→engineering-visuals→kevin-model→integrated-deck→report-validation；MODES full 加 pdf-library／engineering-visuals／integrated-deck 步驟。
+- visual-outline 原地轉外框時，活字原檔保留在 工程圖解/原始碼/*_活字原檔.svg；已轉過的檔案略過。
+- 測試 103→112。
+- requirements 加 fonttools、brotli、cairosvg、python-pptx、Pillow。技能 8→10。
+
 # 0.3.0 — 2026-10-02
 - 研究root layout：init／Store 增建 分類PDF/01–08、工程圖解/{PNG預覽,實物設備詳解版,工藝精度圖例增補版}、整合簡報；onboard 另產 README.md（成果入口）與 缺口清單.json。既有root開啟時自動補建空資料夾，不動既有檔案。
 - 新指令 classify-pdfs（scripts/library.py）：8類命名規則（年報依會計年度、全年財報不標Q4、Q2／Q3標含累計、會議與報告用YYYY-MM-DD、外部研究發布機構_日期_主題_語言）；同SHA256只留一份並合併來源；同名不同SHA全部加_來源版SHA前8碼；硬連結不複製；dry-run預設，--apply輸出 PDF分類索引.json／.xlsx、PDF分類目錄.html、整理說明.md、空類別 目前無檔案.txt。索引與健策3653既有格式相容。

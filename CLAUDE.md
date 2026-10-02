@@ -4,11 +4,11 @@
 
 ## 個股研究：kevin-stock-research plugin（主流程）
 
-本 repo 內建 plugin `plugins/kevin-stock-research/`（0.3.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
+本 repo 內建 plugin `plugins/kevin-stock-research/`（0.4.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
 
 | 使用者要求 | 由誰處理 |
 |---|---|
-| 「完整研究 TWSE:XXXX」「建立研究資料夾」「研究更新」「多股比較」「盤後追蹤」「部位規劃」 | plugin 的 `research-router`（再分派 data-acquisition → document-organizer → fundamental-research → kevin-model → report-validation） |
+| 「完整研究 TWSE:XXXX」「建立研究資料夾」「研究更新」「多股比較」「盤後追蹤」「部位規劃」 | plugin 的 `research-router`（再分派 data-acquisition → document-organizer → fundamental-research → engineering-visuals → kevin-model → integrated-deck → report-validation） |
 | 「Kevin股價模型」對話內快速估值、加同業 | 帳戶 skill `kevin-stock-pricing-model` |
 | 「台股雙法」 | 帳戶 skill `tw-ai-dual-valuation` |
 | 「更新投資組合」整本 workbook | 帳戶 skill `update-portfolio` |

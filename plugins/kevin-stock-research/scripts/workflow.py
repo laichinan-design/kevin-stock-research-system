@@ -11,7 +11,7 @@ MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
 INDUSTRIES={'general','growth-manufacturing','semiconductor','cyclical','financial','asset-based','loss-making'}
 MODES={
  'quick':['identity','sources','thesis','report'],
- 'full':['identity','sources','facts','thesis','valuation','report'],
+ 'full':['identity','sources','pdf-library','facts','thesis','engineering-visuals','valuation','integrated-deck','report'],
  'refresh':['identity','changed-sources','facts','thesis-diff','valuation','report'],
  'monitor':['identity','calendar','market','events','notification'],
  'compare':['identity','facts','comparability','report'],
@@ -67,6 +67,10 @@ def validate_config(c):
     if c.get('identity_verified') and (not c.get('identity_source') or not c.get('identity_verified_at')):
         raise ValueError('verified identity needs official source and verification date')
     if c.get('identity_verified_at'): iso(c['identity_verified_at'])
+    if c.get('deck_style') is not None:
+        st=json.loads((PLUGIN_ROOT/'profiles/deck_styles.json').read_text(encoding='utf-8'))
+        ds=c['deck_style']
+        if ds.get('palette') not in st['palettes'] or ds.get('font') not in st['fonts']: raise ValueError('deck_style needs palette 01–10 and font A/B/C')
     return c
 
 def onboard(root,market,ticker,name,industry='general',reporting_currency=None,fiscal_year_end='12-31'):
@@ -269,6 +273,31 @@ def plan(root,mode,asof):
     dump(Path(root)/'runs'/run_id/'plan.json',result)
     return result
 
+def visual_command(root,c,args):
+    import visuals
+    out=root/'工程圖解'
+    if args.command=='visual-check':
+        files=[Path(f) for f in args.file] if args.file else sorted(out.glob('*.svg'))
+        return {str(f.name):visuals.check_svg(f.read_text(encoding='utf-8')) for f in files}
+    fonts=visuals.load_fonts(args.font_dir)
+    if args.command=='visual-build':
+        results=[visuals.produce(read(f),out,c,fonts) for f in args.spec]
+    else:
+        files=[Path(f) for f in args.file] if args.file else sorted(out.glob('*.svg'))
+        results=[visuals.outline_file(f,None,fonts,out/'PNG預覽'/(f.stem+'.png'),out/'原始碼') for f in files]
+    record={'generated':datetime.now().isoformat(timespec='seconds'),'command':args.command,'font_source':fonts['source'],'results':results}
+    dump(out/'驗證紀錄.json',record);return record
+
+def deck_command(root,c,args):
+    import deck
+    if args.command=='deck-check':return deck.check_deck(args.file)
+    if args.command=='deck-fonts':return deck.apply_fonts(args.file,deck.resolve_style({},c))
+    result=deck.build_deck(read(args.spec),root/'整合簡報',c,root)
+    result['render_qa']='not_requested'
+    if args.pdf:
+        pdf,status=deck.export_pdf(result['file']);result.update(pdf=pdf,render_qa=status)
+    dump(root/'整合簡報'/'validation.json',result);return result
+
 def migrate(root,apply=False):
     path=Path(root)/'config.json';old=read(path)
     if old.get('schema_version')==2:return {'status':'already_current'}
@@ -295,6 +324,13 @@ def main():
     a=sub.add_parser('ingest');a.add_argument('--manifest',required=True);a.add_argument('--known');a.add_argument('--force',action='store_true')
     a=sub.add_parser('dedupe-check');a.add_argument('--manifest',required=True);a.add_argument('--known')
     a=sub.add_parser('classify-pdfs');a.add_argument('--manifest');a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('set-deck-style');a.add_argument('--palette',required=True);a.add_argument('--font',required=True);a.add_argument('--cjk-font')
+    a=sub.add_parser('visual-build');a.add_argument('--spec',required=True,nargs='+');a.add_argument('--font-dir')
+    a=sub.add_parser('visual-outline');a.add_argument('--file',nargs='*');a.add_argument('--font-dir')
+    a=sub.add_parser('visual-check');a.add_argument('--file',nargs='*')
+    a=sub.add_parser('deck-build');a.add_argument('--spec',required=True);a.add_argument('--pdf',action='store_true')
+    a=sub.add_parser('deck-check');a.add_argument('--file',required=True)
+    a=sub.add_parser('deck-fonts');a.add_argument('--file',required=True)
     a=sub.add_parser('facts');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
     a=sub.add_parser('daily');a.add_argument('--date',required=True);a.add_argument('--calendar',required=True)
     a=sub.add_parser('import-market');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
@@ -343,6 +379,13 @@ def main():
             elif args.command=='dedupe-check':
                 from library import dedupe_check
                 result=dedupe_check(s,c,read(args.manifest),read(args.known) if args.known else None)
+            elif args.command=='set-deck-style':
+                c['deck_style']={'palette':args.palette,'font':args.font,**({'cjk_font':args.cjk_font} if args.cjk_font else {})}
+                validate_config(c);dump(root/'config.json',c);result={'status':'saved','deck_style':c['deck_style']}
+            elif args.command in ('visual-build','visual-outline','visual-check'):
+                result=visual_command(root,c,args)
+            elif args.command in ('deck-build','deck-check','deck-fonts'):
+                result=deck_command(root,c,args)
             elif args.command=='classify-pdfs':
                 from library import classify
                 result=classify(s,c,read(args.manifest) if args.manifest else None,args.apply)

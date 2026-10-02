@@ -1,0 +1,22 @@
+{
+  "source": "ppt-style-picker 10 palettes x 3 font pairs; keep in sync when the account skill changes",
+  "palettes": {
+    "01": {"name": "深夜行政藍", "primary": "1E2761", "secondary": "CADCFC", "background": "FFFFFF"},
+    "02": {"name": "森林與苔蘚", "primary": "2C5F2D", "secondary": "97BC62", "background": "F5F5F5"},
+    "03": {"name": "珊瑚活力", "primary": "F96167", "secondary": "F9E795", "background": "2F3C7E"},
+    "04": {"name": "暖陶土", "primary": "B85042", "secondary": "E7EBD1", "background": "A7B8AE"},
+    "05": {"name": "海洋漸層", "primary": "065A82", "secondary": "1C7293", "background": "21295C"},
+    "06": {"name": "炭灰極簡", "primary": "36454F", "secondary": "F2F2F2", "background": "212121"},
+    "07": {"name": "青藍信任", "primary": "028090", "secondary": "00A896", "background": "02C39A"},
+    "08": {"name": "莓果奶油", "primary": "6D214E", "secondary": "A26769", "background": "ECE2D0"},
+    "09": {"name": "鼠尾草療癒", "primary": "84B59F", "secondary": "69A297", "background": "50808E"},
+    "10": {"name": "強烈櫻桃", "primary": "990011", "secondary": "FCF6F5", "background": "2F3C7E"}
+  },
+  "fonts": {
+    "A": {"name": "商務襯線風", "latin_title": "Cambria", "latin_body": "Cambria", "cjk_design": "Noto Serif TC", "cjk_portable": "PMingLiU", "title_bold": false},
+    "B": {"name": "現代無襯線風", "latin_title": "Calibri", "latin_body": "Calibri", "cjk_design": "Noto Sans TC", "cjk_portable": "Microsoft JhengHei", "title_bold": true},
+    "C": {"name": "強衝擊風", "latin_title": "Impact", "latin_body": "Arial", "cjk_design": "Noto Sans TC", "cjk_portable": "Microsoft JhengHei", "title_bold": true}
+  },
+  "neutral": {"ink": "14323A", "muted": "5B7077", "line": "9FB7BC", "pale": "F4F7F8", "white": "FFFFFF", "warn": "C2410C"},
+  "cjk_policy": "PPTX 預設用 cjk_portable（Windows／Office 內建，未安裝思源也能顯示）；config.deck_style.cjk_font 可改回 cjk_design。SVG 一律文字轉外框，不依賴檢視端字型。"
+}
