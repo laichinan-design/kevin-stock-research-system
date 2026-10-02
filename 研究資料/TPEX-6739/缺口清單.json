@@ -1,0 +1,54 @@
+{
+ "security": "TPEX:6739",
+ "asof": "2026-10-02",
+ "gaps": [
+  {
+   "id": "identity",
+   "item": "官方公司身分 verify-identity",
+   "need": "MOPS 公司基本資料 URL",
+   "impact": "plugin plan blocker"
+  },
+  {
+   "id": "pdf-annual-2024",
+   "item": "2024 年報、2024 年度合併財報",
+   "need": "MOPS 下載",
+   "impact": "歷史比較"
+  },
+  {
+   "id": "pdf-q-2026q1",
+   "item": "2026Q1、2025Q1 合併季報",
+   "need": "MOPS 下載",
+   "impact": "單季拆分、季報口徑"
+  },
+  {
+   "id": "pdf-concall",
+   "item": "2026-09-09、2025-08-20 法說簡報原件",
+   "need": "MOPS 法說會專區",
+   "impact": "指引原文、產品占比口徑"
+  },
+  {
+   "id": "pdf-agm",
+   "item": "2025、2026 股東會議事手冊／議事錄",
+   "need": "MOPS",
+   "impact": "治理、關係人交易"
+  },
+  {
+   "id": "ar-p77-101",
+   "item": "2025 年報 p.77–101",
+   "need": "本機 PDF 解析",
+   "impact": "產銷量值、原料供應、風險事項"
+  },
+  {
+   "id": "specs",
+   "item": "產品精度、單價、裝機量",
+   "need": "法說 Q&A、技術簡報",
+   "impact": "TAM 與滲透率"
+  },
+  {
+   "id": "pages-sha",
+   "item": "分類PDF 頁數與 SHA256",
+   "need": "本機 bytes",
+   "impact": "去重與證據庫"
+  }
+ ]
+}

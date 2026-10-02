@@ -1,0 +1,73 @@
+{
+  "run_id": "a00ce0d74d0c44b7a7bb1323de201264",
+  "security": "TPEX:6739",
+  "mode": "full",
+  "asof": "2026-10-02",
+  "status": "planned_not_executed",
+  "resolved_config": {
+    "schema_version": 2,
+    "version": "0.2.2",
+    "security": "TPEX:6739",
+    "market": "TPEX",
+    "ticker": "6739",
+    "name": "竹陞科技",
+    "instrument_type": "common_stock",
+    "industry": "semiconductor",
+    "identity_verified": false,
+    "identity_source": null,
+    "identity_verified_at": null,
+    "exchange_timezone": "Asia/Taipei",
+    "report_timezone": "Asia/Taipei",
+    "quote_currency": "TWD",
+    "reporting_currency": "TWD",
+    "fiscal_year_end": "12-31",
+    "model_profile": null,
+    "schedule_enabled": false,
+    "valuation_alert_change": 0.1,
+    "capabilities": {
+      "research": "agent_with_verified_evidence",
+      "facts": "validated_import",
+      "valuation": "kevin_dual_anchor_or_scenario_pe_pb_nav",
+      "live_market": "unsupported_use_verified_import",
+      "portfolio": "same_currency_combined_proposals",
+      "scheduling": "host_specific_user_request_required"
+    }
+  },
+  "steps": [
+    "identity",
+    "sources",
+    "facts",
+    "thesis",
+    "valuation",
+    "report"
+  ],
+  "industry_profile": {
+    "id": "semiconductor",
+    "version": 1,
+    "name": "半導體供應鏈",
+    "required_kpis": [
+      "產品與技術節點",
+      "稼動率",
+      "capex／折舊",
+      "供應鏈位置",
+      "客戶與訂單證據"
+    ],
+    "candidate_methods": [
+      "scenario_pe",
+      "kevin_legacy"
+    ],
+    "guards": [
+      "不以題材推定供貨",
+      "不同商業模式不得直接套同業倍數"
+    ],
+    "peer_rules": [
+      "收入結構可比",
+      "期間與scope一致",
+      "基本／稀釋EPS分開",
+      "列排除理由"
+    ]
+  },
+  "blockers": [
+    "official security identity not yet verified"
+  ]
+}
