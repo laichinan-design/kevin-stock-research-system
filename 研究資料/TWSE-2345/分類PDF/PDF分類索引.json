@@ -1,0 +1,155 @@
+{
+  "security": "TWSE:2345",
+  "name": "智邦",
+  "generated": "2026-10-02T15:42:50+08:00",
+  "rule": "{公司}_{代碼}_{會計年度或文件日期}_{文件類別}_{語言}.pdf；外部研究採 {發布機構}_{日期}_{主題}_{語言}.pdf；同標題不同SHA256加 _來源版{SHA前8碼}",
+  "counts": {
+    "01_年報": 2,
+    "02_年度財報": 0,
+    "03_季報": 3,
+    "04_法說會資料": 0,
+    "05_技術簡報": 0,
+    "06_券商研究": 0,
+    "07_產業資料": 0,
+    "08_股東會與公司治理": 0
+  },
+  "files": [
+    {
+      "sha256": "206affae71db4ed7602e7ffe1ce131bb5500ac46031ffe8cbb003b03ab3f4ec4",
+      "category": "01_年報",
+      "label": "2023",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "智邦",
+      "name": "智邦_2345_2023_年報_中文.pdf",
+      "pages": 182,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/1jr6M16rGmQG0-0maT2lT6Yk3Vju9U10q"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "2023_2345_20240613F04_20250618_120516.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "2024-06-13 股東常會年報（會計年度 2023）",
+      "path": "分類PDF/01_年報/智邦_2345_2023_年報_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "1jr6M16rGmQG0-0maT2lT6Yk3Vju9U10q"
+    },
+    {
+      "sha256": "a314ffb6066124ff7ad30cae20b2cff0b340a9604a8b023415322d8911fb92c7",
+      "category": "01_年報",
+      "label": "2024",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "智邦",
+      "name": "智邦_2345_2024_年報_中文.pdf",
+      "pages": 104,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/14FNjbbuTz33p0X2-mVCvgpKjCfRun-5K"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "2024_2345_20250612F04_20250618_120512.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "2025-06-12 股東常會年報（會計年度 2024）；營運概況 p.67–82",
+      "path": "分類PDF/01_年報/智邦_2345_2024_年報_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "14FNjbbuTz33p0X2-mVCvgpKjCfRun-5K"
+    },
+    {
+      "sha256": "78955c12cac8b0cafccfb2e6fd3b162bc8b73a9d4729aaf9ea600faae71ffe3f",
+      "category": "03_季報",
+      "label": "2025Q2",
+      "date_meaning": "季度及年初至當季累計",
+      "title": "合併季報_含上半年累計",
+      "language": "中文",
+      "publisher": "智邦",
+      "name": "智邦_2345_2025Q2_合併季報_含上半年累計_中文.pdf",
+      "pages": 65,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/1ilMmamBIKGsWb_rKfHpDBg0A7CEMWey0"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "202502_2345_AI1_20250817_195257.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "Q2 含上半年累計；未將累計數標成單季；Q2／Q3含累計報表；未將累計數直接標成單季數。",
+      "path": "分類PDF/03_季報/智邦_2345_2025Q2_合併季報_含上半年累計_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "1ilMmamBIKGsWb_rKfHpDBg0A7CEMWey0"
+    },
+    {
+      "sha256": "7a50f46db137f410317497858611ba99b376c9f0c4cf5634d9ab0d50540594f8",
+      "category": "03_季報",
+      "label": "2025Q3",
+      "date_meaning": "季度及年初至當季累計",
+      "title": "合併季報_含前三季累計",
+      "language": "中文",
+      "publisher": "智邦",
+      "name": "智邦_2345_2025Q3_合併季報_含前三季累計_中文.pdf",
+      "pages": 68,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/10BtB2q5gkoXJFHCXMo0zrsqAe5LXsjoE"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "202503_2345_AI1_20251117_132740.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "Q3 含前三季累計；未將累計數標成單季；Q2／Q3含累計報表；未將累計數直接標成單季數。",
+      "path": "分類PDF/03_季報/智邦_2345_2025Q3_合併季報_含前三季累計_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "10BtB2q5gkoXJFHCXMo0zrsqAe5LXsjoE"
+    },
+    {
+      "sha256": "a86d9fc8fa021373b78d30f7c2838f95010fa794e0198d97bfe035e1f0eff36b",
+      "category": "03_季報",
+      "label": "2026Q2",
+      "date_meaning": "季度及年初至當季累計",
+      "title": "合併季報_含上半年累計",
+      "language": "中文",
+      "publisher": "智邦",
+      "name": "智邦_2345_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "pages": 60,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/1_10_e61kzWRwvbiYty2iV_FxIlYUvnDl"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "202602_2345_AI1_20260824_205044.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "Q2 含上半年累計；勤業眾信 115/8/6 核閱（保留結論：非重要子公司未核閱）；模型 G/H 取自此份；Q2／Q3含累計報表；未將累計數直接標成單季數。",
+      "path": "分類PDF/03_季報/智邦_2345_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "1_10_e61kzWRwvbiYty2iV_FxIlYUvnDl"
+    }
+  ],
+  "unclassified": [],
+  "conflicts": [],
+  "mops_codes": {
+    "AI1": "合併財務報告（YYYYQQ；QQ=01–03 季報，04 全年財報）",
+    "F04": "股東會年報（中文；檔名年度為會計年度）",
+    "FE4": "股東會年報（英文）"
+  },
+  "drive_folder": "投資組合-台股/智邦2345/智邦2345研究/分類PDF",
+  "notes": [
+    "既有 MOPS 下載檔在 Drive 以『搬移＋改名』歸檔（file id 不變），未重新上傳；原始檔名保留於 original_filenames 供下載器去重。",
+    "頁數與 SHA256 由本次下載 bytes 計算。"
+  ]
+}

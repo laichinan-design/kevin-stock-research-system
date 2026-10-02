@@ -1,0 +1,83 @@
+{
+  "drive_folder": "投資組合-台股/智邦2345/智邦2345研究",
+  "files": {
+    "分類PDF/01_年報/智邦_2345_2023_年報_中文.pdf": {
+      "sha256": "206affae71db4ed7602e7ffe1ce131bb5500ac46031ffe8cbb003b03ab3f4ec4",
+      "bytes": 6061751,
+      "synced_at": "2026-10-02T15:56:44+08:00",
+      "via": "manual",
+      "drive_file_id": "1jr6M16rGmQG0-0maT2lT6Yk3Vju9U10q"
+    },
+    "分類PDF/01_年報/智邦_2345_2024_年報_中文.pdf": {
+      "sha256": "a314ffb6066124ff7ad30cae20b2cff0b340a9604a8b023415322d8911fb92c7",
+      "bytes": 2995983,
+      "synced_at": "2026-10-02T15:56:37+08:00",
+      "via": "manual",
+      "drive_file_id": "14FNjbbuTz33p0X2-mVCvgpKjCfRun-5K"
+    },
+    "分類PDF/03_季報/智邦_2345_2025Q2_合併季報_含上半年累計_中文.pdf": {
+      "sha256": "78955c12cac8b0cafccfb2e6fd3b162bc8b73a9d4729aaf9ea600faae71ffe3f",
+      "bytes": 1524257,
+      "synced_at": "2026-10-02T15:56:38+08:00",
+      "via": "manual",
+      "drive_file_id": "1ilMmamBIKGsWb_rKfHpDBg0A7CEMWey0"
+    },
+    "分類PDF/03_季報/智邦_2345_2025Q3_合併季報_含前三季累計_中文.pdf": {
+      "sha256": "7a50f46db137f410317497858611ba99b376c9f0c4cf5634d9ab0d50540594f8",
+      "bytes": 1567833,
+      "synced_at": "2026-10-02T15:56:38+08:00",
+      "via": "manual",
+      "drive_file_id": "10BtB2q5gkoXJFHCXMo0zrsqAe5LXsjoE"
+    },
+    "分類PDF/03_季報/智邦_2345_2026Q2_合併季報_含上半年累計_中文.pdf": {
+      "sha256": "a86d9fc8fa021373b78d30f7c2838f95010fa794e0198d97bfe035e1f0eff36b",
+      "bytes": 1599584,
+      "synced_at": "2026-10-02T15:56:38+08:00",
+      "via": "manual",
+      "drive_file_id": "1_10_e61kzWRwvbiYty2iV_FxIlYUvnDl"
+    },
+    "分類PDF/整理說明.md": {
+      "sha256": "24671d9503f72152282e35158ed3087c00181325edf1522f803d8af82de93ea6",
+      "bytes": 833,
+      "synced_at": "2026-10-02T15:58:31+08:00",
+      "via": "connector",
+      "drive_file_id": "1KwBIlcjR3lveu95Pio52f2nXMYgcnByl"
+    },
+    "分類PDF/PDF分類目錄.html": {
+      "sha256": "af20714e0b2f9cadd3ed8427a27362d787eb8bb434c370ad3a239c5a456af152",
+      "bytes": 3807,
+      "synced_at": "2026-10-02T15:58:31+08:00",
+      "via": "connector",
+      "drive_file_id": "1FnCb1pyRvoMitNsxjgXJIH5XDzaed5G0"
+    },
+    "分類PDF/PDF分類索引.json": {
+      "sha256": "77ce5de4301dabc001bda79c29935c761b59ee857d623ec7e6680c598157d96e",
+      "bytes": 6200,
+      "synced_at": "2026-10-02T15:58:31+08:00",
+      "via": "connector",
+      "drive_file_id": "1n2PG2gkXr-2LJBPlLHp0SN8LnGLosZfK"
+    },
+    "待下載清單.md": {
+      "sha256": "bbd53866889a999fe1a5e51aafd4b86f15ceeab61cff910e897cdc75c2d7d3c3",
+      "bytes": 3181,
+      "synced_at": "2026-10-02T15:58:31+08:00",
+      "via": "connector",
+      "drive_file_id": "1FjByOgSv3aJytEBX2LVwPcP3eE8G5QmR"
+    },
+    "模型/valuation-20261002-kevin-provisional.json": {
+      "sha256": "5dcb8be077325f818201a7b8a8c42a7cdc2ff9629035f1c2331d5ecd0076331b",
+      "bytes": 2239,
+      "synced_at": "2026-10-02T15:59:02+08:00",
+      "via": "connector",
+      "drive_file_id": "1jQxiyskEIDeiN0vmBqX7geRcTtHaCUX9"
+    },
+    "README.md": {
+      "sha256": "cd9d7e303409bdbb6dabf7ab667ba0f3fc1bcd4526e86e9ba44cf0dd6a28730d",
+      "bytes": 4497,
+      "synced_at": "2026-10-02T15:59:35+08:00",
+      "via": "connector",
+      "drive_file_id": "1KDBUb0457SGtch0X7JLy-z0Dh9lyM5mL"
+    }
+  },
+  "last_sync": "2026-10-02T15:59:35+08:00"
+}

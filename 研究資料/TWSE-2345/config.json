@@ -6,7 +6,7 @@
   "ticker": "2345",
   "name": "智邦",
   "instrument_type": "common_stock",
-  "industry": "growth-manufacturing",
+  "industry": "datacenter-networking",
   "identity_verified": false,
   "identity_source": null,
   "identity_verified_at": null,
@@ -25,5 +25,14 @@
     "live_market": "twse_candidate_requires_per_run_validation",
     "portfolio": "same_currency_combined_proposals",
     "scheduling": "host_specific_user_request_required"
+  },
+  "storage": {
+    "drive_folder": "投資組合-台股/智邦2345/智邦2345研究",
+    "local_sync_root": "G:/我的雲端硬碟",
+    "connector_max_bytes": 100000
+  },
+  "deck_style": {
+    "palette": "07",
+    "font": "C"
   }
 }

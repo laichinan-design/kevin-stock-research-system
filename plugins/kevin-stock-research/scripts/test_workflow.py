@@ -176,6 +176,17 @@ class ValuationPortfolioTests(unittest.TestCase):
         with self.assertRaises(ValueError):value_company(both)
         unknown=self.kevin();unknown['inputs']['anchor']['category']='unknown'
         with self.assertRaises(ValueError):value_company(unknown)
+    def test_kevin_enabled_for_equipment_and_networking(self):
+        base=value_company(self.kevin())['numeric_output']['model_value']
+        for industry in ('semiconductor-equipment','datacenter-networking'):
+            r=value_company(self.kevin(industry))
+            self.assertEqual(r['status'],'calculated_scenario_not_trade_signal',industry);self.assertAlmostEqual(r['numeric_output']['model_value'],base)
+    def test_industry_profiles_match_registry(self):
+        from workflow import INDUSTRIES,KEVIN_INDUSTRIES,PLUGIN_ROOT
+        files={p.stem for p in (PLUGIN_ROOT/'profiles/industries').glob('*.json')};self.assertEqual(files,INDUSTRIES)
+        for name in INDUSTRIES:
+            d=json.loads((PLUGIN_ROOT/'profiles/industries'/f'{name}.json').read_text(encoding='utf-8'))
+            self.assertEqual(d['id'],name);self.assertEqual('kevin_legacy' in d['candidate_methods'],name in KEVIN_INDUSTRIES,name)
     def test_kevin_still_blocked_for_cyclical(self):
         self.assertEqual(value_company(self.kevin('cyclical'))['status'],'not_applicable')
     def test_negative_eps_no_target(self):

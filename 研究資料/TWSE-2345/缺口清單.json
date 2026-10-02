@@ -1,0 +1,226 @@
+{
+  "security": "TWSE:2345",
+  "asof": "2026-10-02",
+  "generated": "2026-10-02T15:52:43+08:00",
+  "gaps": [
+    {
+      "id": "mops-AI1-2024",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202404_2345_AI1.pdf",
+      "due": "2025-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202401_2345_AI1.pdf",
+      "due": "2024-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202402_2345_AI1.pdf",
+      "due": "2024-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202403_2345_AI1.pdf",
+      "due": "2024-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202504_2345_AI1.pdf",
+      "due": "2026-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-F04-2025",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025 年報",
+      "category": "01_年報",
+      "need": "MOPS F04（discover kind=F, ROC 114 或 115，依股東會年度）",
+      "mops_filename": "2025_2345_{股東會日期}F04.pdf",
+      "due": "2026-06-30",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202501_2345_AI1.pdf",
+      "due": "2025-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2026Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2026Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 115）",
+      "mops_filename": "202601_2345_AI1.pdf",
+      "due": "2026-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "source-7fa48fa4bb",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "FactSet 調查：2026 EPS 中位數 83.78元、目標價 3,500元",
+      "category": "consensus",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://www.sinotrade.com.tw/richclub/news/6a75282cb17ee73678e2aed3",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-005a612078",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "經濟日報：智邦第2季EPS 19.78元",
+      "category": "earnings",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://money.udn.com/money/story/5710/9675501",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-0921050f20",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "Celestica FY2025 10-K（ODM 競爭者列示 Accton）",
+      "category": "filing",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://app.bigdata.com/documents/BF6C51F05DEEE381B89736DCDFA70DB5",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-e932c59a4a",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "投資組合_2026_09_11_updated.xlsx（Anchor設定、CPO概念、季報調節）",
+      "category": "model",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://drive.google.com/file/d/1uBaGGruNJj16206k7Blp8hfyFkOzN3i4/view",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-5e3494e821",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "鉅亨：智邦7月營收394.73億元，1–7月2,051.31億元",
+      "category": "monthly_revenue",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://news.cnyes.com/news/id/6562407",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-2fbfb67af0",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "鉅亨：智邦8月營收408.73億元，年增59.42%",
+      "category": "monthly_revenue",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://news.cnyes.com/news/id/6599372",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-37012a44eb",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "公開資訊觀測站（環境網路政策封鎖，未取得）",
+      "category": "official_blocked",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://mops.twse.com.tw/",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-2901c5d89d",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "鉅亨：啟碁8月營收157.04億、年增81.21%",
+      "category": "peers",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://news.cnyes.com/news/id/6600768",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-9686848932",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "Bigdata.com 同業 tearsheet：Celestica、Arista、啟碁",
+      "category": "peers",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://app.bigdata.com/ (company tearsheets 0AB758, 3DC887, E18222)",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-be4a8463a4",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "工商時報：外資目標價3,500，客戶代料（consignment）模式",
+      "category": "research_news",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://app.bigdata.com/documents/5AD4140DEA10A870E352DC3D0430A4CA",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-08bc5d050a",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "工商時報：凱基看好 AWS 三線業務、Meta 回歸 800G 供應鏈",
+      "category": "research_news",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://app.bigdata.com/documents/B5F924A2C8BC69E4877CA36DABF81F90",
+      "note": "",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "identity",
+      "auto": true,
+      "kind": "identity",
+      "item": "官方公司身分 verify-identity",
+      "need": "交易所／MOPS 公司基本資料 HTTPS URL",
+      "impact": "facts／value／daily 會被擋"
+    }
+  ],
+  "partial": [],
+  "rules": "年度財報 3/31、Q1 5/15、Q2 8/14、Q3 11/14（一般業）；年報依股東會日期，以 6/30 為檢查點"
+}

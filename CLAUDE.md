@@ -4,7 +4,7 @@
 
 ## 個股研究：kevin-stock-research plugin（主流程）
 
-本 repo 內建 plugin `plugins/kevin-stock-research/`（0.5.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
+本 repo 內建 plugin `plugins/kevin-stock-research/`（0.6.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
 
 | 使用者要求 | 由誰處理 |
 |---|---|
@@ -18,6 +18,33 @@
 - plugin 指令細節見 `plugins/kevin-stock-research/references/cli.md`；能力邊界見 `references/capabilities.md`，未實作的不得宣稱已執行。
 - 依賴：`pip install -r plugins/kevin-stock-research/requirements.txt`（openpyxl、pypdfium2；工程圖解與簡報另需 fonttools、brotli、cairosvg、python-pptx、Pillow）。
 - 修改 plugin：先改 `plugins/kevin-stock-research/`、更新版本與 CHANGELOG、跑 `python3 -m unittest discover -s plugins/kevin-stock-research/scripts -p "test_*.py"`；正式來源仍是 Google Drive「投資組合-台股/Kevin 股票分析Plugin」的 release，兩邊版本需一致：`python3 tools/build_release.py` 產生 `dist/plugin-release-<版本>/`（package、內層 .plugin、總 ZIP、驗收紀錄），整個資料夾放到 Drive。安裝說明與 Codex catalog 在 `release/`。
+
+## 研究結果存放位置（Google Drive）
+
+個股研究、資料複核、估值等產出，一律存到 Google Drive，不要只放在對話或本 repo。
+
+- 根目錄：`投資組合-台股`（folder id `1pTeqf8ZPtidGCKkHbgk67QGqQ97xx6Kg`）
+- 個股子資料夾命名：`{公司簡稱}{代碼}`，不留空白，例如 `智邦2345`、`松川精密7788`、`新盛力4931`
+- plugin 完整研究的輸出放在個股資料夾下的 `{公司簡稱}{代碼}研究/`（storage.drive_folder），分類PDF、工程圖解、整合簡報等子資料夾比照《竹陞6739研究》
+  - 有少數既有資料夾的命名不同（例如 `AES-KY 6781`），沿用既有資料夾，不要重建
+- 適用範圍：最新一份 `投資組合-台股/投資組合_YYYY_MM_DD_updated.xlsx` 裡「投資組合」「CPO概念」「潛力股」三張表列出的股票
+  - 先搜尋 `parentId = '1pTeqf8ZPtidGCKkHbgk67QGqQ97xx6Kg'` 找既有的個股資料夾；沒有才建立
+  - 不在清單內的股票：先問 Kevin 要存哪裡
+- 檔名：`{代碼}_{公司簡稱}_{主題}_{YYYYMMDD}.xlsx`（或 `.docx`），例如 `2345_智邦_官方資料複核_20261001.xlsx`
+- 上傳時保留原始格式（`disableConversionToGoogleType: true`），不要轉成 Google 格式
+
+### 已知資料夾 ID
+
+| 股票 | 資料夾 | ID |
+|---|---|---|
+| 智邦 2345 | `投資組合-台股/智邦2345` | `1DsnUljDO0kaNToZAVOjCAWu8SJYvz-GQ` |
+| 智邦 2345 研究資料夾 | `投資組合-台股/智邦2345/智邦2345研究` | `1ejj72dCsUwto2Pw_CS1AKW1-ZsPbQKLD` |
+
+### 官方資料來源
+
+- 雲端環境的網路政策會擋掉 MOPS／TWSE 網域（`mops.twse.com.tw`、`mopsov.twse.com.tw`、`openapi.twse.com.tw`、`www.twse.com.tw`）
+- 個股資料夾通常已經放有 MOPS 下載的財報 PDF（`YYYYQQ_代碼_AI1_*.pdf` 是合併財報），請優先讀這份做官方複核
+- 業主淨利占比用「歸母淨利 ÷ 本期淨利（合併）」計算；非控制權益為負數時，占比會大於 100%
 
 ## Kevin 模型口徑（2026-10 版，所有流程一致）
 

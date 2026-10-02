@@ -8,7 +8,8 @@ from research import VERSION, Store, read, dump, digest, identity, number, kevin
 PLUGIN_ROOT=Path(__file__).resolve().parents[1]
 MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
          'NYSE':('America/New_York','USD'),'NASDAQ':('America/New_York','USD')}
-INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','cyclical','financial','asset-based','loss-making'}
+INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking','cyclical','financial','asset-based','loss-making'}
+KEVIN_INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking'}
 MODES={
  'quick':['identity','sources','thesis','report'],
  'full':['identity','sources','pdf-library','facts','thesis','engineering-visuals','valuation','integrated-deck','report'],
@@ -184,7 +185,7 @@ def value_company(request):
     candidates=read(PLUGIN_ROOT/'profiles/industries'/f'{industry}.json')['candidate_methods']
     if method not in candidates:return {**out,'reason':'method not enabled for this industry profile'}
     if method=='kevin_legacy':
-        if industry not in ('growth-manufacturing','semiconductor','general'): return {**out,'reason':'industry not supported by Kevin model'}
+        if industry not in KEVIN_INDUSTRIES: return {**out,'reason':'industry not supported by Kevin model'}
         x,anchor=resolve_anchor(x,request['asof'])
         try: numeric=kevin_valuation(x)
         except ValueError as exc:return {**out,'reason':str(exc)}

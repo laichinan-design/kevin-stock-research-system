@@ -13,6 +13,7 @@ python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json] 
 python scripts/workflow.py --root ROOT extract --evidence-id SOURCE_ID
 python scripts/workflow.py --root ROOT facts --file facts.json --asof YYYY-MM-DD
 python scripts/workflow.py --root ROOT set-industry --industry semiconductor-equipment
+python scripts/workflow.py --root ROOT set-industry --industry datacenter-networking
 python scripts/workflow.py --root ROOT set-storage [--drive-folder "投資組合-台股/{short}{ticker}/{short}{ticker}研究"] [--local-sync-root "G:/我的雲端硬碟"] [--connector-max-bytes 100000]
 python scripts/workflow.py --root ROOT drive-sync [--apply]
 python scripts/workflow.py --root ROOT drive-record --path 正式成果/報告.docx [--file-id DRIVE_ID] [--via manual]
@@ -61,6 +62,9 @@ ingest 對遠端來源套用同一檢查，略過者列在 skipped_already_held�
 classify.json：陣列。新增本機檔用 {"local_path":...,"url":...}；指定或更正分類用 sha256／evidence_id／original_filename 擇一比對（須唯一），欄位 category、label、title、language（中文／英文）、publisher、note、classification_basis。
 預設 dry-run 不寫檔；--apply 建立硬連結（跨磁碟才複製，storage=copy）、空類別放 目前無檔案.txt，並輸出 PDF分類索引.json／.xlsx、PDF分類目錄.html、整理說明.md。
 既有分類檔不改名不搬移；計算類別與所在資料夾不同時列 conflicts。MOPS 檔名屬其他代碼、無法判定類別、規則不符者列 unclassified。index 欄位與健策 3653 版相容（files[]、label、date_meaning、source_urls、storage）。
+
+## 產業模組（set-industry）
+九種：general、growth-manufacturing、semiconductor、semiconductor-equipment（設備與廠務自動化）、datacenter-networking（資料中心網通與交換器 ODM／JDM）、cyclical、financial、asset-based、loss-making。set-industry 回傳整份 profile；選用欄位 visual_templates 為工程圖解建議圖組、deck_focus 為簡報財務與競爭頁重點。Kevin 模型只開放 general、growth-manufacturing、semiconductor、semiconductor-equipment、datacenter-networking。網通、交換器、伺服器網卡公司用 datacenter-networking，不套 semiconductor-equipment。
 
 ## 工程圖解（visual-build／visual-outline／visual-check）
 SVG 的 <text> 依賴檢視端字型：Drive 預覽、郵件、沒裝思源黑體的電腦會整段空白或豆腐字。本包輸出的 SVG 一律把文字轉成字形外框（<defs> 每字一份、<use> 重複引用），任何檢視器都能顯示；可編修母檔是 原始碼/*.json。
