@@ -1,0 +1,9 @@
+{"security":"TWSE:2345","industry":"growth-manufacturing","method":"kevin_legacy","currency":"TWD","asof":"2026-10-01","assumptions_asof":"2026-10-01",
+ "assumptions_verified":true,
+ "source_ids":["PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx","PROVISIONAL:bigdata-FMP-tearsheet-40925B-20261001","PROVISIONAL:news-cnyes-udn-月營收"],
+ "provisional_note":"官方 MOPS/TWSE 被網路政策封鎖，身分與證據門檻未通過；此請求以 plugin 計算函式在程序內執行，非正式 value 紀錄。",
+ "inputs":{"revenue_ytd":246003583,"months":8,"owner_ratio":1.0,"capital_thousands":5611179,"par":10,"previous_eps":47.13,"previous_eps_basis":"reported",
+  "earnings_quality":{"scope":"consolidated","revenue":165658435,"pretax":24930070,"tax":5549864,"net_income":19380206,"nonrecurring":{"fx":132793,"fvtpl":5829,"disposals":0}},
+  "anchor":{"category":"cpo","etf":"00891","etf_pe":28,"ratio_p":0.85,"ratio_q":0.62,"market_pe":31.26,"market_median_pe":17,"asof":"2026-09-11"},
+  "target_premium":1,
+  "run_rate":{"recent_months":[39472565,40872583],"margin_period":"2026Q2","consolidated_margin":0.115621,"margin_basis":"consolidated","pull_in_suspected":false,"inorganic_monthly":0}}}

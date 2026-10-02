@@ -1,0 +1,26 @@
+{
+  "id": "asset-based",
+  "version": 1,
+  "name": "資產型企業",
+  "required_kpis": [
+    "資產估值日",
+    "負債與或有義務",
+    "租金或開發現金流",
+    "資產流動性",
+    "折價假設"
+  ],
+  "candidate_methods": [
+    "nav",
+    "scenario_pb"
+  ],
+  "guards": [
+    "NAV須可追溯",
+    "不等於上市REIT通用支援"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}

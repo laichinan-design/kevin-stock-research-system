@@ -1,0 +1,16 @@
+{
+  "security": null,
+  "metric": "revenue",
+  "value": null,
+  "currency": null,
+  "unit": "currency_units",
+  "scope": "consolidated",
+  "period_start": null,
+  "period_end": null,
+  "available_at": null,
+  "basis": "quarter",
+  "source_id": null,
+  "locator": null,
+  "verified": false,
+  "revision_basis": null
+}

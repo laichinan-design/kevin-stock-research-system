@@ -1,0 +1,25 @@
+{
+  "id": "financial",
+  "version": 1,
+  "name": "金融業",
+  "required_kpis": [
+    "銀行／保險／金控分部",
+    "ROE與資本品質",
+    "信用與資產品質",
+    "股利能力",
+    "會計制度變動"
+  ],
+  "candidate_methods": [
+    "scenario_pb"
+  ],
+  "guards": [
+    "銀行與保險再分流",
+    "不套營收乘製造業淨利率"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}

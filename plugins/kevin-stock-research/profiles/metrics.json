@@ -1,0 +1,155 @@
+{
+  "revenue": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "gross_profit": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "operating_income": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "net_income": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "parent_net_income": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "operating_cash_flow": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "investing_cash_flow": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "financing_cash_flow": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "capex": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "depreciation": {
+    "type": "flow",
+    "unit": "currency_units",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd",
+      "month"
+    ]
+  },
+  "assets": {
+    "type": "stock",
+    "unit": "currency_units",
+    "bases": [
+      "instant"
+    ]
+  },
+  "liabilities": {
+    "type": "stock",
+    "unit": "currency_units",
+    "bases": [
+      "instant"
+    ]
+  },
+  "equity": {
+    "type": "stock",
+    "unit": "currency_units",
+    "bases": [
+      "instant"
+    ]
+  },
+  "cash_balance": {
+    "type": "stock",
+    "unit": "currency_units",
+    "bases": [
+      "instant"
+    ]
+  },
+  "basic_eps": {
+    "type": "per-share",
+    "unit": "currency_per_share",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd"
+    ]
+  },
+  "diluted_eps": {
+    "type": "per-share",
+    "unit": "currency_per_share",
+    "bases": [
+      "annual",
+      "quarter",
+      "ytd"
+    ]
+  },
+  "book_value_per_share": {
+    "type": "per-share",
+    "unit": "currency_per_share",
+    "bases": [
+      "instant"
+    ]
+  }
+}
