@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "kevin-research-bundle": {
+      "source": {
+        "source": "directory",
+        "path": "./"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "kevin-stock-research@kevin-research-bundle": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "security": null,
+  "industry": null,
+  "method": "kevin_legacy",
+  "currency": null,
+  "asof": null,
+  "assumptions_asof": null,
+  "assumptions_verified": false,
+  "source_ids": [],
+  "inputs": {
+    "revenue_ytd": null,
+    "months": null,
+    "owner_ratio": null,
+    "nci_loss_verified": false,
+    "capital_thousands": null,
+    "par": 10,
+    "previous_eps": null,
+    "previous_eps_basis": "reported",
+    "previous_eps_reported": null,
+    "previous_eps_note": null,
+    "earnings_quality": {
+      "scope": "consolidated",
+      "revenue": null,
+      "pretax": null,
+      "tax": null,
+      "net_income": null,
+      "nonrecurring": {
+        "fvtpl": 0,
+        "disposals": 0,
+        "fx": 0
+      }
+    },
+    "margin_choice": null,
+    "anchor": {
+      "category": null,
+      "etf_pe": null,
+      "market_pe": null,
+      "market_median_pe": null,
+      "asof": null
+    },
+    "target_premium": 1,
+    "run_rate": {
+      "recent_months": [],
+      "margin_period": null,
+      "earnings_quality": null,
+      "consolidated_margin": null,
+      "margin_basis": "consolidated",
+      "pull_in_suspected": false,
+      "inorganic_monthly": null
+    }
+  },
+  "note": "模板不可直接執行。earnings_quality 與 consolidated_margin 擇一（後者須附 margin_basis=consolidated）；非經常性占稅前≥10%須填 margin_choice；previous_eps_basis=normalized 須填 previous_eps_reported 與 previous_eps_note；不用情境B時刪除 run_rate。規格見 references/kevin-model.md。"
+}
