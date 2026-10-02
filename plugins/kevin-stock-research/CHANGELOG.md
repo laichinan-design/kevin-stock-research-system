@@ -1,3 +1,11 @@
+# 0.5.0 — 2026-10-02
+- Google Drive 同步（scripts/storage.py）：config.storage（drive_folder、local_sync_root、connector_max_bytes），init 預設 投資組合-台股/{簡稱}{代碼}/{簡稱}{代碼}研究；set-storage、drive-sync（SHA256 變動偵測，dry-run 預設；本機 Google Drive 桌面版直接複製並驗雜湊，雲端則分 connector／manual 並寫 待手動上傳.md）、drive-record（上傳後標記，可存 Drive file id）；永不刪 Drive 檔，資料夾改變時全部重送。
+- 缺口與待下載（scripts/gaps.py）：gaps 依一般業法定期限推算應公告的年度財報、季報、年報，與分類PDF／索引／證據庫比對，列 MOPS 代碼、discover 參數與預期檔名；併列被擋來源、未驗證身分；手動缺口保留。coverage-set 記錄部分覆蓋。輸出 缺口清單.json、待下載清單.md。
+- README 自動區塊（scripts/readme.py）：成果入口、工程圖解活字檢查、分類PDF 份數、缺口、Drive 狀態依實際檔案重產，區塊外文字不動；init 改用此產生。
+- 新產業模板 semiconductor-equipment（設備與廠務自動化：裝機量、相容機型、劇本／模組、客戶 capex、驗收認列與在製品、軟硬體毛利）；set-industry 指令。產業模板 7→8。
+- repo 內發行工具：tools/build_release.py 從 repo 組出 dist/plugin-release-<版本>/（與 Drive 同結構），release/ 放 START-HERE、install-openai.ps1、Codex catalog；版本一致性含 START-HERE。
+- skills：router、data-acquisition、document-organizer、report-validation 加入 gaps／coverage-set／readme／drive-sync 步驟。測試 112→119。
+
 # 0.4.0 — 2026-10-02
 - 新技能 engineering-visuals 與 scripts/visuals.py：diagram spec（box／arrow／lane／line／text）產生工程圖，頁首頁腳、來源頁碼、示意圖標示自動加上；SVG 文字一律轉成字形外框（修正 Drive 預覽與未安裝思源黑體時文字不顯示），原始碼 JSON 為可編修母檔，另產 PNG預覽。字型自動探測（Noto Sans TC → 微軟正黑體 → 蘋方 → fontconfig）並以 Segoe UI／Arial／DejaVu 補 μ、Ω、±；缺字直接報錯。指令 visual-build／visual-outline（修舊 SVG）／visual-check。
 - 新技能 integrated-deck 與 scripts/deck.py：profiles/deck_styles.json（ppt-style-picker 10 配色×3 字型）、set-deck-style 寫入 config；deck spec 九種版型，python-pptx 原生可編輯圖表（長條圖數值軸強制從 0）；中文字型預設微軟正黑體確保顯示；deck-check 檢查溢字、出界、0 軸、來源、非投資建議；--pdf 經 LibreOffice 匯出；deck-fonts 修既有簡報字型。

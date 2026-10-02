@@ -6,7 +6,7 @@
 
 目前 plugin 只負責「證據 → 數據 → 模型 → 報告」，**缺三塊：文件分類層、視覺化產出層（工程圖解＋簡報）、下載前去重**。建議用 1 個新指令 + 2 個新 skill + 1 個 config 欄位補齊，其餘是既有 skill 的擴充。
 
-> **實作狀態（2026-10-02）**：P0 第 1–3 項已實作於 0.3.0（`scripts/library.py`、`classify-pdfs`、`dedupe-check`、ingest 自動略過）；P1 第 4–7 項已實作於 0.4.0（`engineering-visuals`＋`scripts/visuals.py`，SVG 文字轉外框；`integrated-deck`＋`scripts/deck.py`；router full 流程；config `deck_style`）。`storage.drive_folder` 與 P2 尚未實作。
+> **實作狀態（2026-10-02）**：全部 11 項已實作。P0（1–3）於 0.3.0；P1（4–7，含 engineering-visuals、integrated-deck、router、deck_style）於 0.4.0；`storage.drive_folder` 與 P2（8–11：gaps／coverage-set、semiconductor-equipment、README 自動區塊、tools/build_release.py）於 0.5.0。
 
 ## 修改總表（依優先序）
 

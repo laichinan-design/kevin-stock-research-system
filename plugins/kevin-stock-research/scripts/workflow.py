@@ -8,7 +8,7 @@ from research import VERSION, Store, read, dump, digest, identity, number, kevin
 PLUGIN_ROOT=Path(__file__).resolve().parents[1]
 MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
          'NYSE':('America/New_York','USD'),'NASDAQ':('America/New_York','USD')}
-INDUSTRIES={'general','growth-manufacturing','semiconductor','cyclical','financial','asset-based','loss-making'}
+INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','cyclical','financial','asset-based','loss-making'}
 MODES={
  'quick':['identity','sources','thesis','report'],
  'full':['identity','sources','pdf-library','facts','thesis','engineering-visuals','valuation','integrated-deck','report'],
@@ -16,28 +16,6 @@ MODES={
  'monitor':['identity','calendar','market','events','notification'],
  'compare':['identity','facts','comparability','report'],
  'position':['identity','valuation','thesis','portfolio','report']}
-
-README_TEMPLATE='''# {name} {security} 研究
-
-## 成果入口
-| 檔案 | 用途 | 狀態 |
-|---|---|---|
-| 正式成果/ | 個股研究報告（DOCX） | 待產出 |
-| 模型/ | Kevin 模型與估值 | 待產出 |
-| 分類PDF/PDF分類目錄.html | 年報、財報、季報、法說會、券商、產業、股東會分類入口 | 待執行 classify-pdfs |
-| 工程圖解/ | 產品工程圖（SVG 母檔＋PNG預覽）與工藝規格 | 待產出 |
-| 整合簡報/ | 整合簡報（PPTX＋PDF） | 待產出 |
-| 缺口清單.json | 未取得資料與原因 | 持續更新 |
-
-## 接續原則
-- 下載前先跑 dedupe-check；已持有的年報、財報不重抓。
-- 原始文件以 SHA256 命名、不改寫；分類PDF 為硬連結入口。
-
-## 限制與缺口
-見 缺口清單.json。
-
-非投資建議。
-'''
 
 def iso(value):
     return date.fromisoformat(value)
@@ -71,6 +49,9 @@ def validate_config(c):
         st=json.loads((PLUGIN_ROOT/'profiles/deck_styles.json').read_text(encoding='utf-8'))
         ds=c['deck_style']
         if ds.get('palette') not in st['palettes'] or ds.get('font') not in st['fonts']: raise ValueError('deck_style needs palette 01–10 and font A/B/C')
+    if c.get('storage') is not None:
+        from storage import validate_storage
+        validate_storage(c['storage'])
     return c
 
 def onboard(root,market,ticker,name,industry='general',reporting_currency=None,fiscal_year_end='12-31'):
@@ -82,10 +63,14 @@ def onboard(root,market,ticker,name,industry='general',reporting_currency=None,f
        'exchange_timezone':tz,'report_timezone':'Asia/Taipei','quote_currency':currency,
        'reporting_currency':reporting_currency or currency,'fiscal_year_end':fiscal_year_end,
        'model_profile':None,'schedule_enabled':False,'valuation_alert_change':0.1,'capabilities':capability(market)}
+    from storage import make_storage
+    c['storage']=make_storage(c)
     validate_config(c); root.mkdir(parents=True,exist_ok=True); dump(root/'config.json',c)
     s=Store(root);s.db.close()
-    if not (root/'缺口清單.json').exists():dump(root/'缺口清單.json',{'security':sid,'asof':None,'gaps':[]})
-    if not (root/'README.md').exists():(root/'README.md').write_text(README_TEMPLATE.format(name=name,security=sid),encoding='utf-8')
+    if not (root/'缺口清單.json').exists():dump(root/'缺口清單.json',{'security':sid,'asof':None,'gaps':[],'partial':[]})
+    if not (root/'README.md').exists():
+        import readme
+        readme.write(root,c)
     return c
 
 def config_at(root,verified=False):
@@ -324,6 +309,13 @@ def main():
     a=sub.add_parser('ingest');a.add_argument('--manifest',required=True);a.add_argument('--known');a.add_argument('--force',action='store_true')
     a=sub.add_parser('dedupe-check');a.add_argument('--manifest',required=True);a.add_argument('--known')
     a=sub.add_parser('classify-pdfs');a.add_argument('--manifest');a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('set-industry');a.add_argument('--industry',choices=sorted(INDUSTRIES),required=True)
+    a=sub.add_parser('set-storage');a.add_argument('--drive-folder');a.add_argument('--local-sync-root');a.add_argument('--connector-max-bytes',type=int)
+    a=sub.add_parser('drive-sync');a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('drive-record');a.add_argument('--path',nargs='+',required=True);a.add_argument('--file-id',nargs='*');a.add_argument('--via',choices=['connector','manual'],default='connector')
+    a=sub.add_parser('gaps');a.add_argument('--asof',required=True);a.add_argument('--years',type=int,default=2)
+    a=sub.add_parser('coverage-set');a.add_argument('--doc',required=True);a.add_argument('--pages',required=True);a.add_argument('--total',type=int);a.add_argument('--missing');a.add_argument('--note',default='')
+    sub.add_parser('readme')
     a=sub.add_parser('set-deck-style');a.add_argument('--palette',required=True);a.add_argument('--font',required=True);a.add_argument('--cjk-font')
     a=sub.add_parser('visual-build');a.add_argument('--spec',required=True,nargs='+');a.add_argument('--font-dir')
     a=sub.add_parser('visual-outline');a.add_argument('--file',nargs='*');a.add_argument('--font-dir')
@@ -379,6 +371,28 @@ def main():
             elif args.command=='dedupe-check':
                 from library import dedupe_check
                 result=dedupe_check(s,c,read(args.manifest),read(args.known) if args.known else None)
+            elif args.command=='set-industry':
+                c['industry']=args.industry;validate_config(c);dump(root/'config.json',c)
+                result={'status':'saved','industry':args.industry,'profile':read(PLUGIN_ROOT/'profiles/industries'/f'{args.industry}.json')}
+            elif args.command=='set-storage':
+                from storage import make_storage
+                c['storage']=make_storage(c,args.drive_folder,args.local_sync_root,args.connector_max_bytes)
+                validate_config(c);dump(root/'config.json',c);result={'status':'saved','storage':c['storage']}
+            elif args.command=='drive-sync':
+                from storage import sync
+                result=sync(root,c,args.apply)
+            elif args.command=='drive-record':
+                from storage import record
+                result=record(root,c,args.path,args.file_id,args.via)
+            elif args.command=='gaps':
+                from gaps import refresh
+                iso(args.asof);result=refresh(s,c,args.asof,args.years)
+            elif args.command=='coverage-set':
+                from gaps import coverage_set
+                result=coverage_set(root,c,args.doc,args.pages,args.total,args.missing,args.note)
+            elif args.command=='readme':
+                import readme
+                result=readme.write(root,c)
             elif args.command=='set-deck-style':
                 c['deck_style']={'palette':args.palette,'font':args.font,**({'cjk_font':args.cjk_font} if args.cjk_font else {})}
                 validate_config(c);dump(root/'config.json',c);result={'status':'saved','deck_style':c['deck_style']}

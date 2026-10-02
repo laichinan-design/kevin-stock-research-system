@@ -6,7 +6,7 @@
   "ticker": "6739",
   "name": "竹陞科技",
   "instrument_type": "common_stock",
-  "industry": "semiconductor",
+  "industry": "semiconductor-equipment",
   "identity_verified": false,
   "identity_source": null,
   "identity_verified_at": null,
@@ -29,5 +29,10 @@
   "deck_style": {
     "palette": "07",
     "font": "C"
+  },
+  "storage": {
+    "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
+    "local_sync_root": null,
+    "connector_max_bytes": 100000
   }
 }

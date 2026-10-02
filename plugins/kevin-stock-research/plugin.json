@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kevin-stock-research",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "多股票證據研究、產業分流、估值情境、模型防錯與盤後追蹤。",
   "author": {
     "name": "Kevin Research"

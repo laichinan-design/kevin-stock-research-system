@@ -1,0 +1,41 @@
+{
+  "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
+  "files": {
+    "待下載清單.md": {
+      "sha256": "8a5b078bc7a64dc2edce7e0214f52284bbce76852fbf6d82fe4ad8ef979537e5",
+      "bytes": 1732,
+      "synced_at": "2026-10-02T15:11:19+08:00",
+      "via": "connector",
+      "drive_file_id": "1EmKZjZZHvyZL0i__lIVQhxPNwG3D4WmM"
+    },
+    "缺口清單.json": {
+      "sha256": "9eaeeb27590d1ff6ad345206aff29d42dcf1552347ff6e705311e8ada0bb7911",
+      "bytes": 3934,
+      "synced_at": "2026-10-02T15:11:19+08:00",
+      "via": "connector",
+      "drive_file_id": "1crNUdlqUIB8GS_kPPM0P6t1YRC515MkP"
+    },
+    "README.md": {
+      "sha256": "be3f9918e480b2d6bb0017064a08dc2f041a1950f7587e40aecbe393fae26298",
+      "bytes": 3823,
+      "synced_at": "2026-10-02T15:12:37+08:00",
+      "via": "connector",
+      "drive_file_id": "1T5tNj5M0Qj2OdNvwz0nfCxyAJMat_Iax"
+    },
+    "分類PDF/整理說明.md": {
+      "sha256": "bb22657a55fef8f02174b808266720b2125c71962909497ae58e453995e17b5e",
+      "bytes": 2225,
+      "synced_at": "2026-10-02T15:13:05+08:00",
+      "via": "connector",
+      "drive_file_id": "1r0zIlipcjtfUiyR5FxJ3irCLVSRBUp5D"
+    },
+    "分類PDF/PDF分類目錄.html": {
+      "sha256": "d223a40b24ad8753dc3fef525ab8aa74b5951428e00e58ee9bbba6293e763e2f",
+      "bytes": 4851,
+      "synced_at": "2026-10-02T15:13:05+08:00",
+      "via": "connector",
+      "drive_file_id": "1UJQaT_xMA0twSWGx9v5iUdntSpoHPmzB"
+    }
+  },
+  "last_sync": "2026-10-02T15:13:05+08:00"
+}

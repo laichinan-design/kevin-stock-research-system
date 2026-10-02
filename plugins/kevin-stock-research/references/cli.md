@@ -12,6 +12,13 @@ python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json]
 python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json] --apply
 python scripts/workflow.py --root ROOT extract --evidence-id SOURCE_ID
 python scripts/workflow.py --root ROOT facts --file facts.json --asof YYYY-MM-DD
+python scripts/workflow.py --root ROOT set-industry --industry semiconductor-equipment
+python scripts/workflow.py --root ROOT set-storage [--drive-folder "投資組合-台股/{short}{ticker}/{short}{ticker}研究"] [--local-sync-root "G:/我的雲端硬碟"] [--connector-max-bytes 100000]
+python scripts/workflow.py --root ROOT drive-sync [--apply]
+python scripts/workflow.py --root ROOT drive-record --path 正式成果/報告.docx [--file-id DRIVE_ID] [--via manual]
+python scripts/workflow.py --root ROOT gaps --asof YYYY-MM-DD [--years 2]
+python scripts/workflow.py --root ROOT coverage-set --doc "2025 年報" --pages 1-76 --total 101 --missing 77-101 --note "…"
+python scripts/workflow.py --root ROOT readme
 python scripts/workflow.py --root ROOT set-deck-style --palette 07 --font C [--cjk-font "Noto Sans TC"]
 python scripts/workflow.py --root ROOT visual-build --spec 01.json 02.json [--font-dir DIR]
 python scripts/workflow.py --root ROOT visual-outline [--file old.svg ...] [--font-dir DIR]
@@ -67,6 +74,16 @@ deck_style 存在 config.json：palette 01–10、font A/B/C（同 ppt-style-pic
 deck spec：{"topic":"產品供應鏈與工程競爭分析","asof":"YYYY-MM-DD","default_source":"…","slides":[…]}，最後一頁必須 closing。slide 型別：
 title {title,subtitle,note}｜section {title,subtitle}｜bullets {title,bullets:[str 或 [子項…]],takeaway?,source?}｜cards {title,cards:[{title,body}] 1–4}｜kpi {title,stats:[{value,label,note}] 1–4,bullets?}｜image {title,image:"工程圖解/PNG預覽/01_x.png",caption}｜chart {title,chart: column|bar|line|doughnut|pie,categories,series:[{name,values}],number_format,takeaway?,chart_title?}｜table {title,columns,rows}｜closing {title,bullets,disclaimer?}。
 相對路徑以研究 root 為基準。輸出 整合簡報/{公司}{代碼}_{topic}_{N}頁_{日期}.pptx；--pdf 需 LibreOffice（含 Impress），無則 render_qa=skipped。deck-check 檢查：物件超出頁面、可能溢字、長條圖數值軸未從 0 起算、缺來源頁碼、最後一頁缺非投資建議，並列出實際字型。
+
+## Google Drive 同步（set-storage／drive-sync／drive-record）
+config.storage：drive_folder（My Drive 內相對路徑，可用 {short}{name}{ticker}{market}；init 預設 投資組合-台股/{short}{ticker}/{short}{ticker}研究）、local_sync_root（Google Drive 桌面版的本機根目錄，例 G:/我的雲端硬碟；雲端環境留空）、connector_max_bytes（預設 100000）。
+drive-sync 以 SHA256 比對 Drive同步紀錄.json 找出新增／修改檔（排除 runs/、暫存檔、紀錄本身）。local_sync_root 存在時為 local_sync 模式：--apply 複製並驗雜湊後記錄；否則為 connector 模式：.md/.json/.html/.svg/.csv/.txt 且不超過上限者標 via=connector（宿主用 Drive 連接器上傳到 drive_path），其餘標 via=manual 並寫 待手動上傳.md；上傳後 drive-record 標記（可附 --file-id）。Drive 連接器只能新增檔案、改名與搬移，不能覆寫內容：已修改的檔案（plan 列 replace_drive_file_id）先上傳新檔，再把舊檔移到同層 `_舊版/`，不刪除。永不刪除 Drive 檔案；本機已刪的列 removed_locally。drive_folder 改變時全部視為新檔。
+
+## 缺口與待下載（gaps／coverage-set）
+gaps 依截止日推算應已公告的法定文件（一般業：年度財報 3/31、Q1 5/15、Q2 8/14、Q3 11/14；年報以 6/30 為檢查點，實際依股東會日期），與 分類PDF／索引／證據庫比對（文件鍵＝類別＋期別＋語言），未持有者列 MOPS 代碼、discover 參數（kind、ROC 年）與預期檔名；另列 blocked／missing／metadata 證據與未驗證身分。手動缺口（無 auto 標記）保留，自動項每次重算。coverage-set 記錄部分覆蓋（已讀頁、總頁、缺頁）。輸出 缺口清單.json 與 待下載清單.md。金融保險業與外國發行人期限不同，需手動調整。
+
+## README 自動區塊（readme）
+README 以 <!-- kevin:auto:start --> … <!-- kevin:auto:end --> 包住自動區塊：成果入口（依實際檔案）、工程圖解是否仍有活字、分類PDF 份數、缺口數、Drive 資料夾與未同步數。區塊外的文字不動；舊 README 沒有標記時插在標題後。
 
 ## 模型 changes.json
 JSON陣列，每筆例如：

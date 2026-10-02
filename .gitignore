@@ -6,3 +6,6 @@ __pycache__/
 # plugin 研究資料夾內的 SQLite 暫存
 *.sqlite-journal
 *.db-journal
+
+# release 打包輸出（tools/build_release.py）
+dist/

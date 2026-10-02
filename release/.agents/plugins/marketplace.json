@@ -1,0 +1,20 @@
+{
+  "name": "kevin-research-bundle",
+  "interface": {
+    "displayName": "Kevin Research Bundle"
+  },
+  "plugins": [
+    {
+      "name": "kevin-stock-research",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kevin-stock-research"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
