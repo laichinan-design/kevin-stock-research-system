@@ -8,10 +8,10 @@ from research import VERSION, Store, read, dump, digest, identity, number, kevin
 PLUGIN_ROOT=Path(__file__).resolve().parents[1]
 MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
          'NYSE':('America/New_York','USD'),'NASDAQ':('America/New_York','USD')}
-INDUSTRIES={'general','growth-manufacturing','semiconductor','cyclical','financial','asset-based','loss-making'}
+INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','cyclical','financial','asset-based','loss-making'}
 MODES={
  'quick':['identity','sources','thesis','report'],
- 'full':['identity','sources','facts','thesis','valuation','report'],
+ 'full':['identity','sources','pdf-library','facts','thesis','engineering-visuals','valuation','integrated-deck','report'],
  'refresh':['identity','changed-sources','facts','thesis-diff','valuation','report'],
  'monitor':['identity','calendar','market','events','notification'],
  'compare':['identity','facts','comparability','report'],
@@ -45,6 +45,13 @@ def validate_config(c):
     if c.get('identity_verified') and (not c.get('identity_source') or not c.get('identity_verified_at')):
         raise ValueError('verified identity needs official source and verification date')
     if c.get('identity_verified_at'): iso(c['identity_verified_at'])
+    if c.get('deck_style') is not None:
+        st=json.loads((PLUGIN_ROOT/'profiles/deck_styles.json').read_text(encoding='utf-8'))
+        ds=c['deck_style']
+        if ds.get('palette') not in st['palettes'] or ds.get('font') not in st['fonts']: raise ValueError('deck_style needs palette 01–10 and font A/B/C')
+    if c.get('storage') is not None:
+        from storage import validate_storage
+        validate_storage(c['storage'])
     return c
 
 def onboard(root,market,ticker,name,industry='general',reporting_currency=None,fiscal_year_end='12-31'):
@@ -56,8 +63,15 @@ def onboard(root,market,ticker,name,industry='general',reporting_currency=None,f
        'exchange_timezone':tz,'report_timezone':'Asia/Taipei','quote_currency':currency,
        'reporting_currency':reporting_currency or currency,'fiscal_year_end':fiscal_year_end,
        'model_profile':None,'schedule_enabled':False,'valuation_alert_change':0.1,'capabilities':capability(market)}
+    from storage import make_storage
+    c['storage']=make_storage(c)
     validate_config(c); root.mkdir(parents=True,exist_ok=True); dump(root/'config.json',c)
-    s=Store(root);s.db.close();return c
+    s=Store(root);s.db.close()
+    if not (root/'缺口清單.json').exists():dump(root/'缺口清單.json',{'security':sid,'asof':None,'gaps':[],'partial':[]})
+    if not (root/'README.md').exists():
+        import readme
+        readme.write(root,c)
+    return c
 
 def config_at(root,verified=False):
     c=validate_config(read(Path(root)/'config.json'))
@@ -244,6 +258,31 @@ def plan(root,mode,asof):
     dump(Path(root)/'runs'/run_id/'plan.json',result)
     return result
 
+def visual_command(root,c,args):
+    import visuals
+    out=root/'工程圖解'
+    if args.command=='visual-check':
+        files=[Path(f) for f in args.file] if args.file else sorted(out.glob('*.svg'))
+        return {str(f.name):visuals.check_svg(f.read_text(encoding='utf-8')) for f in files}
+    fonts=visuals.load_fonts(args.font_dir)
+    if args.command=='visual-build':
+        results=[visuals.produce(read(f),out,c,fonts) for f in args.spec]
+    else:
+        files=[Path(f) for f in args.file] if args.file else sorted(out.glob('*.svg'))
+        results=[visuals.outline_file(f,None,fonts,out/'PNG預覽'/(f.stem+'.png'),out/'原始碼') for f in files]
+    record={'generated':datetime.now().isoformat(timespec='seconds'),'command':args.command,'font_source':fonts['source'],'results':results}
+    dump(out/'驗證紀錄.json',record);return record
+
+def deck_command(root,c,args):
+    import deck
+    if args.command=='deck-check':return deck.check_deck(args.file)
+    if args.command=='deck-fonts':return deck.apply_fonts(args.file,deck.resolve_style({},c))
+    result=deck.build_deck(read(args.spec),root/'整合簡報',c,root)
+    result['render_qa']='not_requested'
+    if args.pdf:
+        pdf,status=deck.export_pdf(result['file']);result.update(pdf=pdf,render_qa=status)
+    dump(root/'整合簡報'/'validation.json',result);return result
+
 def migrate(root,apply=False):
     path=Path(root)/'config.json';old=read(path)
     if old.get('schema_version')==2:return {'status':'already_current'}
@@ -267,7 +306,23 @@ def main():
     a=sub.add_parser('init');a.add_argument('--market',choices=list(MARKETS),required=True);a.add_argument('--ticker',required=True);a.add_argument('--name',required=True);a.add_argument('--industry',choices=sorted(INDUSTRIES),default='general');a.add_argument('--reporting-currency');a.add_argument('--fiscal-year-end',default='12-31')
     a=sub.add_parser('verify-identity');a.add_argument('--source',required=True);a.add_argument('--date',required=True)
     a=sub.add_parser('plan');a.add_argument('--mode',choices=list(MODES),default='full');a.add_argument('--asof',required=True)
-    a=sub.add_parser('ingest');a.add_argument('--manifest',required=True)
+    a=sub.add_parser('ingest');a.add_argument('--manifest',required=True);a.add_argument('--known');a.add_argument('--force',action='store_true')
+    a=sub.add_parser('dedupe-check');a.add_argument('--manifest',required=True);a.add_argument('--known')
+    a=sub.add_parser('classify-pdfs');a.add_argument('--manifest');a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('set-industry');a.add_argument('--industry',choices=sorted(INDUSTRIES),required=True)
+    a=sub.add_parser('set-storage');a.add_argument('--drive-folder');a.add_argument('--local-sync-root');a.add_argument('--connector-max-bytes',type=int)
+    a=sub.add_parser('drive-sync');a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('drive-record');a.add_argument('--path',nargs='+',required=True);a.add_argument('--file-id',nargs='*');a.add_argument('--via',choices=['connector','manual'],default='connector')
+    a=sub.add_parser('gaps');a.add_argument('--asof',required=True);a.add_argument('--years',type=int,default=2)
+    a=sub.add_parser('coverage-set');a.add_argument('--doc',required=True);a.add_argument('--pages',required=True);a.add_argument('--total',type=int);a.add_argument('--missing');a.add_argument('--note',default='')
+    sub.add_parser('readme')
+    a=sub.add_parser('set-deck-style');a.add_argument('--palette',required=True);a.add_argument('--font',required=True);a.add_argument('--cjk-font')
+    a=sub.add_parser('visual-build');a.add_argument('--spec',required=True,nargs='+');a.add_argument('--font-dir')
+    a=sub.add_parser('visual-outline');a.add_argument('--file',nargs='*');a.add_argument('--font-dir')
+    a=sub.add_parser('visual-check');a.add_argument('--file',nargs='*')
+    a=sub.add_parser('deck-build');a.add_argument('--spec',required=True);a.add_argument('--pdf',action='store_true')
+    a=sub.add_parser('deck-check');a.add_argument('--file',required=True)
+    a=sub.add_parser('deck-fonts');a.add_argument('--file',required=True)
     a=sub.add_parser('facts');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
     a=sub.add_parser('daily');a.add_argument('--date',required=True);a.add_argument('--calendar',required=True)
     a=sub.add_parser('import-market');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
@@ -300,15 +355,54 @@ def main():
                 result={'status':'user_or_agent_attestation_saved','security':c['security'],'note':'This command records prior verification; it does not itself verify the website.'}
             elif args.command=='capabilities':result=capability(c['market'])
             elif args.command=='ingest':
-                ids=[]
+                from library import Known, original_name
+                ids=[];skipped=[];known=Known(s,c,read(args.known) if args.known else None)
                 for raw in read(args.manifest):
                     item=raw.copy()
                     if item.get('security')!=c['security']:raise ValueError('manifest security mismatch')
-                    local=item.pop('local_path',None)
+                    local=item.pop('local_path',None);orig=item.pop('original_filename',None)
                     if local: ids.append(s.ingest(Path(local).read_bytes(),**item))
                     elif item.get('status') in ('metadata','missing','blocked'):ids.append(s.ingest(None,**item))
-                    else:ids.append(s.fetch(**item))
-                s.export();result={'evidence_ids':ids}
+                    else:
+                        reason=None if args.force else known.has(orig or original_name(item))
+                        if reason:skipped.append({'url':item['url'],'reason':reason});continue
+                        ids.append(s.fetch(**item))
+                s.export();result={'evidence_ids':ids,'skipped_already_held':skipped}
+            elif args.command=='dedupe-check':
+                from library import dedupe_check
+                result=dedupe_check(s,c,read(args.manifest),read(args.known) if args.known else None)
+            elif args.command=='set-industry':
+                c['industry']=args.industry;validate_config(c);dump(root/'config.json',c)
+                result={'status':'saved','industry':args.industry,'profile':read(PLUGIN_ROOT/'profiles/industries'/f'{args.industry}.json')}
+            elif args.command=='set-storage':
+                from storage import make_storage
+                c['storage']=make_storage(c,args.drive_folder,args.local_sync_root,args.connector_max_bytes)
+                validate_config(c);dump(root/'config.json',c);result={'status':'saved','storage':c['storage']}
+            elif args.command=='drive-sync':
+                from storage import sync
+                result=sync(root,c,args.apply)
+            elif args.command=='drive-record':
+                from storage import record
+                result=record(root,c,args.path,args.file_id,args.via)
+            elif args.command=='gaps':
+                from gaps import refresh
+                iso(args.asof);result=refresh(s,c,args.asof,args.years)
+            elif args.command=='coverage-set':
+                from gaps import coverage_set
+                result=coverage_set(root,c,args.doc,args.pages,args.total,args.missing,args.note)
+            elif args.command=='readme':
+                import readme
+                result=readme.write(root,c)
+            elif args.command=='set-deck-style':
+                c['deck_style']={'palette':args.palette,'font':args.font,**({'cjk_font':args.cjk_font} if args.cjk_font else {})}
+                validate_config(c);dump(root/'config.json',c);result={'status':'saved','deck_style':c['deck_style']}
+            elif args.command in ('visual-build','visual-outline','visual-check'):
+                result=visual_command(root,c,args)
+            elif args.command in ('deck-build','deck-check','deck-fonts'):
+                result=deck_command(root,c,args)
+            elif args.command=='classify-pdfs':
+                from library import classify
+                result=classify(s,c,read(args.manifest) if args.manifest else None,args.apply)
             elif args.command=='facts':
                 config_at(root,True);facts=[validate_fact(f,c,args.asof,s) for f in read(args.file)]
                 sha=digest(json.dumps(facts,sort_keys=True).encode());dump(root/'財務數據'/('facts-'+sha[:16]+'.json'),facts)

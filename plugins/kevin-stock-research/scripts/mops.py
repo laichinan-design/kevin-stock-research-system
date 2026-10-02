@@ -22,6 +22,13 @@ def discover(ticker,roc_year,kind):
    y,mo,d,tm=dates[-1]; published=f'{int(y)+1911:04d}-{mo}-{d}T{tm}+08:00'
   rows.append({'kind':kind,'ticker':str(ticker),'filename':f,'published':published,'index_url':url})
  return b,url,rows
+def pending(rows,known):
+ """Split discovered rows before downloading: rows already held (same MOPS document key or filename) are skipped."""
+ todo,skip=[],[]
+ for r in rows:
+  reason=known.has(r['filename'])
+  (skip if reason else todo).append({**r,'reason':reason} if reason else r)
+ return todo,skip
 def download(row):
  url=BASE+'/server-java/t57sb01?'+urllib.parse.urlencode({'step':9,'kind':row['kind'],'co_id':row['ticker'],'filename':row['filename']})
  landing=get(url)

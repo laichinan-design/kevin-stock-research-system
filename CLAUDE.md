@@ -4,11 +4,11 @@
 
 ## 個股研究：kevin-stock-research plugin（主流程）
 
-本 repo 內建 plugin `plugins/kevin-stock-research/`（0.2.2），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
+本 repo 內建 plugin `plugins/kevin-stock-research/`（0.5.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
 
 | 使用者要求 | 由誰處理 |
 |---|---|
-| 「完整研究 TWSE:XXXX」「建立研究資料夾」「研究更新」「多股比較」「盤後追蹤」「部位規劃」 | plugin 的 `research-router`（再分派 data-acquisition → document-organizer → fundamental-research → kevin-model → report-validation） |
+| 「完整研究 TWSE:XXXX」「建立研究資料夾」「研究更新」「多股比較」「盤後追蹤」「部位規劃」 | plugin 的 `research-router`（再分派 data-acquisition → document-organizer → fundamental-research → engineering-visuals → kevin-model → integrated-deck → report-validation） |
 | 「Kevin股價模型」對話內快速估值、加同業 | 帳戶 skill `kevin-stock-pricing-model` |
 | 「台股雙法」 | 帳戶 skill `tw-ai-dual-valuation` |
 | 「更新投資組合」整本 workbook | 帳戶 skill `update-portfolio` |
@@ -16,8 +16,8 @@
 
 - 研究資料夾放在 `研究資料/<market>-<ticker>/`（例 `研究資料/TWSE-2330/`），每股獨立，不混放。
 - plugin 指令細節見 `plugins/kevin-stock-research/references/cli.md`；能力邊界見 `references/capabilities.md`，未實作的不得宣稱已執行。
-- 依賴：`pip install -r plugins/kevin-stock-research/requirements.txt`（openpyxl、pypdfium2）。
-- 修改 plugin：先改 `plugins/kevin-stock-research/`、更新版本與 CHANGELOG、跑 `python3 -m unittest discover -s plugins/kevin-stock-research/scripts -p "test_*.py"`；正式來源仍是 Google Drive「投資組合-台股/Kevin 股票分析Plugin」的 release，兩邊版本需一致。
+- 依賴：`pip install -r plugins/kevin-stock-research/requirements.txt`（openpyxl、pypdfium2；工程圖解與簡報另需 fonttools、brotli、cairosvg、python-pptx、Pillow）。
+- 修改 plugin：先改 `plugins/kevin-stock-research/`、更新版本與 CHANGELOG、跑 `python3 -m unittest discover -s plugins/kevin-stock-research/scripts -p "test_*.py"`；正式來源仍是 Google Drive「投資組合-台股/Kevin 股票分析Plugin」的 release，兩邊版本需一致：`python3 tools/build_release.py` 產生 `dist/plugin-release-<版本>/`（package、內層 .plugin、總 ZIP、驗收紀錄），整個資料夾放到 Drive。安裝說明與 Codex catalog 在 `release/`。
 
 ## Kevin 模型口徑（2026-10 版，所有流程一致）
 

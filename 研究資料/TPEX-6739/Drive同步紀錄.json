@@ -1,0 +1,62 @@
+{
+  "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
+  "files": {
+    "待下載清單.md": {
+      "sha256": "8a5b078bc7a64dc2edce7e0214f52284bbce76852fbf6d82fe4ad8ef979537e5",
+      "bytes": 1732,
+      "synced_at": "2026-10-02T15:11:19+08:00",
+      "via": "connector",
+      "drive_file_id": "1EmKZjZZHvyZL0i__lIVQhxPNwG3D4WmM"
+    },
+    "缺口清單.json": {
+      "sha256": "9eaeeb27590d1ff6ad345206aff29d42dcf1552347ff6e705311e8ada0bb7911",
+      "bytes": 3934,
+      "synced_at": "2026-10-02T15:11:19+08:00",
+      "via": "connector",
+      "drive_file_id": "1crNUdlqUIB8GS_kPPM0P6t1YRC515MkP"
+    },
+    "README.md": {
+      "sha256": "55d3b4dadf35a67b2a6505ce899f68d3bfff93036748a319a6d6ea556124e70a",
+      "bytes": 3823,
+      "synced_at": "2026-10-02T15:19:49+08:00",
+      "via": "connector",
+      "drive_file_id": "16vAQfQRfbyA52dwSGfXuS6Vt0HYQzbBv"
+    },
+    "分類PDF/整理說明.md": {
+      "sha256": "bb22657a55fef8f02174b808266720b2125c71962909497ae58e453995e17b5e",
+      "bytes": 2225,
+      "synced_at": "2026-10-02T15:13:05+08:00",
+      "via": "connector",
+      "drive_file_id": "1r0zIlipcjtfUiyR5FxJ3irCLVSRBUp5D"
+    },
+    "分類PDF/PDF分類目錄.html": {
+      "sha256": "d223a40b24ad8753dc3fef525ab8aa74b5951428e00e58ee9bbba6293e763e2f",
+      "bytes": 4851,
+      "synced_at": "2026-10-02T15:13:05+08:00",
+      "via": "connector",
+      "drive_file_id": "1UJQaT_xMA0twSWGx9v5iUdntSpoHPmzB"
+    },
+    "config.json": {
+      "sha256": "cab28c79db260c4f4b37282d45fb3f4a1f2c99099d9969e3c2137dbb29efba41",
+      "bytes": 1118,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1DUXlHfGJVhqXutQxg99Zgl_1g_b2IT3g"
+    },
+    "工程圖解/驗證紀錄.json": {
+      "sha256": "8b2735a6983abdfedd2b3b3e6514e89d958124a69c04a3ad2a12e05e335c9918",
+      "bytes": 4166,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1331pUeludD_L977DiHYd1pCOW4jrhAr0"
+    },
+    "分類PDF/PDF分類索引.json": {
+      "sha256": "2a169be26699422ffd3ea3bd193a76278159e51ccdfb2aabe3fbbff7d2cd606a",
+      "bytes": 3739,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1w47kQoOyGQ442KWLnuQBuUAVUkCHIT03"
+    }
+  },
+  "last_sync": "2026-10-02T15:19:49+08:00"
+}

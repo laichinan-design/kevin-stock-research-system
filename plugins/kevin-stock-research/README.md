@@ -1,4 +1,4 @@
-# Kevin 股票研究 0.2.2
+# Kevin 股票研究 0.5.0
 支援 ChatGPT 桌面 Work／Codex 與 Claude 的共用研究外掛。先使用research-router，說明市場、代號、任務即可；公司身分由官方證據核對。
 
 ## 使用例子
@@ -12,6 +12,6 @@
 
 與Kevin帳戶技能的分工：對話內快速估值或加同業用kevin-stock-pricing-model；整本投資組合workbook月度更新用update-portfolio；本外掛負責建立研究資料夾與證據庫的完整研究流程。三者的Kevin公式口徑一致（雙層錨定、合併淨利率×業主淨利占比、溢價只乘目標價）。
 
-8個skills、7個產業模板、6種研究模式。執行細節見references/cli.md；真實支援範圍見references/capabilities.md。此包不包含私人研究文件、工作簿、持股或Drive來源識別。
+10個skills、8個產業模板、6種研究模式。執行細節見references/cli.md；真實支援範圍見references/capabilities.md。此包不包含私人研究文件、工作簿、持股或Drive來源識別。
 Python 3.11+；以宿主既有Python執行。需要時安裝requirements.txt到獨立虛擬環境，不預設修改全域環境。只有可執行程式的平台才能跑計算；沒有工具時不能宣稱已執行。
 外掛不附API金鑰、不連券商、不會因安裝而啟用排程。非投資建議。

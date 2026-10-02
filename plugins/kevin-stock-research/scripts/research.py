@@ -5,7 +5,7 @@ import urllib.request, urllib.parse
 from datetime import datetime, date, timezone, timedelta
 from pathlib import Path
 
-VERSION = '0.2.2'
+VERSION = '0.5.0'
 TZ = timezone(timedelta(hours=8))
 def now(): return datetime.now(TZ).isoformat(timespec='seconds')
 def digest(b): return hashlib.sha256(b).hexdigest()
@@ -34,10 +34,16 @@ def period(year,quarter=None,month=None,basis='annual'):
  if basis not in ('annual','ytd','quarter','month'): raise ValueError('invalid period basis')
  return {'year':year,'quarter':quarter,'month':month,'basis':basis}
 
+# Research root layout. 分類PDF holds readable hard links over 原始文件; see library.py.
+LAYOUT=('原始文件','文件文字','財務數據','模型','盤後紀錄','正式成果',
+ '分類PDF/01_年報','分類PDF/02_年度財報','分類PDF/03_季報','分類PDF/04_法說會資料',
+ '分類PDF/05_技術簡報','分類PDF/06_券商研究','分類PDF/07_產業資料','分類PDF/08_股東會與公司治理',
+ '工程圖解/PNG預覽','工程圖解/實物設備詳解版','工程圖解/工藝精度圖例增補版','整合簡報')
+
 class Store:
  def __init__(self,root):
   self.root=Path(root); self.root.mkdir(parents=True,exist_ok=True)
-  for f in ('原始文件','文件文字','財務數據','模型','盤後紀錄','正式成果'): (self.root/f).mkdir(exist_ok=True)
+  for f in LAYOUT: (self.root/f).mkdir(parents=True,exist_ok=True)
   self.db=sqlite3.connect(self.root/'research.sqlite',timeout=30)
   self.db.row_factory=sqlite3.Row
   self.db.executescript('''CREATE TABLE IF NOT EXISTS evidence(
