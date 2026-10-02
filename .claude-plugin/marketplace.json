@@ -1,0 +1,19 @@
+{
+  "name": "kevin-research-bundle",
+  "owner": {
+    "name": "Kevin Lai"
+  },
+  "metadata": {
+    "description": "Kevin 個人台股研究工具集（本機 marketplace）",
+    "version": "0.5.0"
+  },
+  "plugins": [
+    {
+      "name": "kevin-stock-research",
+      "source": "./plugins/kevin-stock-research",
+      "description": "多股票證據研究、產業分流、估值情境、模型防錯與盤後追蹤。",
+      "version": "0.5.0",
+      "category": "productivity"
+    }
+  ]
+}

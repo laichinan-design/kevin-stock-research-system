@@ -1,0 +1,15 @@
+{
+  "profile_id": "replace-with-reviewed-profile-id",
+  "version": 1,
+  "verified": false,
+  "security": null,
+  "workbook_sha256": null,
+  "sheet": null,
+  "header_row": 1,
+  "identity_column": null,
+  "identity_value": null,
+  "expected_headers": {},
+  "inputs": {},
+  "expected_formulas": {},
+  "note": "模板不可直接啟用。inputs 格式：metric: {column: D, unit: TWD}；逐一核對股票鍵、欄名、原檔 SHA256。"
+}

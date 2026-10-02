@@ -1,0 +1,15 @@
+{
+  "security": null,
+  "industry": null,
+  "method": "scenario_pe",
+  "inputs": {
+    "eps": null,
+    "multiple_low": null,
+    "multiple_high": null
+  },
+  "currency": null,
+  "assumptions_verified": false,
+  "assumptions_asof": null,
+  "asof": null,
+  "source_ids": []
+}

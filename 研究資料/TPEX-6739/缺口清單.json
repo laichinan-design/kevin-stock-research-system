@@ -1,0 +1,127 @@
+{
+  "security": "TPEX:6739",
+  "asof": "2026-10-02",
+  "generated": "2026-10-02T15:09:37+08:00",
+  "gaps": [
+    {
+      "id": "pdf-concall",
+      "item": "2026-09-09、2025-08-20 法說簡報原件",
+      "need": "MOPS 法說會專區",
+      "impact": "指引原文、產品占比口徑"
+    },
+    {
+      "id": "pdf-agm",
+      "item": "2025、2026 股東會議事手冊／議事錄",
+      "need": "MOPS",
+      "impact": "治理、關係人交易"
+    },
+    {
+      "id": "specs",
+      "item": "產品精度、單價、裝機量",
+      "need": "法說 Q&A、技術簡報",
+      "impact": "TAM 與滲透率"
+    },
+    {
+      "id": "pages-sha",
+      "item": "分類PDF 頁數與 SHA256",
+      "need": "本機 bytes",
+      "impact": "去重與證據庫"
+    },
+    {
+      "id": "mops-AI1-2024",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202404_6739_AI1.pdf",
+      "due": "2025-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-F04-2024",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024 年報",
+      "category": "01_年報",
+      "need": "MOPS F04（discover kind=F, ROC 113 或 114，依股東會年度）",
+      "mops_filename": "2024_6739_{股東會日期}F04.pdf",
+      "due": "2025-06-30",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202401_6739_AI1.pdf",
+      "due": "2024-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202402_6739_AI1.pdf",
+      "due": "2024-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202403_6739_AI1.pdf",
+      "due": "2024-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202501_6739_AI1.pdf",
+      "due": "2025-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2026Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2026Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 115）",
+      "mops_filename": "202601_6739_AI1.pdf",
+      "due": "2026-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "identity",
+      "auto": true,
+      "kind": "identity",
+      "item": "官方公司身分 verify-identity",
+      "need": "交易所／MOPS 公司基本資料 HTTPS URL",
+      "impact": "facts／value／daily 會被擋"
+    }
+  ],
+  "partial": [
+    {
+      "doc": "2025 年報（竹陞_6739_2025_年報_中文.pdf）",
+      "pages_covered": "1-76",
+      "total_pages": 101,
+      "missing": "77-101",
+      "note": "Drive 轉文字截斷；缺產銷量值、原料供應、風險事項",
+      "updated": "2026-10-02T15:09:27+08:00"
+    }
+  ],
+  "rules": "年度財報 3/31、Q1 5/15、Q2 8/14、Q3 11/14（一般業）；年報依股東會日期，以 6/30 為檢查點"
+}

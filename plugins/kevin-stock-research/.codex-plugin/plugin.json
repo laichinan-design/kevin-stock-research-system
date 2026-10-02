@@ -1,0 +1,22 @@
+{
+  "name": "kevin-stock-research",
+  "version": "0.5.0",
+  "description": "多股票證據研究、產業分流、估值情境、模型防錯與盤後追蹤。",
+  "author": {
+    "name": "Kevin Research"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Kevin 股票研究",
+    "shortDescription": "跨股票研究、可追溯資料與估值防錯",
+    "longDescription": "依市場、股票與產業載入研究流程；原始文件與模型保留，資料缺口明示。支援 ChatGPT Work／Codex 與 Claude；即時來源能力逐項標示。",
+    "developerName": "Kevin Research",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "完整研究指定市場與股票，先建立個股設定",
+      "比較我的股票清單，對齊財務期間與口徑",
+      "用指定 Excel 更新估值並核對股票映射"
+    ]
+  }
+}
