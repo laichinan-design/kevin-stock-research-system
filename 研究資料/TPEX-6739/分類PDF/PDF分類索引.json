@@ -7,6 +7,16 @@
  "documents": [
   {
    "category": "01_年報",
+   "period": "2024",
+   "filename": "竹陞_6739_2024_年報_中文.pdf",
+   "drive_file_id": "1PRcJYJ0aPlT7qVCS35ttxj4gdwXHLL7N",
+   "original_filename": "2024_6739_20250527F04_20260508_123028.pdf",
+   "note": "2025-05-27 股東常會年報（會計年度 2024）",
+   "pages": null,
+   "sha256": null
+  },
+  {
+   "category": "01_年報",
    "period": "2025",
    "filename": "竹陞_6739_2025_年報_中文.pdf",
    "drive_file_id": "1Dd3pbigTWCGLwgWRrXuOCdGo-gzAwSoC",
@@ -22,6 +32,16 @@
    "drive_file_id": "1jxomlENSi6IRtARlImP-cea3OlJuu_ps",
    "original_filename": "202504_6739_AI1_20260508_123130.pdf",
    "note": "全年合併財務報告（資誠查核），不是單獨Q4財報",
+   "pages": null,
+   "sha256": null
+  },
+  {
+   "category": "03_季報",
+   "period": "2025Q1",
+   "filename": "竹陞_6739_2025Q1_合併季報_第一季_中文.pdf",
+   "drive_file_id": "1A8N5P8JY-rs1ueWg-ENVA2wSlHq9qiJ2",
+   "original_filename": "202501_6739_AI1_20260508_123050.pdf",
+   "note": "第一季單季報表",
    "pages": null,
    "sha256": null
   },
@@ -47,6 +67,16 @@
   },
   {
    "category": "03_季報",
+   "period": "2026Q1",
+   "filename": "竹陞_6739_2026Q1_合併季報_第一季_中文.pdf",
+   "drive_file_id": "1qumg0Awh7P0T6P2Es17XFDbynxHfSvEV",
+   "original_filename": "202601_6739_AI1_20260524_220614.pdf",
+   "note": "第一季單季報表",
+   "pages": null,
+   "sha256": null
+  },
+  {
+   "category": "03_季報",
    "period": "2026Q2",
    "filename": "竹陞_6739_2026Q2_合併季報_含上半年累計_中文.pdf",
    "drive_file_id": "1di1uO8sxj9MB-YXs9WOE56JW4YCOt153",
@@ -57,9 +87,9 @@
   }
  ],
  "counts": {
-  "01_年報": 1,
+  "01_年報": 2,
   "02_年度財報": 1,
-  "03_季報": 3,
+  "03_季報": 5,
   "04_法說會資料": 0,
   "05_技術簡報": 0,
   "06_券商研究": 0,
@@ -68,7 +98,6 @@
  },
  "gaps": {
   "01_年報": [
-   "2024 年報（2025-05-27 股東會，MOPS F04）",
    "2019–2023 年報（公開發行後，選擇性）"
   ],
   "02_年度財報": [
@@ -76,8 +105,6 @@
    "2023 年度合併財報（202304）"
   ],
   "03_季報": [
-   "2026Q1 合併季報（202601）",
-   "2025Q1 合併季報（202501）",
    "2024Q1–Q3 合併季報（202401–202403）"
   ],
   "04_法說會資料": [
@@ -100,7 +127,7 @@
   ]
  },
  "notes": [
-  "既有 MOPS 下載檔以『搬移＋改名』歸檔，未複製；原始檔名保留於 original_filename 供下載器去重比對。",
+  "既有 MOPS 下載檔以『搬移＋改名』歸檔，未複製；原始檔名保留於 original_filename 供下載器去重比對。2026-10-02 補歸檔 2024 年報、2025Q1、2026Q1 三份（原放在 竹陞6739 資料夾根目錄）。",
   "頁數與 SHA256 需本機 plugin 以 bytes 計算後回填（雲端環境無法下載 PDF bytes）。"
  ]
 }

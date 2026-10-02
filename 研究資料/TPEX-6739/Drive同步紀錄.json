@@ -2,39 +2,39 @@
   "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
   "files": {
     "待下載清單.md": {
-      "sha256": "8a5b078bc7a64dc2edce7e0214f52284bbce76852fbf6d82fe4ad8ef979537e5",
-      "bytes": 1732,
-      "synced_at": "2026-10-02T15:11:19+08:00",
+      "sha256": "9a4509703d5450b064c209b3946f08f87d463c6ba742599dccfbdc11ea89ea4d",
+      "bytes": 1376,
+      "synced_at": "2026-10-02T15:51:26+08:00",
       "via": "connector",
-      "drive_file_id": "1EmKZjZZHvyZL0i__lIVQhxPNwG3D4WmM"
+      "drive_file_id": "11fbfIko_OrvTThhMbnxPQsijzcVDdJKx"
     },
     "缺口清單.json": {
-      "sha256": "9eaeeb27590d1ff6ad345206aff29d42dcf1552347ff6e705311e8ada0bb7911",
-      "bytes": 3934,
-      "synced_at": "2026-10-02T15:11:19+08:00",
+      "sha256": "33b00167d09f46895bbfa1825c84d5d5fbc81db6d889982b5beb063990e3afa2",
+      "bytes": 2872,
+      "synced_at": "2026-10-02T15:51:26+08:00",
       "via": "connector",
-      "drive_file_id": "1crNUdlqUIB8GS_kPPM0P6t1YRC515MkP"
+      "drive_file_id": "1qcmkjOAo2x-05VVLHi-owV5e2t-wm85F"
     },
     "README.md": {
-      "sha256": "b896de01550b92b764bceb8cf9315fc8a8bdb2132cb4153282b691f323cb23e4",
-      "bytes": 3744,
-      "synced_at": "2026-10-02T15:34:14+08:00",
+      "sha256": "d371f66e5733670ac4297cfac1e08b32d1acb69baefd967013b5a1fee4c11c70",
+      "bytes": 3743,
+      "synced_at": "2026-10-02T15:52:15+08:00",
       "via": "connector",
-      "drive_file_id": "1RvJzxVe1-Uvs6Xq9Qy1_fMvW2Rjtmxcg"
+      "drive_file_id": "1p3F1F5BYV-7a0eEevBgFc8AwBjlVpnUS"
     },
     "分類PDF/整理說明.md": {
-      "sha256": "bb22657a55fef8f02174b808266720b2125c71962909497ae58e453995e17b5e",
-      "bytes": 2225,
-      "synced_at": "2026-10-02T15:13:05+08:00",
+      "sha256": "1b66465817b34e6317953d343352efb805d48755053defdeb71a9f5af26ab2c5",
+      "bytes": 2070,
+      "synced_at": "2026-10-02T15:51:26+08:00",
       "via": "connector",
-      "drive_file_id": "1r0zIlipcjtfUiyR5FxJ3irCLVSRBUp5D"
+      "drive_file_id": "1TcTsc7YrT0f7Y-reQ96emHRgjXuZFBgb"
     },
     "分類PDF/PDF分類目錄.html": {
-      "sha256": "d223a40b24ad8753dc3fef525ab8aa74b5951428e00e58ee9bbba6293e763e2f",
-      "bytes": 4851,
-      "synced_at": "2026-10-02T15:13:05+08:00",
+      "sha256": "bcdb864ca7e76db97a77369369dfb203d8fc62977774645a82c28e013691b002",
+      "bytes": 5442,
+      "synced_at": "2026-10-02T15:51:26+08:00",
       "via": "connector",
-      "drive_file_id": "1UJQaT_xMA0twSWGx9v5iUdntSpoHPmzB"
+      "drive_file_id": "1Kz59q8stzoco09vfldB6nlOONfKGTv1a"
     },
     "config.json": {
       "sha256": "cab28c79db260c4f4b37282d45fb3f4a1f2c99099d9969e3c2137dbb29efba41",
@@ -51,11 +51,11 @@
       "drive_file_id": "1331pUeludD_L977DiHYd1pCOW4jrhAr0"
     },
     "分類PDF/PDF分類索引.json": {
-      "sha256": "2a169be26699422ffd3ea3bd193a76278159e51ccdfb2aabe3fbbff7d2cd606a",
-      "bytes": 3739,
-      "synced_at": "2026-10-02T15:18:59+08:00",
+      "sha256": "2579e83f21712d48cd7e0c9e3b1e47047b98a8a0bcb985b6e4fe3d7784960d04",
+      "bytes": 4699,
+      "synced_at": "2026-10-02T15:51:26+08:00",
       "via": "connector",
-      "drive_file_id": "1w47kQoOyGQ442KWLnuQBuUAVUkCHIT03"
+      "drive_file_id": "1QF3tqvIqJVwNJPRiFExkqPjdM-H4Ru_R"
     },
     "research.sqlite": {
       "sha256": "89b40aeb41450310e3a22aa2bc316cd74f57bed179b5cc53431c238ce18f2ef3",
@@ -240,5 +240,5 @@
       "drive_file_id": "1o7XMg6w_lrkXv1b5tmLDbTcRdvwuBMyp"
     }
   },
-  "last_sync": "2026-10-02T15:34:14+08:00"
+  "last_sync": "2026-10-02T15:52:15+08:00"
 }
