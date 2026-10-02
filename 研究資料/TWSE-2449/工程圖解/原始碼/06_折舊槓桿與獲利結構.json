@@ -1,0 +1,270 @@
+{
+  "id": "06",
+  "name": "折舊槓桿與獲利結構",
+  "title": "財務結構：折舊占營收 24.5%，毛利率升到 39.5%，但新廠費用與利息壓住營益率",
+  "subtitle": "上排為封測業通用經營槓桿；數字依 115Q2 合併財報，25Q3–25Q4 季數字為 Bigdata.com（FMP）",
+  "source": "115Q2 合併財報 p.7（損益）、p.9（現金流）、p.42（折舊功能別）、p.44（財務成本）；Bigdata.com",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "cx",
+      "x": 60,
+      "y": 165,
+      "w": 275,
+      "h": 165,
+      "title": "資本支出",
+      "lines": [
+        "1H26 138.8 億",
+        "營收的 65%"
+      ],
+      "style": "primary",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "dp",
+      "x": 360,
+      "y": 165,
+      "w": 275,
+      "h": 165,
+      "title": "折舊",
+      "lines": [
+        "1H26 52.2 億",
+        "營收的 24.5%"
+      ],
+      "style": "primary",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "ut",
+      "x": 660,
+      "y": 165,
+      "w": 275,
+      "h": 165,
+      "title": "稼動率／組合",
+      "lines": [
+        "N/A（未揭露）",
+        "AI 高階測試↑"
+      ],
+      "style": "muted",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "gm",
+      "x": 960,
+      "y": 165,
+      "w": 275,
+      "h": 165,
+      "title": "毛利率",
+      "lines": [
+        "26Q2 39.5%",
+        "1H26 39.6%"
+      ],
+      "style": "solid",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "op",
+      "x": 1260,
+      "y": 165,
+      "w": 275,
+      "h": 165,
+      "title": "營益率",
+      "lines": [
+        "26Q2 25.4%",
+        "1H26 26.2%"
+      ],
+      "style": "solid",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "from": "cx",
+      "to": "dp"
+    },
+    {
+      "type": "arrow",
+      "from": "dp",
+      "to": "ut"
+    },
+    {
+      "type": "arrow",
+      "from": "ut",
+      "to": "gm"
+    },
+    {
+      "type": "arrow",
+      "from": "gm",
+      "to": "op"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 370,
+      "w": 1480,
+      "h": 200,
+      "label": "季毛利率（25Q3、25Q4 為 FMP；其餘官方）"
+    },
+    {
+      "type": "box",
+      "id": "q1",
+      "x": 90,
+      "y": 415,
+      "w": 270,
+      "h": 130,
+      "title": "25Q2 35.5%",
+      "lines": [
+        "營收 83.6 億"
+      ],
+      "style": "secondary",
+      "title_size": 23,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q2",
+      "x": 382,
+      "y": 415,
+      "w": 270,
+      "h": 130,
+      "title": "25Q3 34.3%",
+      "lines": [
+        "營收 92.9 億"
+      ],
+      "style": "secondary",
+      "title_size": 23,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q3",
+      "x": 674,
+      "y": 415,
+      "w": 270,
+      "h": 130,
+      "title": "25Q4 37.7%",
+      "lines": [
+        "營收 99.7 億"
+      ],
+      "style": "secondary",
+      "title_size": 23,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q4",
+      "x": 966,
+      "y": 415,
+      "w": 270,
+      "h": 130,
+      "title": "26Q1 39.7%",
+      "lines": [
+        "營收 101.9 億"
+      ],
+      "style": "secondary",
+      "title_size": 23,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q5",
+      "x": 1258,
+      "y": 415,
+      "w": 270,
+      "h": 130,
+      "title": "26Q2 39.5%",
+      "lines": [
+        "營收 111.4 億，創高"
+      ],
+      "style": "solid",
+      "title_size": 23,
+      "line_size": 16
+    },
+    {
+      "type": "arrow",
+      "from": "q1",
+      "to": "q2"
+    },
+    {
+      "type": "arrow",
+      "from": "q2",
+      "to": "q3"
+    },
+    {
+      "type": "arrow",
+      "from": "q3",
+      "to": "q4"
+    },
+    {
+      "type": "arrow",
+      "from": "q4",
+      "to": "q5"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 600,
+      "w": 1480,
+      "h": 230,
+      "label": "26Q2 營益率沒跟上毛利率：費用端先吃新廠成本"
+    },
+    {
+      "type": "box",
+      "id": "e1",
+      "x": 90,
+      "y": 645,
+      "w": 450,
+      "h": 160,
+      "title": "營業費用 15.7 億",
+      "lines": [
+        "YoY +97.7%，費用率 14.1%",
+        "管理費用 11.5 億（+138%）"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "e2",
+      "x": 575,
+      "y": 645,
+      "w": 450,
+      "h": 160,
+      "title": "費用中折舊 3.7 億",
+      "lines": [
+        "YoY +156%",
+        "新廠投產前（研究推論）"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "e3",
+      "x": 1060,
+      "y": 645,
+      "w": 450,
+      "h": 160,
+      "title": "財務成本 2.1 億",
+      "lines": [
+        "YoY ×16.5",
+        "長借 338 億＋租賃 83.5 億"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    }
+  ]
+}
