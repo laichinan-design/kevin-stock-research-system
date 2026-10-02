@@ -6,7 +6,10 @@ Python 3.11+。先在宿主找到可用Python；需要依賴時在獨立venv安�
 python scripts/workflow.py --root ROOT init --market TWSE --ticker 2330 --name 台積電 --industry semiconductor
 python scripts/workflow.py --root ROOT verify-identity --source OFFICIAL_HTTPS_URL --date YYYY-MM-DD
 python scripts/workflow.py --root ROOT plan --mode full --asof YYYY-MM-DD
-python scripts/workflow.py --root ROOT ingest --manifest sources.json
+python scripts/workflow.py --root ROOT dedupe-check --manifest wanted.json [--known drive-listing.json]
+python scripts/workflow.py --root ROOT ingest --manifest sources.json [--known drive-listing.json] [--force]
+python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json]
+python scripts/workflow.py --root ROOT classify-pdfs [--manifest classify.json] --apply
 python scripts/workflow.py --root ROOT extract --evidence-id SOURCE_ID
 python scripts/workflow.py --root ROOT facts --file facts.json --asof YYYY-MM-DD
 python scripts/workflow.py --root ROOT audit-model original.xlsx
@@ -32,6 +35,18 @@ plan產生待執行步驟和resolved_config；不是一鍵抓完資料或完成�
 
 ## sources.json
 JSON陣列。每筆security/category/url/title/published/fiscal_period/suffix；本機檔附local_path。local_path仍保留真實來源URL。metadata/blocked可不含bytes，status不能假填full。
+
+## 下載前去重（dedupe-check／ingest）
+wanted.json：陣列，元素可為檔名字串，或含 url／original_filename／sha256 的物件（MOPS 網址自動取 filename 參數）。回傳 download 與 skip（含原因）。
+比對順序：SHA256 → 同檔名（研究庫、分類PDF、PDF分類索引、--known 清單）→ 文件鍵（01年報／02年度合併財報／03合併季報 的 期別＋語言）。例：已有 竹陞_6739_2025_年報_中文.pdf 時，2025_6739_20260527F04.pdf 會被略過；FE4（英文）不算重複。
+--known：JSON陣列或 {"files":[...]}，每筆可有 title／filename／original_filename／sha256；可直接存 Drive 搜尋結果。
+ingest 對遠端來源套用同一檢查，略過者列在 skipped_already_held；--force 才重抓。本機 local_path 與 metadata／blocked 不受影響。mops.pending(rows, known) 供 discover 結果在下載前分流。
+
+## PDF 分類（classify-pdfs）
+輸入：證據庫 status=full 的 PDF、分類PDF 內既有 PDF、上一版 PDF分類索引.json，以及選用的 classify.json。
+classify.json：陣列。新增本機檔用 {"local_path":...,"url":...}；指定或更正分類用 sha256／evidence_id／original_filename 擇一比對（須唯一），欄位 category、label、title、language（中文／英文）、publisher、note、classification_basis。
+預設 dry-run 不寫檔；--apply 建立硬連結（跨磁碟才複製，storage=copy）、空類別放 目前無檔案.txt，並輸出 PDF分類索引.json／.xlsx、PDF分類目錄.html、整理說明.md。
+既有分類檔不改名不搬移；計算類別與所在資料夾不同時列 conflicts。MOPS 檔名屬其他代碼、無法判定類別、規則不符者列 unclassified。index 欄位與健策 3653 版相容（files[]、label、date_meaning、source_urls、storage）。
 
 ## 模型 changes.json
 JSON陣列，每筆例如：

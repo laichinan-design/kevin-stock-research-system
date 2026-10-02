@@ -17,6 +17,28 @@ MODES={
  'compare':['identity','facts','comparability','report'],
  'position':['identity','valuation','thesis','portfolio','report']}
 
+README_TEMPLATE='''# {name} {security} 研究
+
+## 成果入口
+| 檔案 | 用途 | 狀態 |
+|---|---|---|
+| 正式成果/ | 個股研究報告（DOCX） | 待產出 |
+| 模型/ | Kevin 模型與估值 | 待產出 |
+| 分類PDF/PDF分類目錄.html | 年報、財報、季報、法說會、券商、產業、股東會分類入口 | 待執行 classify-pdfs |
+| 工程圖解/ | 產品工程圖（SVG 母檔＋PNG預覽）與工藝規格 | 待產出 |
+| 整合簡報/ | 整合簡報（PPTX＋PDF） | 待產出 |
+| 缺口清單.json | 未取得資料與原因 | 持續更新 |
+
+## 接續原則
+- 下載前先跑 dedupe-check；已持有的年報、財報不重抓。
+- 原始文件以 SHA256 命名、不改寫；分類PDF 為硬連結入口。
+
+## 限制與缺口
+見 缺口清單.json。
+
+非投資建議。
+'''
+
 def iso(value):
     return date.fromisoformat(value)
 
@@ -57,7 +79,10 @@ def onboard(root,market,ticker,name,industry='general',reporting_currency=None,f
        'reporting_currency':reporting_currency or currency,'fiscal_year_end':fiscal_year_end,
        'model_profile':None,'schedule_enabled':False,'valuation_alert_change':0.1,'capabilities':capability(market)}
     validate_config(c); root.mkdir(parents=True,exist_ok=True); dump(root/'config.json',c)
-    s=Store(root);s.db.close();return c
+    s=Store(root);s.db.close()
+    if not (root/'缺口清單.json').exists():dump(root/'缺口清單.json',{'security':sid,'asof':None,'gaps':[]})
+    if not (root/'README.md').exists():(root/'README.md').write_text(README_TEMPLATE.format(name=name,security=sid),encoding='utf-8')
+    return c
 
 def config_at(root,verified=False):
     c=validate_config(read(Path(root)/'config.json'))
@@ -267,7 +292,9 @@ def main():
     a=sub.add_parser('init');a.add_argument('--market',choices=list(MARKETS),required=True);a.add_argument('--ticker',required=True);a.add_argument('--name',required=True);a.add_argument('--industry',choices=sorted(INDUSTRIES),default='general');a.add_argument('--reporting-currency');a.add_argument('--fiscal-year-end',default='12-31')
     a=sub.add_parser('verify-identity');a.add_argument('--source',required=True);a.add_argument('--date',required=True)
     a=sub.add_parser('plan');a.add_argument('--mode',choices=list(MODES),default='full');a.add_argument('--asof',required=True)
-    a=sub.add_parser('ingest');a.add_argument('--manifest',required=True)
+    a=sub.add_parser('ingest');a.add_argument('--manifest',required=True);a.add_argument('--known');a.add_argument('--force',action='store_true')
+    a=sub.add_parser('dedupe-check');a.add_argument('--manifest',required=True);a.add_argument('--known')
+    a=sub.add_parser('classify-pdfs');a.add_argument('--manifest');a.add_argument('--apply',action='store_true')
     a=sub.add_parser('facts');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
     a=sub.add_parser('daily');a.add_argument('--date',required=True);a.add_argument('--calendar',required=True)
     a=sub.add_parser('import-market');a.add_argument('--file',required=True);a.add_argument('--asof',required=True)
@@ -300,15 +327,25 @@ def main():
                 result={'status':'user_or_agent_attestation_saved','security':c['security'],'note':'This command records prior verification; it does not itself verify the website.'}
             elif args.command=='capabilities':result=capability(c['market'])
             elif args.command=='ingest':
-                ids=[]
+                from library import Known, original_name
+                ids=[];skipped=[];known=Known(s,c,read(args.known) if args.known else None)
                 for raw in read(args.manifest):
                     item=raw.copy()
                     if item.get('security')!=c['security']:raise ValueError('manifest security mismatch')
-                    local=item.pop('local_path',None)
+                    local=item.pop('local_path',None);orig=item.pop('original_filename',None)
                     if local: ids.append(s.ingest(Path(local).read_bytes(),**item))
                     elif item.get('status') in ('metadata','missing','blocked'):ids.append(s.ingest(None,**item))
-                    else:ids.append(s.fetch(**item))
-                s.export();result={'evidence_ids':ids}
+                    else:
+                        reason=None if args.force else known.has(orig or original_name(item))
+                        if reason:skipped.append({'url':item['url'],'reason':reason});continue
+                        ids.append(s.fetch(**item))
+                s.export();result={'evidence_ids':ids,'skipped_already_held':skipped}
+            elif args.command=='dedupe-check':
+                from library import dedupe_check
+                result=dedupe_check(s,c,read(args.manifest),read(args.known) if args.known else None)
+            elif args.command=='classify-pdfs':
+                from library import classify
+                result=classify(s,c,read(args.manifest) if args.manifest else None,args.apply)
             elif args.command=='facts':
                 config_at(root,True);facts=[validate_fact(f,c,args.asof,s) for f in read(args.file)]
                 sha=digest(json.dumps(facts,sort_keys=True).encode());dump(root/'財務數據'/('facts-'+sha[:16]+'.json'),facts)

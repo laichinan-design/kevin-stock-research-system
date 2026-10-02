@@ -1,3 +1,10 @@
+# 0.3.0 — 2026-10-02
+- 研究root layout：init／Store 增建 分類PDF/01–08、工程圖解/{PNG預覽,實物設備詳解版,工藝精度圖例增補版}、整合簡報；onboard 另產 README.md（成果入口）與 缺口清單.json。既有root開啟時自動補建空資料夾，不動既有檔案。
+- 新指令 classify-pdfs（scripts/library.py）：8類命名規則（年報依會計年度、全年財報不標Q4、Q2／Q3標含累計、會議與報告用YYYY-MM-DD、外部研究發布機構_日期_主題_語言）；同SHA256只留一份並合併來源；同名不同SHA全部加_來源版SHA前8碼；硬連結不複製；dry-run預設，--apply輸出 PDF分類索引.json／.xlsx、PDF分類目錄.html、整理說明.md、空類別 目前無檔案.txt。索引與健策3653既有格式相容。
+- 新指令 dedupe-check；ingest 下載前自動略過已持有文件（SHA256、原始檔名、文件鍵；MOPS檔名與分類檔名互通；可吃Drive清單 --known），--force 才重抓。mops.pending() 供下載前分流。
+- MOPS代碼表：AI1（YYYYQQ，04為全年）、F04（中文年報）、FE4（英文年報）；其他代碼不猜。
+- 測試由89增至103。
+
 # 0.2.2 — 2026-10-01
 - 只改技能描述（程式與計算不變）：research-router限定為建立研究資料夾的完整研究流程入口，其餘七個技能標為研究流程步驟；kevin-model不再承接對話內快速估值與整本投資組合月度更新，分別交給帳戶技能kevin-stock-pricing-model與update-portfolio，避免觸發重疊。
 

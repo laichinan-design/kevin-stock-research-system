@@ -2,7 +2,7 @@
 import ast,json,re,sys
 from pathlib import Path
 
-VERSION='0.2.2'
+VERSION='0.3.0'
 
 def validate(root):
     root=Path(root);errors=[];manifests=[]

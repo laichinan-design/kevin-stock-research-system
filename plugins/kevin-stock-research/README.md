@@ -1,4 +1,4 @@
-# Kevin 股票研究 0.2.2
+# Kevin 股票研究 0.3.0
 支援 ChatGPT 桌面 Work／Codex 與 Claude 的共用研究外掛。先使用research-router，說明市場、代號、任務即可；公司身分由官方證據核對。
 
 ## 使用例子
