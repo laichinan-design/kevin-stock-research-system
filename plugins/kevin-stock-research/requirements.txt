@@ -1,0 +1,8 @@
+openpyxl>=3.1,<4
+pypdfium2>=4,<6
+# 工程圖解（文字轉外框、PNG預覽）與整合簡報
+fonttools>=4.40
+brotli>=1.0
+cairosvg>=2.5
+python-pptx>=0.6.21
+Pillow>=9

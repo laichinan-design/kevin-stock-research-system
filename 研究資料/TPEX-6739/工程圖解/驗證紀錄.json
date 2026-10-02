@@ -1,0 +1,112 @@
+{
+  "generated": "2026-10-02T06:48:44",
+  "command": "visual-outline",
+  "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+  "results": [
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/01_系統架構總覽.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/01_系統架構總覽.png",
+      "bytes": 258169,
+      "texts_outlined": 31,
+      "unique_glyphs": 275,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/02_iRPA劇本自動化流程.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/02_iRPA劇本自動化流程.png",
+      "bytes": 222728,
+      "texts_outlined": 28,
+      "unique_glyphs": 264,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/03_GoVision光阻塗佈監控.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/03_GoVision光阻塗佈監控.png",
+      "bytes": 207390,
+      "texts_outlined": 23,
+      "unique_glyphs": 226,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/04_自動化演進四階段.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/04_自動化演進四階段.png",
+      "bytes": 213858,
+      "texts_outlined": 23,
+      "unique_glyphs": 240,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/05_光阻液防呆系統.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/05_光阻液防呆系統.png",
+      "bytes": 162470,
+      "texts_outlined": 19,
+      "unique_glyphs": 193,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/06_導入流程與商業模式.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/06_導入流程與商業模式.png",
+      "bytes": 223422,
+      "texts_outlined": 28,
+      "unique_glyphs": 265,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "file": "研究資料/TPEX-6739/工程圖解/07_產業價值鏈位置.svg",
+      "png": "研究資料/TPEX-6739/工程圖解/PNG預覽/07_產業價值鏈位置.png",
+      "bytes": 224431,
+      "texts_outlined": 31,
+      "unique_glyphs": 253,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/682790bd-848d-561d-8a45-c39b630c9e70/scratchpad/notofonts",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    }
+  ]
+}

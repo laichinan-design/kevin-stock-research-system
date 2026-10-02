@@ -1,0 +1,25 @@
+{
+  "file": "研究資料/TWSE-2345/整合簡報/智邦2345_產品供應鏈與競爭分析_25頁_20261002.pptx",
+  "slides": 25,
+  "style": {
+    "palette": "07",
+    "font": "C",
+    "latin_title": "Impact",
+    "latin_body": "Arial",
+    "cjk": "Microsoft JhengHei"
+  },
+  "build_warnings": [],
+  "check": {
+    "status": "passed",
+    "slides": 25,
+    "issues": [],
+    "warnings": [],
+    "fonts": [
+      "Arial",
+      "Impact",
+      "Microsoft JhengHei"
+    ]
+  },
+  "render_qa": "pdf_exported",
+  "pdf": "研究資料/TWSE-2345/整合簡報/智邦2345_產品供應鏈與競爭分析_25頁_20261002.pdf"
+}

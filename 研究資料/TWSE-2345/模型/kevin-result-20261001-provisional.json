@@ -1,0 +1,82 @@
+{
+  "method": "kevin_legacy",
+  "status": "calculated_scenario_not_trade_signal",
+  "numeric_output": {
+    "model": "kevin_dual_anchor",
+    "primary": "A",
+    "scenarios": {
+      "A": {
+        "annual_revenue": 369005374.5,
+        "eps": 76.93490171051104,
+        "growth": 0.6323976598877792,
+        "pe_p": 28.18234342749217,
+        "pe_q": 30.629042149030347,
+        "price_p": 2168.205821565977,
+        "price_q": 2356.4423472227495,
+        "model_value": 2262.3240843943636,
+        "target_premium": 1,
+        "margin": 0.11698894777075493,
+        "margin_source": "reported"
+      },
+      "B": {
+        "annual_revenue": 406693879.0,
+        "eps": 83.80119932702023,
+        "growth": 0.7780861304269091,
+        "pe_p": 29.05091905884477,
+        "pe_q": 32.98173771073664,
+        "price_p": 2434.501858683381,
+        "price_q": 2763.909176048941,
+        "model_value": 2599.205517366161,
+        "target_premium": 1,
+        "margin": 0.115621,
+        "margin_source": "input",
+        "recent_month_average": 40172574.0,
+        "margin_period": "2026Q2",
+        "inorganic_share_of_recent": 0.0
+      }
+    },
+    "earnings_quality": {
+      "reported_margin": 0.11698894777075493,
+      "core_margin": 0.11633843848947824,
+      "nonrecurring": 138622,
+      "nonrecurring_items": {
+        "fx": 132793,
+        "fvtpl": 5829,
+        "disposals": 0
+      },
+      "nonrecurring_to_pretax": 0.005560433644991771,
+      "tax_rate": 0.2226172650136963,
+      "level": "clean"
+    },
+    "previous_eps_basis": "reported",
+    "model_value": 2262.3240843943636,
+    "warnings": [
+      "scenario B: earnings quality not checked (non-recurring items unknown)"
+    ],
+    "flags": [],
+    "earnings_quality_B": null,
+    "b_vs_a": 0.14890944904650238,
+    "anchor": {
+      "m_ratio": 1.8388235294117647,
+      "m_adj": 0.85,
+      "base_pe_p": 20.23,
+      "base_pe_q": 14.755999999999998,
+      "category": "cpo",
+      "etf": "00891",
+      "etf_pe": 28,
+      "ratio_p": 0.85,
+      "ratio_q": 0.62,
+      "market_pe": 31.26,
+      "market_median_pe": 17,
+      "asof": "2026-09-11",
+      "age_days": 20
+    }
+  },
+  "currency": "TWD",
+  "assumptions_asof": "2026-10-01",
+  "source_ids": [
+    "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx",
+    "PROVISIONAL:bigdata-FMP-tearsheet-40925B-20261001",
+    "PROVISIONAL:news-cnyes-udn-月營收"
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
+  "files": {
+    "待下載清單.md": {
+      "sha256": "9a4509703d5450b064c209b3946f08f87d463c6ba742599dccfbdc11ea89ea4d",
+      "bytes": 1376,
+      "synced_at": "2026-10-02T15:51:26+08:00",
+      "via": "connector",
+      "drive_file_id": "11fbfIko_OrvTThhMbnxPQsijzcVDdJKx"
+    },
+    "缺口清單.json": {
+      "sha256": "33b00167d09f46895bbfa1825c84d5d5fbc81db6d889982b5beb063990e3afa2",
+      "bytes": 2872,
+      "synced_at": "2026-10-02T15:51:26+08:00",
+      "via": "connector",
+      "drive_file_id": "1qcmkjOAo2x-05VVLHi-owV5e2t-wm85F"
+    },
+    "README.md": {
+      "sha256": "d371f66e5733670ac4297cfac1e08b32d1acb69baefd967013b5a1fee4c11c70",
+      "bytes": 3743,
+      "synced_at": "2026-10-02T15:52:15+08:00",
+      "via": "connector",
+      "drive_file_id": "1p3F1F5BYV-7a0eEevBgFc8AwBjlVpnUS"
+    },
+    "分類PDF/整理說明.md": {
+      "sha256": "1b66465817b34e6317953d343352efb805d48755053defdeb71a9f5af26ab2c5",
+      "bytes": 2070,
+      "synced_at": "2026-10-02T15:51:26+08:00",
+      "via": "connector",
+      "drive_file_id": "1TcTsc7YrT0f7Y-reQ96emHRgjXuZFBgb"
+    },
+    "分類PDF/PDF分類目錄.html": {
+      "sha256": "bcdb864ca7e76db97a77369369dfb203d8fc62977774645a82c28e013691b002",
+      "bytes": 5442,
+      "synced_at": "2026-10-02T15:51:26+08:00",
+      "via": "connector",
+      "drive_file_id": "1Kz59q8stzoco09vfldB6nlOONfKGTv1a"
+    },
+    "config.json": {
+      "sha256": "cab28c79db260c4f4b37282d45fb3f4a1f2c99099d9969e3c2137dbb29efba41",
+      "bytes": 1118,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1DUXlHfGJVhqXutQxg99Zgl_1g_b2IT3g"
+    },
+    "工程圖解/驗證紀錄.json": {
+      "sha256": "8b2735a6983abdfedd2b3b3e6514e89d958124a69c04a3ad2a12e05e335c9918",
+      "bytes": 4166,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1331pUeludD_L977DiHYd1pCOW4jrhAr0"
+    },
+    "分類PDF/PDF分類索引.json": {
+      "sha256": "2579e83f21712d48cd7e0c9e3b1e47047b98a8a0bcb985b6e4fe3d7784960d04",
+      "bytes": 4699,
+      "synced_at": "2026-10-02T15:51:26+08:00",
+      "via": "connector",
+      "drive_file_id": "1QF3tqvIqJVwNJPRiFExkqPjdM-H4Ru_R"
+    },
+    "research.sqlite": {
+      "sha256": "89b40aeb41450310e3a22aa2bc316cd74f57bed179b5cc53431c238ce18f2ef3",
+      "bytes": 36864,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "16qCPaFNiy7iVkvQAszh15swfXho5Phkb"
+    },
+    "工程圖解/01_系統架構總覽.svg": {
+      "sha256": "7d98691e7845d523147e310928c41c1f4f44c6cbf49ab7646fa5328573b16603",
+      "bytes": 258169,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1Ivxwg6B822Rg2mVA4Xr9El3wAlwF1LfI"
+    },
+    "工程圖解/02_iRPA劇本自動化流程.svg": {
+      "sha256": "fa5998c166c3c91a7b7b84939e20523443d2492818b095e14c9aa8aab088dd56",
+      "bytes": 222728,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1m8KB2N7YYoD02VItXqlZmAzUgHMhpqfK"
+    },
+    "工程圖解/03_GoVision光阻塗佈監控.svg": {
+      "sha256": "f41dcbec0d5e18c977ce60b5e3a9590b5a8b17b8b772cb40eba8f6457b4ff5b3",
+      "bytes": 207390,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1aLgMyytOlI6Kg3CKvRuUy7M45722JOYs"
+    },
+    "工程圖解/04_自動化演進四階段.svg": {
+      "sha256": "c866e1b306025f0a5eaad31d768b54e913776f83044a2c51b0c2e6bd19d87c78",
+      "bytes": 213858,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1rhOHK40Kw-TESwFsyI7b56gq_c2DvxVz"
+    },
+    "工程圖解/05_光阻液防呆系統.svg": {
+      "sha256": "dd539950f2b79877770566695d65e4f323e98c3b383b80200fee72b3a38a7a24",
+      "bytes": 162470,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1vl0hXExq9EtmB5tBNNrxzbMZn_6wqIGM"
+    },
+    "工程圖解/06_導入流程與商業模式.svg": {
+      "sha256": "614b70a0444f43f5458161ab93282d0a90c6c1fc7218c1cc7ee6f65db3a19056",
+      "bytes": 223422,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1ol80pGirVex3J4mbc2cnNuFdocpBust5"
+    },
+    "工程圖解/07_產業價值鏈位置.svg": {
+      "sha256": "a19a34ca66f21f0c8dc039caaea9b4c7066e7612551e1e9b9a6d45561bfe0847",
+      "bytes": 224431,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1GWM6YKI_UMSBmJBEnogKB95RoqOlNbTx"
+    },
+    "工程圖解/PNG預覽/01_系統架構總覽.png": {
+      "sha256": "e7db9d9d9fa2748522ed67aae965fa525dc56284a4b3b504c3cac7d5bd0ef49d",
+      "bytes": 221545,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1UHES8Ee3Isj2PSDVoUKHN21dBU1Yqz9l"
+    },
+    "工程圖解/PNG預覽/02_iRPA劇本自動化流程.png": {
+      "sha256": "aa075eaf68140f9f59bf7875bea69764e39954c5b974fedf2fa962ab8471797b",
+      "bytes": 184799,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1d3ySXeY_rulOdtqFULUxkUAdviaDpWwJ"
+    },
+    "工程圖解/PNG預覽/03_GoVision光阻塗佈監控.png": {
+      "sha256": "37c1bbbd7d0b01234ac6a36d72b452353e66435e6f4b419f17d2eefd92caa86d",
+      "bytes": 187267,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1EIj0LihtdSbrGVICYihHIv6HxCJz64bE"
+    },
+    "工程圖解/PNG預覽/04_自動化演進四階段.png": {
+      "sha256": "567202439b7524d599c531ac768d02c7e7b3d7997fe069e306696a21aa4f6604",
+      "bytes": 187057,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1yyr_4W7tEg0s00w6BWJHC5qODkEqzeVx"
+    },
+    "工程圖解/PNG預覽/05_光阻液防呆系統.png": {
+      "sha256": "c1810e33038d4340261fd922be444d06059a4c0e5fb32e305e303ffccb4c8d00",
+      "bytes": 129711,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1V8ConRF7UJREFJl3qCUmmMnf5Mu3yXl0"
+    },
+    "工程圖解/PNG預覽/06_導入流程與商業模式.png": {
+      "sha256": "800d8fe8a5c54fb8ddbd00103e5f86007bcfeded109587de0531f1693eca68f8",
+      "bytes": 202126,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1BI8bryFQlS2CLkZQp9B8wIaoaiod4nIT"
+    },
+    "工程圖解/PNG預覽/07_產業價值鏈位置.png": {
+      "sha256": "b6e10778c01144b5977b604483fdb6dfa04150f7ee425222b679c5973423f2af",
+      "bytes": 191983,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1QhieIMgiKJn_poSgrEKb4cXuEVikFA0y"
+    },
+    "工程圖解/原始碼/01_系統架構總覽_活字原檔.svg": {
+      "sha256": "0773a9641a896ccaef856c54aec228b08fc267e647a6f8b5f3bc8b2b75b00811",
+      "bytes": 6552,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1pgO9_kDfR2ixMzMiNYZXqUAtPHqIUiqD"
+    },
+    "工程圖解/原始碼/02_iRPA劇本自動化流程_活字原檔.svg": {
+      "sha256": "1b5ddb5248658087d0138f3e81bafc0d8feb6d1f751fcb48477ad0125de2b0cc",
+      "bytes": 5525,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1VWkesKnROhVdUX6n5rPH1Sqi-Wxx39yY"
+    },
+    "工程圖解/原始碼/03_GoVision光阻塗佈監控_活字原檔.svg": {
+      "sha256": "9d4d19916117f88c98724a5a9b719f8dbb9e1187320cea08afc63cff6f1f2b01",
+      "bytes": 5149,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1Wq9xVRHcZ9Z14N_P7ECJ_RdetKfx6y24"
+    },
+    "工程圖解/原始碼/04_自動化演進四階段_活字原檔.svg": {
+      "sha256": "bca2ee31b6304d490c68eb37ecbff2a3bc5d843a1bfd0359d343749208bb7498",
+      "bytes": 4346,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1grLaXEYq4mtMQVmV0_bhzOaWJFJmo4Qk"
+    },
+    "工程圖解/原始碼/05_光阻液防呆系統_活字原檔.svg": {
+      "sha256": "3fa0599e9d057ea5da9e0e12c548aca7336a8dfe155910c422894a706c8528ab",
+      "bytes": 3954,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "17F8Me2PQzrnonlw4qozFsCUJTb1x9O3N"
+    },
+    "工程圖解/原始碼/06_導入流程與商業模式_活字原檔.svg": {
+      "sha256": "2664fcec6231e3c2e3d4064e900211709972fa866361b891d28cbe349e938ee4",
+      "bytes": 4957,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1ReC5rdykV-NaOFlOb3MT4ExCyedkkMQA"
+    },
+    "工程圖解/原始碼/07_產業價值鏈位置_活字原檔.svg": {
+      "sha256": "cfca8bc9edc7c54c580d098e0fbb9252c06185880c7934a6910db07a463ad808",
+      "bytes": 5184,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1USefqJEtidRiSEi39DCCIPgHlKraXCXQ"
+    },
+    "工程圖解/竹陞主要產品_工藝與工程規格.docx": {
+      "sha256": "1a3cc2f48c76a144e522353249c47411d8ca8ce206efba612c348c69562d4f8c",
+      "bytes": 1271039,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1XaSZC9j35boKLQEPB2bPuLAL2w8SWdTH"
+    },
+    "整合簡報/竹陞6739_產品供應鏈與工程競爭分析_23頁_20261002.pdf": {
+      "sha256": "c9e79e31dde614ef42673215b0bde68ab37699526d53d2b9b9d2490cf612335b",
+      "bytes": 1151787,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "18-LdRGGUQ3WTAITXkj6ke6C2L2as2irC"
+    },
+    "整合簡報/竹陞6739_產品供應鏈與工程競爭分析_23頁_20261002.pptx": {
+      "sha256": "95a2d1494150ccb2ed52da798db8a513174aabe048db04ec46ae3359bb6765fe",
+      "bytes": 1252784,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1LwzovSbpxOvjW69nJo-D3X2AaY2sWJdf"
+    },
+    "正式成果/竹陞6739_個股研究報告_含同業_20261001.docx": {
+      "sha256": "47c65d29300b95bf92fd5837bf98c6d9cbb8462d682e52cb11df3b8ec2808827",
+      "bytes": 112749,
+      "synced_at": "2026-10-02T15:33:27+08:00",
+      "via": "manual",
+      "drive_file_id": "1o7XMg6w_lrkXv1b5tmLDbTcRdvwuBMyp"
+    }
+  },
+  "last_sync": "2026-10-02T15:52:15+08:00"
+}

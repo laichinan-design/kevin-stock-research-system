@@ -1,0 +1,82 @@
+{
+ "method": "kevin_legacy",
+ "status": "calculated_scenario_not_trade_signal",
+ "numeric_output": {
+  "model": "kevin_dual_anchor",
+  "primary": "A",
+  "scenarios": {
+   "A": {
+    "annual_revenue": 369005374.5,
+    "eps": 76.99083338405458,
+    "growth": 0.6335844129865176,
+    "pe_p": 28.189801586638435,
+    "pe_q": 30.648894104401883,
+    "price_p": 2170.3563170864372,
+    "price_q": 2359.683899397538,
+    "model_value": 2265.0201082419876,
+    "target_premium": 1,
+    "margin": 0.11698894777075493,
+    "margin_source": "reported"
+   },
+   "B": {
+    "annual_revenue": 406693879.0,
+    "eps": 83.86212279893095,
+    "growth": 0.7793787990437291,
+    "pe_p": 29.058243307950505,
+    "pe_q": 33.001918270487984,
+    "price_p": 2436.885968612559,
+    "price_q": 2767.610922599946,
+    "model_value": 2602.2484456062525,
+    "target_premium": 1,
+    "margin": 0.115621,
+    "margin_source": "input",
+    "recent_month_average": 40172574.0,
+    "margin_period": "2026Q2",
+    "inorganic_share_of_recent": 0.0
+   }
+  },
+  "earnings_quality": {
+   "reported_margin": 0.11698894777075493,
+   "core_margin": 0.11633843848947824,
+   "nonrecurring": 138622,
+   "nonrecurring_items": {
+    "fx": 132793,
+    "fvtpl": 5829,
+    "disposals": 0
+   },
+   "nonrecurring_to_pretax": 0.005560433644991771,
+   "tax_rate": 0.2226172650136963,
+   "level": "clean"
+  },
+  "previous_eps_basis": "reported",
+  "model_value": 2265.0201082419876,
+  "warnings": [
+   "scenario B: earnings quality not checked (non-recurring items unknown)"
+  ],
+  "flags": [],
+  "earnings_quality_B": null,
+  "b_vs_a": 0.14888536138692698,
+  "anchor": {
+   "m_ratio": 1.8388235294117647,
+   "m_adj": 0.85,
+   "base_pe_p": 20.23,
+   "base_pe_q": 14.755999999999998,
+   "category": "cpo",
+   "etf": "00891",
+   "etf_pe": 28,
+   "ratio_p": 0.85,
+   "ratio_q": 0.62,
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "asof": "2026-09-11",
+   "age_days": 21
+  }
+ },
+ "currency": "TWD",
+ "assumptions_asof": "2026-10-02",
+ "source_ids": [
+  "MOPS:202602_2345_AI1（Drive 1_10_e61kzWRwvbiYty2iV_FxIlYUvnDl）p.5–6、p.30、p.33",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（1–8月營收、錨定）",
+  "PROVISIONAL:bigdata-FMP（2025Q4 EPS 14.95）"
+ ]
+}

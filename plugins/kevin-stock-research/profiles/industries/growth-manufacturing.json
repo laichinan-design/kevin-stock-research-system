@@ -1,0 +1,26 @@
+{
+  "id": "growth-manufacturing",
+  "version": 1,
+  "name": "成長型製造業",
+  "required_kpis": [
+    "產品量價組合",
+    "capex／良率／折舊",
+    "毛利率",
+    "客戶集中",
+    "現金轉換"
+  ],
+  "candidate_methods": [
+    "kevin_legacy",
+    "scenario_pe"
+  ],
+  "guards": [
+    "負成長不套 Kevin",
+    "年化須檢查季節性"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}

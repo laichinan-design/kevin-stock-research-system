@@ -1,0 +1,26 @@
+{
+  "id": "cyclical",
+  "version": 1,
+  "name": "景氣循環",
+  "required_kpis": [
+    "供需與價格",
+    "库存與產能",
+    "中週期獲利",
+    "資本支出",
+    "負債安全性"
+  ],
+  "candidate_methods": [
+    "scenario_pe",
+    "scenario_pb"
+  ],
+  "guards": [
+    "EPS 採正常化情境",
+    "高峰獲利不能視為永續"
+  ],
+  "peer_rules": [
+    "收入結構可比",
+    "期間與scope一致",
+    "基本／稀釋EPS分開",
+    "列排除理由"
+  ]
+}

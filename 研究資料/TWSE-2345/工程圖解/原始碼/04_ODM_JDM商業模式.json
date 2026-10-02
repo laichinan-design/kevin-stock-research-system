@@ -1,0 +1,209 @@
+{
+  "id": "04",
+  "name": "ODM_JDM商業模式",
+  "title": "商業模式：從 ODM 代工走向 JDM 共同設計，製造據點分散到越南與美國",
+  "subtitle": "流程為一般 JDM 模式示意；四大支柱與生產據點依公司揭露",
+  "source": "2024 年報 p.1–2（ODM／JDM／開放基礎架構／戰略技術四大支柱、製造服務化）、p.72（竹南、新竹、越南、美國爾灣）；2026Q2 合併季報 p.20（AMS 美國製造）",
+  "elements": [
+    {
+      "type": "box",
+      "id": "s1",
+      "x": 60,
+      "y": 170,
+      "w": 250,
+      "h": 150,
+      "title": "客戶規格",
+      "lines": [
+        "架構與功耗需求"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "s2",
+      "x": 350,
+      "y": 170,
+      "w": 250,
+      "h": 150,
+      "title": "JDM 共同設計",
+      "lines": [
+        "硬體＋開放軟體"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "s3",
+      "x": 640,
+      "y": 170,
+      "w": 250,
+      "h": 150,
+      "title": "DFM",
+      "lines": [
+        "可製造性設計"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "s4",
+      "x": 930,
+      "y": 170,
+      "w": 250,
+      "h": 150,
+      "title": "NPI 驗證",
+      "lines": [
+        "樣品、認證、良率"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "s5",
+      "x": 1220,
+      "y": 170,
+      "w": 320,
+      "h": 150,
+      "title": "量產交付",
+      "lines": [
+        "Hyperscaler",
+        "網路設備商、電信"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "arrow",
+      "from": "s1",
+      "to": "s2"
+    },
+    {
+      "type": "arrow",
+      "from": "s2",
+      "to": "s3"
+    },
+    {
+      "type": "arrow",
+      "from": "s3",
+      "to": "s4"
+    },
+    {
+      "type": "arrow",
+      "from": "s4",
+      "to": "s5"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 380,
+      "w": 1480,
+      "h": 190,
+      "label": "四大支柱"
+    },
+    {
+      "type": "box",
+      "id": "p1",
+      "x": 90,
+      "y": 425,
+      "w": 330,
+      "h": 120,
+      "title": "ODM 服務",
+      "lines": [],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "p2",
+      "x": 450,
+      "y": 425,
+      "w": 330,
+      "h": 120,
+      "title": "JDM 服務",
+      "lines": [],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "p3",
+      "x": 810,
+      "y": 425,
+      "w": 330,
+      "h": 120,
+      "title": "開放基礎架構部門",
+      "lines": [],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "p4",
+      "x": 1170,
+      "y": 425,
+      "w": 340,
+      "h": 120,
+      "title": "戰略技術投入與合作",
+      "lines": [],
+      "style": "secondary"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 600,
+      "w": 1480,
+      "h": 220,
+      "label": "生產與研發據點"
+    },
+    {
+      "type": "box",
+      "id": "f1",
+      "x": 90,
+      "y": 650,
+      "w": 330,
+      "h": 140,
+      "title": "台灣竹南／新竹",
+      "lines": [
+        "2020 起主要生產基地"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "f2",
+      "x": 450,
+      "y": 650,
+      "w": 330,
+      "h": 140,
+      "title": "越南",
+      "lines": [
+        "2023 啟動、持續擴產"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "f3",
+      "x": 810,
+      "y": 650,
+      "w": 330,
+      "h": 140,
+      "title": "美國爾灣",
+      "lines": [
+        "製造據點（AMS）"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "f4",
+      "x": 1170,
+      "y": 650,
+      "w": 340,
+      "h": 140,
+      "title": "竹北 AI 園區",
+      "lines": [
+        "研發核心與智慧製造"
+      ],
+      "style": "primary"
+    }
+  ],
+  "asof": "2026-10-02",
+  "illustrative": true
+}

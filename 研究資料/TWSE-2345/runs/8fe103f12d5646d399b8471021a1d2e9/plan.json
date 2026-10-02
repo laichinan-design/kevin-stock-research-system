@@ -1,0 +1,73 @@
+{
+  "run_id": "8fe103f12d5646d399b8471021a1d2e9",
+  "security": "TWSE:2345",
+  "mode": "full",
+  "asof": "2026-10-01",
+  "status": "planned_not_executed",
+  "resolved_config": {
+    "schema_version": 2,
+    "version": "0.2.2",
+    "security": "TWSE:2345",
+    "market": "TWSE",
+    "ticker": "2345",
+    "name": "智邦",
+    "instrument_type": "common_stock",
+    "industry": "growth-manufacturing",
+    "identity_verified": false,
+    "identity_source": null,
+    "identity_verified_at": null,
+    "exchange_timezone": "Asia/Taipei",
+    "report_timezone": "Asia/Taipei",
+    "quote_currency": "TWD",
+    "reporting_currency": "TWD",
+    "fiscal_year_end": "12-31",
+    "model_profile": null,
+    "schedule_enabled": false,
+    "valuation_alert_change": 0.1,
+    "capabilities": {
+      "research": "agent_with_verified_evidence",
+      "facts": "validated_import",
+      "valuation": "kevin_dual_anchor_or_scenario_pe_pb_nav",
+      "live_market": "twse_candidate_requires_per_run_validation",
+      "portfolio": "same_currency_combined_proposals",
+      "scheduling": "host_specific_user_request_required"
+    }
+  },
+  "steps": [
+    "identity",
+    "sources",
+    "facts",
+    "thesis",
+    "valuation",
+    "report"
+  ],
+  "industry_profile": {
+    "id": "growth-manufacturing",
+    "version": 1,
+    "name": "成長型製造業",
+    "required_kpis": [
+      "產品量價組合",
+      "capex／良率／折舊",
+      "毛利率",
+      "客戶集中",
+      "現金轉換"
+    ],
+    "candidate_methods": [
+      "kevin_legacy",
+      "scenario_pe"
+    ],
+    "guards": [
+      "負成長不套 Kevin",
+      "年化須檢查季節性"
+    ],
+    "peer_rules": [
+      "收入結構可比",
+      "期間與scope一致",
+      "基本／稀釋EPS分開",
+      "列排除理由"
+    ]
+  },
+  "blockers": [
+    "official security identity not yet verified"
+  ]
+}
