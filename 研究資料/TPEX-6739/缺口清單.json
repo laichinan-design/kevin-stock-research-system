@@ -1,7 +1,7 @@
 {
   "security": "TPEX:6739",
   "asof": "2026-10-02",
-  "generated": "2026-10-02T15:09:37+08:00",
+  "generated": "2026-10-02T15:46:16+08:00",
   "gaps": [
     {
       "id": "pdf-concall",
@@ -39,17 +39,6 @@
       "impact": "法定文件未持有"
     },
     {
-      "id": "mops-F04-2024",
-      "auto": true,
-      "kind": "statutory_missing",
-      "item": "2024 年報",
-      "category": "01_年報",
-      "need": "MOPS F04（discover kind=F, ROC 113 或 114，依股東會年度）",
-      "mops_filename": "2024_6739_{股東會日期}F04.pdf",
-      "due": "2025-06-30",
-      "impact": "法定文件未持有"
-    },
-    {
       "id": "mops-AI1-2024Q1",
       "auto": true,
       "kind": "statutory_missing",
@@ -80,28 +69,6 @@
       "need": "MOPS AI1（discover kind=A, ROC 113）",
       "mops_filename": "202403_6739_AI1.pdf",
       "due": "2024-11-14",
-      "impact": "法定文件未持有"
-    },
-    {
-      "id": "mops-AI1-2025Q1",
-      "auto": true,
-      "kind": "statutory_missing",
-      "item": "2025Q1 合併季報_第一季",
-      "category": "03_季報",
-      "need": "MOPS AI1（discover kind=A, ROC 114）",
-      "mops_filename": "202501_6739_AI1.pdf",
-      "due": "2025-05-15",
-      "impact": "法定文件未持有"
-    },
-    {
-      "id": "mops-AI1-2026Q1",
-      "auto": true,
-      "kind": "statutory_missing",
-      "item": "2026Q1 合併季報_第一季",
-      "category": "03_季報",
-      "need": "MOPS AI1（discover kind=A, ROC 115）",
-      "mops_filename": "202601_6739_AI1.pdf",
-      "due": "2026-05-15",
       "impact": "法定文件未持有"
     },
     {
