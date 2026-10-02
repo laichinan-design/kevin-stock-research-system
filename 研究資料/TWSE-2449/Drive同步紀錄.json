@@ -1,0 +1,97 @@
+{
+  "drive_folder": "投資組合-台股/京元電2449/京元電2449研究",
+  "files": {
+    "模型/valuation-20261002-kevin-provisional-adj623.json": {
+      "sha256": "d7418fe1a7b821f5ee0ef57bb6c48211416367908f5df4450f79419f632ebb3d",
+      "bytes": 2937,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "1Mp8Vc5LHUHITUlC9yiJNlPdAuvW4ZNid"
+    },
+    "模型/valuation-20261002-kevin-provisional-wb655.json": {
+      "sha256": "bf21230333eead952671292d093d94e1dcbd15020e990e6a95135987be4e74b9",
+      "bytes": 2712,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "149WI85IMBmOFINTLxONV-vMDWnxp8ri9"
+    },
+    "模型/reverse-implied-revenue-20261002.json": {
+      "sha256": "882515e75b3239175916eb5787c5d8227f716073c16c1613056d5a181a5fb0a3",
+      "bytes": 814,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "1TOeR8TpZkX9WPtI7_AnC20Fcb2W1rd1E"
+    },
+    "模型/sensitivity-H-20261002.json": {
+      "sha256": "19405ff78a1a5e04359611419de435d9cfd2c185f72839518a82de2d1afb5371",
+      "bytes": 524,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "1hbYwhTFq_eepHwo1e12k1OG0c9rvIUOD"
+    },
+    "財務數據/peers-20261002.json": {
+      "sha256": "d2e5025d0c65746419b49051ace38971c4cf2a949f26b65d4169510589953316",
+      "bytes": 2668,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "1-6QYhz_5kFUPVc37Q9zl3GQQFqrWK09q"
+    },
+    "正式成果/2449_京元電_官方資料複核_20261002.xlsx": {
+      "sha256": "12998a4de2a0cfe9a4d8e6c7a8b423013721c02ee755dd6b9e3a402401a0c314",
+      "bytes": 10157,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "1FTD1wIzzKf5cHdUrpuXm1QMAm8vNT1qa"
+    },
+    "正式成果/2449_京元電_個股研究報告_20261002.docx": {
+      "sha256": "8cac98b03d41e8a0d7905d49256147b71ee2dd71dd6f70251b8a996bc145da96",
+      "bytes": 30358,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "connector",
+      "drive_file_id": "177ZvU-ctmIdzWial6S4Y7gHyMb4HHKq_"
+    },
+    "分類PDF/01_年報/京元電_2449_2024_年報_中文.pdf": {
+      "sha256": "a014a15fd7c3e9a0038c85aef28efc3e75f40d2176e977d20fe4bc532c87dd33",
+      "bytes": 1787502,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1lCcVGWlMDdWY25o8X5aj6k-VrB1MvV42"
+    },
+    "分類PDF/01_年報/京元電_2449_2025_年報_中文.pdf": {
+      "sha256": "52a5188b34aaf68697e5968fab0e6fcc1b945e2f73968e08332b3d56e44010b7",
+      "bytes": 1730623,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1MWwj0K_ZsK88NP4c1EpgnophgkvWyx5_"
+    },
+    "分類PDF/03_季報/京元電_2449_2026Q2_合併季報_含上半年累計_中文.pdf": {
+      "sha256": "6d10a8da405b108ee85a2a2fa387da92c5e8148b8b010fb810f9b041dfd73000",
+      "bytes": 999073,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1MfgQA5DHe6ukGI5dckwqlRIsM2bLCX9q"
+    },
+    "原始文件/a014a15fd7c3e9a0038c85aef28efc3e75f40d2176e977d20fe4bc532c87dd33.pdf": {
+      "sha256": "a014a15fd7c3e9a0038c85aef28efc3e75f40d2176e977d20fe4bc532c87dd33",
+      "bytes": 1787502,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1lCcVGWlMDdWY25o8X5aj6k-VrB1MvV42"
+    },
+    "原始文件/52a5188b34aaf68697e5968fab0e6fcc1b945e2f73968e08332b3d56e44010b7.pdf": {
+      "sha256": "52a5188b34aaf68697e5968fab0e6fcc1b945e2f73968e08332b3d56e44010b7",
+      "bytes": 1730623,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1MWwj0K_ZsK88NP4c1EpgnophgkvWyx5_"
+    },
+    "原始文件/6d10a8da405b108ee85a2a2fa387da92c5e8148b8b010fb810f9b041dfd73000.pdf": {
+      "sha256": "6d10a8da405b108ee85a2a2fa387da92c5e8148b8b010fb810f9b041dfd73000",
+      "bytes": 999073,
+      "synced_at": "2026-10-02T19:31:14+08:00",
+      "via": "manual",
+      "drive_file_id": "1MfgQA5DHe6ukGI5dckwqlRIsM2bLCX9q"
+    }
+  },
+  "last_sync": "2026-10-02T19:31:14+08:00"
+}

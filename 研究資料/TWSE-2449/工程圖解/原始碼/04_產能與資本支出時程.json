@@ -1,0 +1,203 @@
+{
+  "id": "04",
+  "name": "產能與資本支出時程",
+  "title": "產能時程：頭份、楊梅、銅鑼五廠 2026 年投產，capex 由 97 億跳到 400 億級",
+  "subtitle": "廠區與投產年依年報；2026 capex 500 億為媒體轉述，模型不採用；機台數與稼動率公司未揭露",
+  "source": "2025 年報 封面裏頁（廠址）、p.1（頭份／楊梅 35,000 坪）、p.51（2026 開始用電生產）、p.105（資本支出運用）；115Q2 合併財報 p.5–6、p.9、p.54",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 160,
+      "w": 1480,
+      "h": 250,
+      "label": "廠區（年報）"
+    },
+    {
+      "type": "box",
+      "id": "hq",
+      "x": 90,
+      "y": 205,
+      "w": 265,
+      "h": 180,
+      "title": "新竹總部",
+      "lines": [
+        "公道五路二段"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "zn",
+      "x": 380,
+      "y": 205,
+      "w": 265,
+      "h": 180,
+      "title": "竹南廠",
+      "lines": [
+        "中華路"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "tl",
+      "x": 670,
+      "y": 205,
+      "w": 265,
+      "h": 180,
+      "title": "銅鑼廠",
+      "lines": [
+        "銅科北路；五廠 2026 用電"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "tf",
+      "x": 960,
+      "y": 205,
+      "w": 265,
+      "h": 180,
+      "title": "頭份一廠",
+      "lines": [
+        "承租，2026 用電生產"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "ym",
+      "x": 1250,
+      "y": 205,
+      "w": 265,
+      "h": 180,
+      "title": "楊梅廠",
+      "lines": [
+        "承租，2026 用電生產"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "text",
+      "x": 800,
+      "y": 440,
+      "text": "頭份＋楊梅新增無塵室約 35,000 坪，設備產能空間 +50%（2025 年報 p.1）",
+      "size": 19,
+      "anchor": "middle",
+      "weight": "bold"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 470,
+      "w": 1480,
+      "h": 360,
+      "label": "資本支出（建廠及機器設備，千元→億元）"
+    },
+    {
+      "type": "box",
+      "id": "c24",
+      "x": 90,
+      "y": 520,
+      "w": 340,
+      "h": 170,
+      "title": "2024 實際",
+      "lines": [
+        "96.9 億",
+        "年報 p.105 113 年度欄"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 18
+    },
+    {
+      "type": "box",
+      "id": "c25",
+      "x": 455,
+      "y": 520,
+      "w": 340,
+      "h": 170,
+      "title": "2025 實際",
+      "lines": [
+        "314.2 億",
+        "296.7＋17.5（兩案）"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 18
+    },
+    {
+      "type": "box",
+      "id": "c26",
+      "x": 820,
+      "y": 520,
+      "w": 340,
+      "h": 170,
+      "title": "2026 計畫",
+      "lines": [
+        "424.3 億",
+        "年報 p.105；媒體稱上修 500 億"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 18
+    },
+    {
+      "type": "box",
+      "id": "h1",
+      "x": 1185,
+      "y": 520,
+      "w": 340,
+      "h": 170,
+      "title": "2026H1 現金",
+      "lines": [
+        "138.8 億",
+        "115Q2 p.9，營收 65%"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 18
+    },
+    {
+      "type": "arrow",
+      "from": "c24",
+      "to": "c25"
+    },
+    {
+      "type": "arrow",
+      "from": "c25",
+      "to": "c26"
+    },
+    {
+      "type": "text",
+      "x": 800,
+      "y": 745,
+      "text": "承租新廠使用權資產 82.3 億、租賃負債 83.5 億（115Q2 p.5–6）；工程合約尚需支付 32.1 億（p.54）",
+      "size": 18,
+      "anchor": "middle",
+      "weight": "normal"
+    },
+    {
+      "type": "text",
+      "x": 800,
+      "y": 790,
+      "text": "預計增加銷售值：2026 32.8 億、2027 46.9 億（年報 p.105，公司估計）",
+      "size": 18,
+      "anchor": "middle",
+      "weight": "normal"
+    }
+  ]
+}

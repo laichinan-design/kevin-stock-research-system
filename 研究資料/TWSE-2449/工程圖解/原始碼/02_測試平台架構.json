@@ -1,0 +1,229 @@
+{
+  "id": "02",
+  "name": "測試平台架構",
+  "title": "測試平台：ATE 外購，Burn-in 爐、預燒板、Handler 與自動化大量自製",
+  "subtitle": "三欄為三種測試站的典型配置（研究推論）；標「自製」者依年報研發成果與研發計畫，ATE 品牌與台數公司未揭露",
+  "source": "2025 年報 p.2（研發狀況）、p.86（開發成功之技術）、p.107（未來研發計劃）；FMP 公司簡介（Vertical card）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 160,
+      "w": 470,
+      "h": 420,
+      "label": "晶圓針測 CP"
+    },
+    {
+      "type": "box",
+      "id": "ate1",
+      "x": 90,
+      "y": 205,
+      "w": 410,
+      "h": 95,
+      "title": "ATE 測試機",
+      "lines": [
+        "Logic／Memory／Mixed-Signal 平台"
+      ],
+      "style": "solid",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "pc",
+      "x": 90,
+      "y": 320,
+      "w": 410,
+      "h": 95,
+      "title": "探針卡 Probe Card",
+      "lines": [
+        "外購耗材＋自製 Vertical card"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "pr",
+      "x": 90,
+      "y": 435,
+      "w": 410,
+      "h": 120,
+      "title": "Prober＋FOUP 儲料",
+      "lines": [
+        "自製 FOUP Stocker 模組",
+        "Probe Mark 量測（開發中）"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "lane",
+      "x": 565,
+      "y": 160,
+      "w": 470,
+      "h": 420,
+      "label": "成品測試 FT／SLT"
+    },
+    {
+      "type": "box",
+      "id": "ate2",
+      "x": 595,
+      "y": 205,
+      "w": 410,
+      "h": 95,
+      "title": "ATE 測試機",
+      "lines": [
+        "128ch LVDS、影像擷取模組（自製）"
+      ],
+      "style": "solid",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "lb",
+      "x": 595,
+      "y": 320,
+      "w": 410,
+      "h": 95,
+      "title": "Load board＋Socket",
+      "lines": [
+        "Socket 診斷分析、CRES 量測"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "hd",
+      "x": 595,
+      "y": 435,
+      "w": 410,
+      "h": 120,
+      "title": "Handler 分類機",
+      "lines": [
+        "自製 Tray to Tray Vision Handler",
+        "FT Handler 開發（115Q4）"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "lane",
+      "x": 1070,
+      "y": 160,
+      "w": 470,
+      "h": 420,
+      "label": "Burn-in 預燒（自製）"
+    },
+    {
+      "type": "box",
+      "id": "ov",
+      "x": 1100,
+      "y": 205,
+      "w": 410,
+      "h": 95,
+      "title": "高功耗預燒爐",
+      "lines": [
+        "HP600／HP320，液冷控制模組"
+      ],
+      "style": "solid",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "bib",
+      "x": 1100,
+      "y": 320,
+      "w": 410,
+      "h": 95,
+      "title": "預燒板 BIB",
+      "lines": [
+        "冷板 cold plate、TIM 模擬"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "kits",
+      "x": 1100,
+      "y": 435,
+      "w": 410,
+      "h": 120,
+      "title": "KITS 自動上下架",
+      "lines": [
+        "Auto Burn In、AMR 換電",
+        "Kiwi 預燒資料分析"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 615,
+      "w": 1480,
+      "h": 215,
+      "label": "共用：測試程式、資料與自動化"
+    },
+    {
+      "type": "box",
+      "id": "tp",
+      "x": 90,
+      "y": 660,
+      "w": 450,
+      "h": 140,
+      "title": "測試程式與工程分析",
+      "lines": [
+        "客戶測試程式轉換",
+        "測試平台轉換技術"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "da",
+      "x": 575,
+      "y": 660,
+      "w": 450,
+      "h": 140,
+      "title": "資料分析與品質",
+      "lines": [
+        "AI 工具做事前指標",
+        "Wafer／Tray AOI、3D 視覺"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "au",
+      "x": 1060,
+      "y": 660,
+      "w": 450,
+      "h": 140,
+      "title": "工廠自働化",
+      "lines": [
+        "Tray Stocker、AGV／AMR",
+        "物流設備套件"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    }
+  ]
+}

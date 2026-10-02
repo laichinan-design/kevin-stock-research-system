@@ -1,0 +1,310 @@
+{
+  "id": "01",
+  "name": "封測流程總覽",
+  "title": "測試流程：京元電做晶圓針測、成品測試與 Burn-in，封裝委外；測試占營收 97%",
+  "subtitle": "深色＝京元電主要工序；流程依 2025 年報「主要產品之產製過程」，營收依「營業比重」與「銷售地區」",
+  "source": "2025 年報 p.84（營業比重）、p.87（銷售地區、短期業務計畫）、p.89–90（產製過程）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "w",
+      "x": 60,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "晶圓投片",
+      "lines": [
+        "客戶／晶圓代工",
+        "（非京元工序）"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "cp",
+      "x": 275,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "晶圓針測 CP",
+      "lines": [
+        "兩次針測＋雷射修補",
+        "篩選晶粒良窳"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "gd",
+      "x": 490,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "研磨切割挑揀",
+      "lines": [
+        "研磨→切割",
+        "Wafer／Tray AOI"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "pk",
+      "x": 705,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "IC 封裝",
+      "lines": [
+        "委外封裝廠",
+        "（非主要工序）"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "ft",
+      "x": 920,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "成品測試 FT",
+      "lines": [
+        "功能、速度、功耗",
+        "三溫測試"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "bi",
+      "x": 1135,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "Burn-in 預燒",
+      "lines": [
+        "加速篩除早夭",
+        "自製高功耗爐"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "sh",
+      "x": 1350,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "掃腳／出貨",
+      "lines": [
+        "捲帶包裝",
+        "Drop ship"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "arrow",
+      "from": "w",
+      "to": "cp"
+    },
+    {
+      "type": "arrow",
+      "from": "cp",
+      "to": "gd"
+    },
+    {
+      "type": "arrow",
+      "from": "gd",
+      "to": "pk"
+    },
+    {
+      "type": "arrow",
+      "from": "pk",
+      "to": "ft"
+    },
+    {
+      "type": "arrow",
+      "from": "ft",
+      "to": "bi"
+    },
+    {
+      "type": "arrow",
+      "from": "bi",
+      "to": "sh"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 385,
+      "w": 1480,
+      "h": 200,
+      "label": "2025 營收結構（合併 349.34 億）"
+    },
+    {
+      "type": "box",
+      "id": "r1",
+      "x": 90,
+      "y": 430,
+      "w": 440,
+      "h": 130,
+      "title": "晶圓測試 106.8 億",
+      "lines": [
+        "30.56%｜內銷 36.8、外銷 70.0 億"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "r2",
+      "x": 580,
+      "y": 430,
+      "w": 440,
+      "h": 130,
+      "title": "積體電路測試 232.1 億",
+      "lines": [
+        "66.43%｜含 FT、Burn-in"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "r3",
+      "x": 1070,
+      "y": 430,
+      "w": 440,
+      "h": 130,
+      "title": "其他 10.5 億",
+      "lines": [
+        "3.01%｜研磨切割、包裝等"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 615,
+      "w": 1480,
+      "h": 215,
+      "label": "測試產品線（年報短期業務計畫）"
+    },
+    {
+      "type": "box",
+      "id": "p0",
+      "x": 90,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "Logic／AI",
+      "lines": [
+        "GPU、ASIC",
+        "HPC 晶片"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "p1",
+      "x": 330,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "Memory",
+      "lines": [
+        "記憶體",
+        "預燒測試"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "p2",
+      "x": 570,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "RF／Baseband",
+      "lines": [
+        "無線網路 IC",
+        "<60GHz 介面"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "p3",
+      "x": 810,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "LCD Driver",
+      "lines": [
+        "TFT／OLED",
+        "驅動 IC"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "p4",
+      "x": 1050,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "Mixed-Signal",
+      "lines": [
+        "電源管理",
+        "類比高壓"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "p5",
+      "x": 1290,
+      "y": 660,
+      "w": 220,
+      "h": 140,
+      "title": "Image Sensor",
+      "lines": [
+        "CPHY／MPHY",
+        "影像擷取"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    }
+  ]
+}

@@ -41,6 +41,8 @@
 | 智邦 2345 研究資料夾 | `投資組合-台股/智邦2345/智邦2345研究` | `1ejj72dCsUwto2Pw_CS1AKW1-ZsPbQKLD` |
 | 矽格 6257 | `投資組合-台股/矽格6257` | `12pKaZ0oqRd02x9sksEc1zxXUG6ecjSCW` |
 | 矽格 6257 研究資料夾 | `投資組合-台股/矽格6257/矽格6257研究` | `1MA01iKzAtfojAHFhZplxyomkFWJL0yrp` |
+| 京元電 2449 | `投資組合-台股/京元電2449` | `1cpG5L85m8XF2LIfTw8IVrGPEYMknfRT1` |
+| 京元電 2449 研究資料夾 | `投資組合-台股/京元電2449/京元電2449研究` | `1zIWMtb6hwSl4s7I4pj5aeSqhIBI3njrI` |
 
 ### 官方資料來源
 

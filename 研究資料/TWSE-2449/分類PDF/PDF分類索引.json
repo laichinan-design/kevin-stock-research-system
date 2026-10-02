@@ -1,0 +1,103 @@
+{
+  "security": "TWSE:2449",
+  "name": "京元電子",
+  "generated": "2026-10-02T18:58:43+08:00",
+  "rule": "{公司}_{代碼}_{會計年度或文件日期}_{文件類別}_{語言}.pdf；外部研究採 {發布機構}_{日期}_{主題}_{語言}.pdf；同標題不同SHA256加 _來源版{SHA前8碼}",
+  "counts": {
+    "01_年報": 2,
+    "02_年度財報": 0,
+    "03_季報": 1,
+    "04_法說會資料": 0,
+    "05_技術簡報": 0,
+    "06_券商研究": 0,
+    "07_產業資料": 0,
+    "08_股東會與公司治理": 0
+  },
+  "files": [
+    {
+      "sha256": "a014a15fd7c3e9a0038c85aef28efc3e75f40d2176e977d20fe4bc532c87dd33",
+      "category": "01_年報",
+      "label": "2024",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "京元電",
+      "name": "京元電_2449_2024_年報_中文.pdf",
+      "pages": 118,
+      "original_path": "原始文件/a014a15fd7c3e9a0038c85aef28efc3e75f40d2176e977d20fe4bc532c87dd33.pdf",
+      "source_ids": [
+        "5e0dccdecfd51e474097cb9d5db556c984b00f2a9d2fb66dcd7a260a7db1939d"
+      ],
+      "source_urls": [
+        "https://drive.google.com/file/d/1lCcVGWlMDdWY25o8X5aj6k-VrB1MvV42"
+      ],
+      "published_dates": [
+        "2025-05-27"
+      ],
+      "original_filenames": [],
+      "classification_basis": "manifest指定（依封面）",
+      "note": "2025-05-27 股東常會年報（會計年度 2024）",
+      "path": "分類PDF/01_年報/京元電_2449_2024_年報_中文.pdf",
+      "storage": "hardlink"
+    },
+    {
+      "sha256": "52a5188b34aaf68697e5968fab0e6fcc1b945e2f73968e08332b3d56e44010b7",
+      "category": "01_年報",
+      "label": "2025",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "京元電",
+      "name": "京元電_2449_2025_年報_中文.pdf",
+      "pages": 116,
+      "original_path": "原始文件/52a5188b34aaf68697e5968fab0e6fcc1b945e2f73968e08332b3d56e44010b7.pdf",
+      "source_ids": [
+        "0d22af3c7e2c394e1d58f953bf717ee2a0c7f8cf702b8c7cd1e488c584cc570f"
+      ],
+      "source_urls": [
+        "https://drive.google.com/file/d/1MWwj0K_ZsK88NP4c1EpgnophgkvWyx5_"
+      ],
+      "published_dates": [
+        "2026-05-29"
+      ],
+      "original_filenames": [],
+      "classification_basis": "manifest指定（依封面）",
+      "note": "2026-05-29 股東常會年報（會計年度 2025）；致股東 p.1–4、營運概況 p.84–91（營業比重 p.84、市占 p.87、主要客戶 p.91）、財務績效 p.103–105",
+      "path": "分類PDF/01_年報/京元電_2449_2025_年報_中文.pdf",
+      "storage": "hardlink"
+    },
+    {
+      "sha256": "6d10a8da405b108ee85a2a2fa387da92c5e8148b8b010fb810f9b041dfd73000",
+      "category": "03_季報",
+      "label": "2026Q2",
+      "date_meaning": "季度及年初至當季累計",
+      "title": "合併季報_含上半年累計",
+      "language": "中文",
+      "publisher": "京元電",
+      "name": "京元電_2449_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "pages": 71,
+      "original_path": "原始文件/6d10a8da405b108ee85a2a2fa387da92c5e8148b8b010fb810f9b041dfd73000.pdf",
+      "source_ids": [
+        "9617ed870fa29753db3acdcb89aa5ea8b8941e971fb1a948542a7dc582814358"
+      ],
+      "source_urls": [
+        "https://drive.google.com/file/d/1MfgQA5DHe6ukGI5dckwqlRIsM2bLCX9q"
+      ],
+      "published_dates": [
+        "2026-08-07"
+      ],
+      "original_filenames": [],
+      "classification_basis": "manifest指定（依封面）",
+      "note": "115Q2 合併財報（核閱）；損益 p.7、資產負債 p.5–6、現金流 p.9、股本與股利 p.31–32、營收 p.36、營業外 p.44、EPS p.47–48、承諾 p.54；Q2／Q3含累計報表；未將累計數直接標成單季數。",
+      "path": "分類PDF/03_季報/京元電_2449_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "storage": "hardlink"
+    }
+  ],
+  "unclassified": [],
+  "conflicts": [],
+  "mops_codes": {
+    "AI1": "合併財務報告（YYYYQQ；QQ=01–03 季報，04 全年財報）",
+    "F04": "股東會年報（中文；檔名年度為會計年度）",
+    "FE4": "股東會年報（英文）"
+  }
+}

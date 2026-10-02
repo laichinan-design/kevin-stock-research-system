@@ -1,0 +1,182 @@
+{
+  "security": "TWSE:2449",
+  "asof": "2026-10-02",
+  "generated": "2026-10-02T19:31:23+08:00",
+  "gaps": [
+    {
+      "id": "mops-AI1-2024",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202404_2449_AI1.pdf",
+      "due": "2025-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202401_2449_AI1.pdf",
+      "due": "2024-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202402_2449_AI1.pdf",
+      "due": "2024-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202403_2449_AI1.pdf",
+      "due": "2024-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202504_2449_AI1.pdf",
+      "due": "2026-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202501_2449_AI1.pdf",
+      "due": "2025-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202502_2449_AI1.pdf",
+      "due": "2025-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202503_2449_AI1.pdf",
+      "due": "2025-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2026Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2026Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 115）",
+      "mops_filename": "202601_2449_AI1.pdf",
+      "due": "2026-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "source-a98e5c03ba",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "經濟日報：京元電營運升溫有機會年增約四成，資本支出二度上修至 500 億",
+      "category": "earnings_call",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://money.udn.com/money/story/5710/9478033",
+      "note": "capex 500 億、產能增 30–50% 為媒體轉述；公司年報 p.105 列 115 年預計建廠及機器設備 39,371,628 千元",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-5e63edc68c",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "Bigdata.com 京元電子 company tearsheet（FMP：季度損益、資產負債、現金流、2026-10-02 收盤 295.5）",
+      "category": "financials",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://bigdata.com",
+      "note": "25Q3–25Q4 單季數字與股價、TTM PE/PB；未以 MOPS 原檔逐項核對",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-d024c0fda4",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "公開資訊觀測站（環境網路政策封鎖，未取得）",
+      "category": "identity",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://mops.twse.com.tw/",
+      "note": "verify-identity 待本機執行；財報封面公司名、地址與代號 2449 已核對",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-0af2710952",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "投資組合_2026_09_11_updated.xlsx（CPO概念表京元電子列、Anchor設定、季報調節）",
+      "category": "model",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://drive.google.com/file/d/1uBaGGruNJj16206k7Blp8hfyFkOzN3i4/view",
+      "note": "1–8月營收 29,404,354 千元；錨定 00891 PE 28、大盤 31.26／17；股本欄 12,838,824（含 8/3 除權股票股利）",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-80f429bf5b",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "鉅亨網營收速報：京元電子 8 月營收 40.80 億元，年增 31.58%，1–8 月 294.04 億（+35.5%）",
+      "category": "monthly_revenue",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://news.cnyes.com/news/id/6599567",
+      "note": "雲端網路政策擋下，僅搜尋摘要；1–8 月累計與 workbook 一致",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-473b17f3b0",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "FTNN：輝達 Rubin 出貨延後，京元電目標價調至 330 元，法人看俏 Burn-in",
+      "category": "news",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://www.ftnn.com.tw/news/569059",
+      "note": "法人觀點，僅作催化與風險參考，不進模型",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "identity",
+      "auto": true,
+      "kind": "identity",
+      "item": "官方公司身分 verify-identity",
+      "need": "交易所／MOPS 公司基本資料 HTTPS URL",
+      "impact": "facts／value／daily 會被擋"
+    }
+  ],
+  "partial": [],
+  "rules": "年度財報 3/31、Q1 5/15、Q2 8/14、Q3 11/14（一般業）；年報依股東會日期，以 6/30 為檢查點"
+}

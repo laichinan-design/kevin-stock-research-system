@@ -1,0 +1,245 @@
+{
+  "id": "05",
+  "name": "產業價值鏈位置",
+  "title": "價值鏈：京元電位於晶圓代工與封裝之間，做 AI 晶片出貨前最後一道品質關卡",
+  "subtitle": "箭頭代表一般工序流向，不代表已核實的客戶或訂單關係；同業依 osat 產業模組規則分組",
+  "source": "2025 年報 p.85（產業上中下游）、p.86（全球前十大）、p.91（主要客戶）；研究資料/TWSE-6257 同業規則",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "d",
+      "x": 60,
+      "y": 175,
+      "w": 270,
+      "h": 150,
+      "title": "IC 設計／CSP",
+      "lines": [
+        "GPU、ASIC、手機 SoC"
+      ],
+      "style": "muted",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "f",
+      "x": 360,
+      "y": 175,
+      "w": 270,
+      "h": 150,
+      "title": "晶圓代工／IDM",
+      "lines": [
+        "先進製程、CoWoS"
+      ],
+      "style": "muted",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "t",
+      "x": 660,
+      "y": 175,
+      "w": 270,
+      "h": 150,
+      "title": "京元電：測試",
+      "lines": [
+        "CP、FT、Burn-in"
+      ],
+      "style": "solid",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "p",
+      "x": 960,
+      "y": 175,
+      "w": 270,
+      "h": 150,
+      "title": "封裝廠",
+      "lines": [
+        "委外封裝"
+      ],
+      "style": "muted",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "m",
+      "x": 1260,
+      "y": 175,
+      "w": 270,
+      "h": 150,
+      "title": "模組／系統",
+      "lines": [
+        "AI 伺服器、手機"
+      ],
+      "style": "muted",
+      "title_size": 23,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "from": "d",
+      "to": "f"
+    },
+    {
+      "type": "arrow",
+      "from": "f",
+      "to": "t"
+    },
+    {
+      "type": "arrow",
+      "from": "t",
+      "to": "p"
+    },
+    {
+      "type": "arrow",
+      "from": "p",
+      "to": "m"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 370,
+      "w": 720,
+      "h": 460,
+      "label": "上游：設備與耗材（不列同業）"
+    },
+    {
+      "type": "box",
+      "id": "u1",
+      "x": 90,
+      "y": 415,
+      "w": 320,
+      "h": 120,
+      "title": "ATE 測試機",
+      "lines": [
+        "國際大廠（外購）"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "u2",
+      "x": 430,
+      "y": 415,
+      "w": 320,
+      "h": 120,
+      "title": "探針卡／介面",
+      "lines": [
+        "精測、旺矽、雍智等"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "u3",
+      "x": 90,
+      "y": 560,
+      "w": 320,
+      "h": 120,
+      "title": "Handler／Prober",
+      "lines": [
+        "外購＋自製"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "u4",
+      "x": 430,
+      "y": 560,
+      "w": 320,
+      "h": 120,
+      "title": "Burn-in 系統",
+      "lines": [
+        "京元電自製為主"
+      ],
+      "style": "solid",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "text",
+      "x": 420,
+      "y": 730,
+      "text": "京元電自製 Burn-in 爐與 Handler，是少數向上游延伸的測試廠",
+      "size": 17,
+      "anchor": "middle",
+      "weight": "normal"
+    },
+    {
+      "type": "lane",
+      "x": 820,
+      "y": 370,
+      "w": 720,
+      "h": 460,
+      "label": "同業（osat 規則：純測試／封測一體分開）"
+    },
+    {
+      "type": "box",
+      "id": "q1",
+      "x": 850,
+      "y": 415,
+      "w": 320,
+      "h": 120,
+      "title": "純測試",
+      "lines": [
+        "矽格 6257、欣銓 3264"
+      ],
+      "style": "secondary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q2",
+      "x": 1190,
+      "y": 415,
+      "w": 320,
+      "h": 120,
+      "title": "封測一體",
+      "lines": [
+        "日月光 3711、Amkor"
+      ],
+      "style": "muted",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q3",
+      "x": 850,
+      "y": 560,
+      "w": 660,
+      "h": 120,
+      "title": "2025 全球封測前十大第七（MIC）",
+      "lines": [
+        "日月光、Amkor、長電、通富、華天、力成、京元電…"
+      ],
+      "style": "primary",
+      "title_size": 21,
+      "line_size": 16
+    },
+    {
+      "type": "text",
+      "x": 1180,
+      "y": 730,
+      "text": "客戶：甲 36%、乙 15%（關係人），名稱未揭露",
+      "size": 17,
+      "anchor": "middle",
+      "weight": "normal"
+    }
+  ]
+}

@@ -12,3 +12,4 @@ dist/
 
 # 分類PDF 的 PDF 本體只放 Google Drive（索引與目錄進 git）
 研究資料/*/分類PDF/**/*.pdf
+研究資料/*/原始文件/*.pdf
