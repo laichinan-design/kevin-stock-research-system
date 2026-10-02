@@ -1,0 +1,23 @@
+{
+  "generated": "2026-10-02T07:53:17",
+  "command": "visual-build",
+  "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/bc9af8ab-c149-5456-90d9-9ad15a25290f/scratchpad/fonts/nt",
+  "results": [
+    {
+      "svg": "研究資料/TWSE-2345/工程圖解/06_料件轉嫁與營運資金.svg",
+      "png": "研究資料/TWSE-2345/工程圖解/PNG預覽/06_料件轉嫁與營運資金.png",
+      "spec": "研究資料/TWSE-2345/工程圖解/原始碼/06_料件轉嫁與營運資金.json",
+      "bytes": 189394,
+      "texts_outlined": 29,
+      "unique_glyphs": 211,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/bc9af8ab-c149-5456-90d9-9ad15a25290f/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "01",
+  "name": "資料中心交換器產品架構",
+  "title": "白牌資料中心交換器：交換晶片＋高速走線是核心，800G 光口決定世代",
+  "subtitle": "51.2T／800G 世代示意；埠數與晶片代次為產業通用配置（研究推論），智邦未逐機種揭露規格",
+  "source": "2024 年報 p.1（51.2T／800G、102T／1.6T）、p.67–68（產品項目）、p.71（VLC、低損耗材料、電源與散熱）",
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 140,
+      "w": 1480,
+      "h": 690,
+      "label": "1U／2U 交換器機箱（示意）"
+    },
+    {
+      "type": "box",
+      "id": "fp",
+      "x": 90,
+      "y": 190,
+      "w": 300,
+      "h": 190,
+      "title": "前面板光口",
+      "lines": [
+        "800G 光纖接口",
+        "OSFP／QSFP-DD cage",
+        "光纖收發器或 DAC"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "opt",
+      "x": 90,
+      "y": 420,
+      "w": 300,
+      "h": 190,
+      "title": "互連選項",
+      "lines": [
+        "800G 光模組",
+        "1.6T 互連光學（研發）",
+        "DAC 直連電纜"
+      ],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "pcb",
+      "x": 520,
+      "y": 180,
+      "w": 380,
+      "h": 110,
+      "title": "高速 PCB 走線",
+      "lines": [
+        "超低損耗材料、SI／PI 設計"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "asic",
+      "x": 520,
+      "y": 330,
+      "w": 380,
+      "h": 180,
+      "title": "交換晶片 ASIC",
+      "lines": [
+        "51.2T 交換容量",
+        "高速 SerDes 通道",
+        "下一代 102.4T"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "vlc",
+      "x": 520,
+      "y": 550,
+      "w": 380,
+      "h": 140,
+      "title": "VLC 垂直線卡",
+      "lines": [
+        "縮短高頻走線、降低衰減",
+        "智邦專利設計"
+      ],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "cpu",
+      "x": 1010,
+      "y": 180,
+      "w": 250,
+      "h": 150,
+      "title": "CPU 模組",
+      "lines": [
+        "COM Express",
+        "BMC 管理"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "nos",
+      "x": 1290,
+      "y": 180,
+      "w": 220,
+      "h": 150,
+      "title": "網路作業系統",
+      "lines": [
+        "開放式 NOS",
+        "或客戶自有 NOS"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "psu",
+      "x": 1010,
+      "y": 370,
+      "w": 250,
+      "h": 150,
+      "title": "電源 PSU",
+      "lines": [
+        "冗餘電源",
+        "動態功耗管理"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "fan",
+      "x": 1290,
+      "y": 370,
+      "w": 220,
+      "h": 150,
+      "title": "散熱",
+      "lines": [
+        "風扇與氣流",
+        "液冷研發"
+      ],
+      "style": "primary"
+    },
+    {
+      "type": "box",
+      "id": "note",
+      "x": 1010,
+      "y": 560,
+      "w": 500,
+      "h": 130,
+      "title": "研究推論",
+      "lines": [
+        "規格為 51.2T 世代通用架構",
+        "非智邦單一機種實測"
+      ],
+      "style": "muted"
+    },
+    {
+      "type": "arrow",
+      "from": "fp",
+      "to": "asic",
+      "label": "800G 通道",
+      "lx": 455,
+      "ly": 445
+    },
+    {
+      "type": "arrow",
+      "from": "opt",
+      "to": "fp",
+      "dash": true
+    },
+    {
+      "type": "arrow",
+      "from": "cpu",
+      "to": "asic",
+      "label": "管理／控制",
+      "lx": 955,
+      "ly": 478
+    },
+    {
+      "type": "arrow",
+      "from": "nos",
+      "to": "cpu",
+      "dash": true
+    },
+    {
+      "type": "arrow",
+      "from": "asic",
+      "to": "vlc"
+    },
+    {
+      "type": "arrow",
+      "from": "pcb",
+      "to": "asic",
+      "dash": true
+    }
+  ],
+  "asof": "2026-10-02",
+  "illustrative": true
+}

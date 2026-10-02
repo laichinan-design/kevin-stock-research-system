@@ -1,0 +1,164 @@
+{
+  "id": "02",
+  "name": "資料中心網路拓撲與產品落點",
+  "title": "產品落點：前端 Leaf-Spine 交換器之外，AI 後端 fabric 是新增量",
+  "subtitle": "實心框＝智邦有揭露的產品類別；架構為一般資料中心示意",
+  "source": "2024 年報 p.68（DDC 路由器與佈線交換器、SmartNIC、AI 運算卡）、p.71（DDC 可擴展至 32K-GPU 800G 集群）",
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 140,
+      "w": 700,
+      "h": 690,
+      "label": "前端網路（Front-end）"
+    },
+    {
+      "type": "lane",
+      "x": 800,
+      "y": 140,
+      "w": 740,
+      "h": 690,
+      "label": "AI 後端網路（Back-end fabric）"
+    },
+    {
+      "type": "box",
+      "id": "spine",
+      "x": 230,
+      "y": 190,
+      "w": 360,
+      "h": 110,
+      "title": "Spine 交換器",
+      "lines": [
+        "400G／800G"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "leaf1",
+      "x": 100,
+      "y": 370,
+      "w": 280,
+      "h": 110,
+      "title": "Leaf／ToR",
+      "lines": [
+        "100G／400G"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "leaf2",
+      "x": 440,
+      "y": 370,
+      "w": 280,
+      "h": 110,
+      "title": "Leaf／ToR",
+      "lines": [
+        "100G／400G"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "srv",
+      "x": 100,
+      "y": 560,
+      "w": 620,
+      "h": 150,
+      "title": "一般伺服器與儲存",
+      "lines": [
+        "SmartNIC 10／25／50／100G",
+        "NVMe 存儲伺服器"
+      ],
+      "style": "secondary"
+    },
+    {
+      "type": "box",
+      "id": "ncf",
+      "x": 950,
+      "y": 190,
+      "w": 440,
+      "h": 120,
+      "title": "DDC 佈線交換器 NCF",
+      "lines": [
+        "800G 解構式 fabric"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "ncp",
+      "x": 950,
+      "y": 370,
+      "w": 440,
+      "h": 120,
+      "title": "DDC 封包轉發 NCP",
+      "lines": [
+        "VoQ 架構"
+      ],
+      "style": "solid"
+    },
+    {
+      "type": "box",
+      "id": "gpu",
+      "x": 840,
+      "y": 560,
+      "w": 660,
+      "h": 150,
+      "title": "GPU 集群",
+      "lines": [
+        "最多 32K GPU、800G",
+        "AI 運算卡／OAM 伺服器（智邦開發）"
+      ],
+      "style": "secondary"
+    },
+    {
+      "type": "arrow",
+      "from": "spine",
+      "to": "leaf1"
+    },
+    {
+      "type": "arrow",
+      "from": "spine",
+      "to": "leaf2"
+    },
+    {
+      "type": "arrow",
+      "from": "leaf1",
+      "to": "srv"
+    },
+    {
+      "type": "arrow",
+      "from": "leaf2",
+      "to": "srv"
+    },
+    {
+      "type": "arrow",
+      "from": "ncf",
+      "to": "ncp",
+      "label": "800G",
+      "lx": 1210,
+      "ly": 346
+    },
+    {
+      "type": "arrow",
+      "from": "ncp",
+      "to": "gpu",
+      "label": "800G",
+      "lx": 1210,
+      "ly": 531
+    },
+    {
+      "type": "arrow",
+      "from": "leaf2",
+      "to": "ncp",
+      "dash": true,
+      "color": "secondary",
+      "label": "前後端互通"
+    }
+  ],
+  "asof": "2026-10-02",
+  "illustrative": true
+}

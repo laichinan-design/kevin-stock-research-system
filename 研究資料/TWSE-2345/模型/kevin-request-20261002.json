@@ -1,0 +1,60 @@
+{
+ "security": "TWSE:2345",
+ "industry": "datacenter-networking",
+ "method": "kevin_legacy",
+ "currency": "TWD",
+ "asof": "2026-10-02",
+ "assumptions_asof": "2026-10-02",
+ "assumptions_verified": true,
+ "source_ids": [
+  "MOPS:202602_2345_AI1（Drive 1_10_e61kzWRwvbiYty2iV_FxIlYUvnDl）p.5–6、p.30、p.33",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（1–8月營收、錨定）",
+  "PROVISIONAL:bigdata-FMP（2025Q4 EPS 14.95）"
+ ],
+ "provisional_note": "身分驗證與 MOPS 月營收仍被雲端網路政策擋下；G/H/W/股本取自官方 115Q2 財報 PDF。以 plugin value_company 程序內計算，非正式 value 紀錄。",
+ "inputs": {
+  "revenue_ytd": 246003583,
+  "months": 8,
+  "owner_ratio": 1.000727,
+  "capital_thousands": 5611179,
+  "par": 10,
+  "previous_eps": 47.13,
+  "previous_eps_basis": "reported",
+  "earnings_quality": {
+   "scope": "consolidated",
+   "revenue": 165658435,
+   "pretax": 24930070,
+   "tax": 5549864,
+   "net_income": 19380206,
+   "nonrecurring": {
+    "fx": 132793,
+    "fvtpl": 5829,
+    "disposals": 0
+   }
+  },
+  "anchor": {
+   "category": "cpo",
+   "etf": "00891",
+   "etf_pe": 28,
+   "ratio_p": 0.85,
+   "ratio_q": 0.62,
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "asof": "2026-09-11"
+  },
+  "target_premium": 1,
+  "run_rate": {
+   "recent_months": [
+    39472565,
+    40872583
+   ],
+   "margin_period": "2026Q2",
+   "consolidated_margin": 0.115621,
+   "margin_basis": "consolidated",
+   "pull_in_suspected": false,
+   "inorganic_monthly": 0
+  },
+  "nci_loss_verified": true,
+  "nci_note": "115Q2 合併財報 p.6：1H26 非控制權益 −14,083 仟元、歸母 19,394,289、合併 19,380,206"
+ }
+}
