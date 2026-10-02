@@ -178,7 +178,7 @@ class ValuationPortfolioTests(unittest.TestCase):
         with self.assertRaises(ValueError):value_company(unknown)
     def test_kevin_enabled_for_equipment_and_networking(self):
         base=value_company(self.kevin())['numeric_output']['model_value']
-        for industry in ('semiconductor-equipment','datacenter-networking'):
+        for industry in ('semiconductor-equipment','datacenter-networking','osat'):
             r=value_company(self.kevin(industry))
             self.assertEqual(r['status'],'calculated_scenario_not_trade_signal',industry);self.assertAlmostEqual(r['numeric_output']['model_value'],base)
     def test_industry_profiles_match_registry(self):

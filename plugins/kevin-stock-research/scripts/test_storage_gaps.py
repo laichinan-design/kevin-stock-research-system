@@ -111,4 +111,13 @@ class ReadmeTests(unittest.TestCase):
         c=onboard(self.root.parent/'TWSE-2345','TWSE','2345','智邦','datacenter-networking')
         self.assertEqual(c['industry'],'datacenter-networking');validate_config(c)
 
+    def test_set_industry_osat(self):
+        r=cli(self.root,'set-industry','--industry','osat')
+        p=r['profile'];self.assertEqual(p['id'],'osat')
+        self.assertTrue(any('折舊' in k for k in p['required_kpis']));self.assertTrue(any('稼動率' in g for g in p['guards']))
+        self.assertTrue(any('純測試' in x for x in p['peer_rules']));self.assertTrue(p['visual_templates']);self.assertTrue(p['deck_focus'])
+        self.assertIn('kevin_legacy',p['candidate_methods']);self.assertEqual(read(self.root/'config.json')['industry'],'osat')
+        c=onboard(self.root.parent/'TWSE-6257','TWSE','6257','矽格','osat')
+        self.assertEqual(c['industry'],'osat');validate_config(c)
+
 if __name__=='__main__':unittest.main()

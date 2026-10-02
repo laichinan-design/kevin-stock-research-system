@@ -1,4 +1,4 @@
-# Kevin 股票研究 0.6.0｜雙平台安裝
+# Kevin 股票研究 0.7.0｜雙平台安裝
 
 這是一份共用核心、可分別安裝於 ChatGPT 桌面 Work／Codex 及 Claude 的外掛包。先把總ZIP解壓到固定資料夾，保留隱藏目錄。不是把總ZIP丟進一般聊天就會自動安裝。
 
@@ -14,12 +14,12 @@
 codex plugin marketplace add "完整解壓資料夾路徑"
 codex plugin add kevin-stock-research@kevin-research-bundle
 ```
-先註冊marketplace成功，再安裝；不要省略第一步。完成後重新開啟桌面app，在Plugins中確認0.6.0，開新聊天使用。
+先註冊marketplace成功，再安裝；不要省略第一步。完成後重新開啟桌面app，在Plugins中確認0.7.0，開新聊天使用。
 
 方法B（Work／Codex有本機專案、沒有CLI）：把解壓後資料夾開為本機專案／工作目錄，重新啟動app，在Plugins Directory選擇kevin-research-bundle來源並安裝。若該版本未顯示本機來源，把plugins/kevin-stock-research交給內建plugin-creator，要求註冊到個人marketplace；不要手改cache。
 
 已安裝0.1.0者：這個發行包使用獨立marketplace名稱。新版本確認可載入後，在Plugins停用舊personal來源的同名外掛，避免重複技能。既有研究及排程不因安裝自動遷移；先dry-run檢查再切換。
-已安裝0.2.x–0.5.0者：以本版資料夾重新註冊後更新，確認顯示0.6.0；舊研究資料夾執行 set-storage 設定 Drive 資料夾、readme 產生自動區塊；既有研究資料夾開啟時自動補建分類PDF、工程圖解、整合簡報資料夾，不動既有檔案。舊版產生的工程圖 SVG 若文字不顯示，執行 visual-outline 轉外框。
+已安裝0.2.x–0.6.0者：以本版資料夾重新註冊後更新，確認顯示0.7.0；舊研究資料夾執行 set-storage 設定 Drive 資料夾、readme 產生自動區塊；既有研究資料夾開啟時自動補建分類PDF、工程圖解、整合簡報資料夾，不動既有檔案。舊版產生的工程圖 SVG 若文字不顯示，執行 visual-outline 轉外框。
 已安裝0.2.0者：0.2.0的Kevin估值請求若含multiplier≠1或base_pe_low／base_pe_high會被拒絕，依references/kevin-model.md最後一節改寫。
 
 ## Claude
@@ -38,7 +38,7 @@ claude plugin install kevin-stock-research@kevin-research-bundle
 
 ## 本版包含
 - 10項skills：研究總入口＋原七個研究模組＋工程圖解（engineering-visuals）＋整合簡報（integrated-deck）。
-- 9種產業模板、6種任務模式、四種估值計算方法。
+- 10種產業模板、6種任務模式、四種估值計算方法。
 - 個股資料隔離、可追溯證據庫、財務期間與單位檢核。
 - Excel股票鍵／欄位／指紋檢查、只更新副本。
 - 共用資金的批次部位試算、獨立監控狀態與去重。
@@ -47,6 +47,7 @@ claude plugin install kevin-stock-research@kevin-research-bundle
 - 0.3.0：分類PDF（8類命名、SHA256去重、來源版、硬連結、索引json/xlsx/html）、下載前去重（已持有的年報／財報不重抓）、研究資料夾新結構。
 - 0.5.0：Google Drive 同步（storage.drive_folder；本機 Google Drive 桌面版直接複製，雲端則產生連接器／手動上傳清單）、缺口與待下載清單（法定文件期限推算、部分覆蓋）、README 自動區塊、半導體設備與自動化產業模板。
 - 0.6.0：資料中心網通與交換器產業模組（datacenter-networking）、產業 profile 的工程圖解圖組與簡報重點、設備模板可跑 Kevin 模型的修正。
+- 0.7.0：半導體封裝測試產業模組（osat，含純測試廠）。
 - 0.4.0：工程圖解 spec→SVG（文字轉外框，任何檢視器都能顯示）＋PNG預覽；整合簡報 deck_style（10配色×3字型）、原生可編輯圖表PPTX、溢字／0軸／來源檢查、PDF匯出。
 
 ## 實際範圍
