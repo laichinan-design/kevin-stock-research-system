@@ -1,0 +1,92 @@
+{
+ "method": "kevin_legacy",
+ "status": "calculated_scenario_not_trade_signal",
+ "numeric_output": {
+  "model": "kevin_dual_anchor",
+  "primary": "A",
+  "scenarios": {
+   "A": {
+    "annual_revenue": 22886391.0,
+    "eps": 9.420721079527931,
+    "growth": 0.5343193940599238,
+    "pe_p": 27.539715412106847,
+    "pe_q": 28.942239643409565,
+    "price_p": 259.44397750703524,
+    "price_q": 272.65676709741746,
+    "model_value": 266.0503723022263,
+    "target_premium": 1,
+    "margin": 0.2219368197497994,
+    "margin_source": "reported"
+   },
+   "B": {
+    "annual_revenue": 23423836.0,
+    "eps": 10.034794083379497,
+    "growth": 0.6343312839380288,
+    "pe_p": 28.194491722250888,
+    "pe_q": 30.661381375097367,
+    "price_p": 282.9259187183354,
+    "price_q": 307.68064841106934,
+    "model_value": 295.3032835647024,
+    "target_premium": 1,
+    "margin": 0.23097925296950345,
+    "margin_source": "reported",
+    "recent_month_average": 2041560.5,
+    "margin_period": "2026Q2",
+    "inorganic_share_of_recent": 0.0
+   }
+  },
+  "earnings_quality": {
+   "reported_margin": 0.2219368197497994,
+   "core_margin": 0.21120893517937006,
+   "nonrecurring": 142862,
+   "nonrecurring_items": {
+    "fx": 61346,
+    "fvtpl": 44053,
+    "disposals": 37463
+   },
+   "nonrecurring_to_pretax": 0.04833756103436737,
+   "tax_rate": 0.16087933474696559,
+   "level": "clean"
+  },
+  "previous_eps_basis": "reported",
+  "model_value": 266.0503723022263,
+  "warnings": [],
+  "flags": [],
+  "earnings_quality_B": {
+   "reported_margin": 0.23097925296950345,
+   "core_margin": 0.22927321084889865,
+   "nonrecurring": 11639,
+   "nonrecurring_items": {
+    "fx": -28725,
+    "fvtpl": 30276,
+    "disposals": 10088
+   },
+   "nonrecurring_to_pretax": 0.00738612710306944,
+   "tax_rate": 0.13800869657924397,
+   "level": "clean"
+  },
+  "b_vs_a": 0.10995252894908747,
+  "anchor": {
+   "m_ratio": 1.8388235294117647,
+   "m_adj": 0.85,
+   "base_pe_p": 20.23,
+   "base_pe_q": 14.755999999999998,
+   "category": "cpo",
+   "etf": "00891",
+   "etf_pe": 28,
+   "ratio_p": 0.85,
+   "ratio_q": 0.62,
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "asof": "2026-09-11",
+   "age_days": 21
+  }
+ },
+ "currency": "TWD",
+ "assumptions_asof": "2026-10-02",
+ "source_ids": [
+  "MOPS:202602_6257_AI1（Drive 1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2）p.8–9 損益、p.31 股本、p.38–39 其他利益及損失、p.61 非控制權益",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收 15,257,594、錨定 00891 PE 28、大盤 31.26／17）",
+  "MOPS:2025 年報 F04（Drive 1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk）p.1 2025 EPS 6.14"
+ ]
+}

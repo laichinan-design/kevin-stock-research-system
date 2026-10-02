@@ -1,0 +1,94 @@
+{
+ "asof": "2026-10-01",
+ "source": "Bigdata.com company tearsheet（FMP）；矽格以 115Q2 官方財報重算；京元電毛利率／淨利率取 Kevin workbook 季報調節頁（115H1）",
+ "rule": "osat 同業規則：純測試、封測一體分開比較；ATE／探針卡供應商不列同業；統計只用中位數與平均",
+ "rows": [
+  {
+   "name": "矽格",
+   "code": "TWSE:6257",
+   "type": "目標",
+   "group": "測試為主（測試 80.9%、封裝 18.3%）",
+   "price": 256.5,
+   "mcap_100m": 1228.07,
+   "ttm_eps": 8.53,
+   "pe_ttm": 30.07,
+   "bvps": 52.78,
+   "pb": 4.86,
+   "gm": 0.3302,
+   "nm": 0.2219,
+   "gm_q2": 0.3424,
+   "h1_rev_yoy": 0.1808,
+   "q2_eps_yoy": 2.6429,
+   "ytd_rev_yoy": 0.205,
+   "period": "115H1；TTM=25Q3–26Q2（1.68+2.20+2.10+2.55）"
+  },
+  {
+   "name": "京元電子",
+   "code": "TWSE:2449",
+   "type": "完全可比",
+   "group": "純測試",
+   "reason": "同為台灣專業測試廠，AI／HPC 晶圓與成品測試；Kevin workbook 同列 CPO概念表",
+   "price": 296,
+   "mcap_100m": 3800.29,
+   "pe_ttm": 39.31,
+   "pb": 6.06,
+   "gm": 0.396,
+   "nm": 0.224,
+   "gm_q2": 0.3949,
+   "ytd_rev_yoy": 0.36,
+   "period": "115H1（workbook 季報調節）；PE/PB=FMP TTM"
+  },
+  {
+   "name": "欣銓",
+   "code": "TPEX:3264",
+   "type": "完全可比",
+   "group": "純測試",
+   "reason": "專業晶圓測試，邏輯／混合訊號與記憶體測試",
+   "price": 245.5,
+   "mcap_100m": 1163.47,
+   "pe_ttm": 30.96,
+   "pb": 5.93,
+   "gm": 0.3813,
+   "nm": 0.2361,
+   "gm_q2": 0.4017,
+   "ytd_rev_yoy": null,
+   "period": "TTM（FMP）；Q2=115Q2"
+  },
+  {
+   "name": "日月光投控",
+   "code": "TWSE:3711",
+   "type": "相鄰可比",
+   "group": "封測一體（含先進封裝、EMS）",
+   "reason": "全球最大 OSAT，商業模式含封裝與 EMS，資本密集度與毛利率結構不同，只列參考、不併入純測試中位數",
+   "price": 710,
+   "mcap_100m": 31223.17,
+   "pe_ttm": 51.04,
+   "pb": 8.01,
+   "gm": 0.1949,
+   "nm": 0.0855,
+   "gm_q2": 0.2101,
+   "ytd_rev_yoy": null,
+   "period": "TTM（FMP）；Q2=115Q2"
+  }
+ ],
+ "excluded": [
+  {
+   "name": "精測 6510、旺矽 6223、雍智 6683",
+   "reason": "探針卡／測試介面供應商，屬設備耗材，不列 OSAT 同業"
+  },
+  {
+   "name": "力成 6239、華東 8110",
+   "reason": "記憶體封測為主，與邏輯／混合訊號測試分開"
+  }
+ ],
+ "stats_pure_test": {
+  "pe_ttm_median": 35.14,
+  "gm_q2_median": 0.3983,
+  "pb_median": 5.99
+ },
+ "relative": {
+  "RelPE_TTM_vs_pure_test": 0.856,
+  "RelGM_Q2_vs_pure_test_ppt": -5.6,
+  "conclusion": "相對純測試同業本益比低約 14%，但毛利率低約 5.6ppt（手機與消費性占比較高、封裝業務拉低組合）；屬弱質折價而非低估"
+ }
+}

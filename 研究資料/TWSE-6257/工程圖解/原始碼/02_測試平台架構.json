@@ -1,0 +1,271 @@
+{
+  "id": "02",
+  "name": "測試平台架構",
+  "title": "測試平台：自製 MAP ATE 與外購測試機並行，探針卡、Prober／Handler 串成產線",
+  "subtitle": "中層為通用測試硬體配置（研究推論）；ATE 與自動化項目依公司揭露之研發成果",
+  "source": "2025 年報 p.48（MAP ATE 計畫）、p.54（111–115 年度研發成果：MAP ATE、AMHS、AMR、EAP／RMS）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "prog",
+      "x": 60,
+      "y": 170,
+      "w": 330,
+      "h": 190,
+      "title": "測試程式",
+      "lines": [
+        "開發與轉移",
+        "Turnkey 解決方案",
+        "縮短上市時程"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "ate",
+      "x": 470,
+      "y": 170,
+      "w": 660,
+      "h": 190,
+      "title": "ATE 測試機",
+      "lines": [
+        "外購測試機（品牌未逐一揭露）",
+        "矽格自製 MAP ATE：邏輯、混合訊號、RF",
+        "2026 擴大導入矽光子 EIC（TIA、Driver）"
+      ],
+      "style": "solid",
+      "title_size": 26,
+      "line_size": 18
+    },
+    {
+      "type": "box",
+      "id": "data",
+      "x": 1210,
+      "y": 170,
+      "w": 330,
+      "h": 190,
+      "title": "資料與良率",
+      "lines": [
+        "測試資料分析",
+        "良率回饋客戶",
+        "AI 智慧工廠"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "ate",
+      "from": "prog"
+    },
+    {
+      "type": "arrow",
+      "to": "data",
+      "from": "ate"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 400,
+      "w": 720,
+      "h": 230,
+      "label": "晶圓測試 CP"
+    },
+    {
+      "type": "box",
+      "id": "pc",
+      "x": 90,
+      "y": 450,
+      "w": 310,
+      "h": 150,
+      "title": "探針卡",
+      "lines": [
+        "Probe Card",
+        "自動倉配件管理"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "pr",
+      "x": 440,
+      "y": 450,
+      "w": 310,
+      "h": 150,
+      "title": "Prober",
+      "lines": [
+        "晶圓承載與對位",
+        "逐晶粒接觸"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "lane",
+      "x": 820,
+      "y": 400,
+      "w": 720,
+      "h": 230,
+      "label": "成品測試 FT"
+    },
+    {
+      "type": "box",
+      "id": "lb",
+      "x": 850,
+      "y": 450,
+      "w": 310,
+      "h": 150,
+      "title": "Load Board",
+      "lines": [
+        "測試介面板",
+        "依封裝客製"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "hd",
+      "x": 1200,
+      "y": 450,
+      "w": 310,
+      "h": 150,
+      "title": "Handler",
+      "lines": [
+        "取放、溫控",
+        "分 Bin 出貨"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "pr",
+      "from": "pc"
+    },
+    {
+      "type": "arrow",
+      "to": "hd",
+      "from": "lb"
+    },
+    {
+      "type": "arrow",
+      "points": [
+        700,
+        362,
+        600,
+        448
+      ],
+      "dash": true,
+      "label": "CP 測試",
+      "lx": 610,
+      "ly": 392
+    },
+    {
+      "type": "arrow",
+      "points": [
+        900,
+        362,
+        1000,
+        448
+      ],
+      "dash": true,
+      "label": "FT 測試",
+      "lx": 990,
+      "ly": 392
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 660,
+      "w": 1480,
+      "h": 165,
+      "label": "產線自動化（研發成果）"
+    },
+    {
+      "type": "box",
+      "id": "a1",
+      "x": 90,
+      "y": 705,
+      "w": 280,
+      "h": 100,
+      "title": "CP AMHS",
+      "lines": [
+        "湖口廠自動運送"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "a2",
+      "x": 390,
+      "y": 705,
+      "w": 280,
+      "h": 100,
+      "title": "FT AMR 搬運車",
+      "lines": [
+        "中興廠"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "a3",
+      "x": 690,
+      "y": 705,
+      "w": 280,
+      "h": 100,
+      "title": "自動排程系統",
+      "lines": [
+        "中興廠、AIT 廠"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "a4",
+      "x": 990,
+      "y": 705,
+      "w": 250,
+      "h": 100,
+      "title": "EAP／RMS",
+      "lines": [
+        "SECS/GEM 參數控管"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "a5",
+      "x": 1260,
+      "y": 705,
+      "w": 250,
+      "h": 100,
+      "title": "AI-CCTV",
+      "lines": [
+        "北興廠錯誤偵測"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    }
+  ]
+}

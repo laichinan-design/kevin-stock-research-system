@@ -8,8 +8,8 @@ from research import VERSION, Store, read, dump, digest, identity, number, kevin
 PLUGIN_ROOT=Path(__file__).resolve().parents[1]
 MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
          'NYSE':('America/New_York','USD'),'NASDAQ':('America/New_York','USD')}
-INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking','cyclical','financial','asset-based','loss-making'}
-KEVIN_INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking'}
+INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking','osat','cyclical','financial','asset-based','loss-making'}
+KEVIN_INDUSTRIES={'general','growth-manufacturing','semiconductor','semiconductor-equipment','datacenter-networking','osat'}
 MODES={
  'quick':['identity','sources','thesis','report'],
  'full':['identity','sources','pdf-library','facts','thesis','engineering-visuals','valuation','integrated-deck','report'],

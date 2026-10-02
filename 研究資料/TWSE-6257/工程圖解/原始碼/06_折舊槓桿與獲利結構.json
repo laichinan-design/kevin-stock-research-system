@@ -1,0 +1,301 @@
+{
+  "id": "06",
+  "name": "折舊槓桿與獲利結構",
+  "title": "財務結構：折舊占營收 18.5%，稼動與組合帶動毛利率由 27.2% 回升到 34.2%",
+  "subtitle": "上排為封測業通用經營槓桿（研究推論）；數字依 115Q2 合併財報，25Q2–25Q4 季毛利率為 Bigdata.com（FMP）",
+  "source": "115Q2 合併財報 p.8–9（損益）、p.31（庫藏股）、p.38–39（業外）、p.60（部門資本支出與折舊）、p.61（台星科）；Bigdata.com",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "cx",
+      "x": 60,
+      "y": 170,
+      "w": 250,
+      "h": 170,
+      "title": "資本支出",
+      "lines": [
+        "2026H1 66.0 億",
+        "營收的 59%"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "dp",
+      "x": 350,
+      "y": 170,
+      "w": 250,
+      "h": 170,
+      "title": "折舊攤提",
+      "lines": [
+        "2026H1 20.7 億",
+        "營收的 18.5%"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "ut",
+      "x": 640,
+      "y": 170,
+      "w": 250,
+      "h": 170,
+      "title": "稼動率與組合",
+      "lines": [
+        "N/A（未揭露）",
+        "高階測試占比↑"
+      ],
+      "style": "muted",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "gm",
+      "x": 930,
+      "y": 170,
+      "w": 250,
+      "h": 170,
+      "title": "毛利率",
+      "lines": [
+        "26Q2 34.2%",
+        "1H26 33.0%"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "op",
+      "x": 1220,
+      "y": 170,
+      "w": 320,
+      "h": 170,
+      "title": "營益率",
+      "lines": [
+        "26Q2 25.6%",
+        "1H26 24.1%"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "dp",
+      "from": "cx"
+    },
+    {
+      "type": "arrow",
+      "to": "ut",
+      "from": "dp"
+    },
+    {
+      "type": "arrow",
+      "to": "gm",
+      "from": "ut"
+    },
+    {
+      "type": "arrow",
+      "to": "op",
+      "from": "gm"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 375,
+      "w": 1480,
+      "h": 200,
+      "label": "毛利率走勢（季）"
+    },
+    {
+      "type": "box",
+      "id": "q1",
+      "x": 90,
+      "y": 420,
+      "w": 270,
+      "h": 130,
+      "title": "25Q2 31.4%",
+      "lines": [
+        "匯損季，業外 −6.9 億"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q2",
+      "x": 380,
+      "y": 420,
+      "w": 270,
+      "h": 130,
+      "title": "25Q3 27.2%",
+      "lines": [
+        "近一年低點"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q3",
+      "x": 670,
+      "y": 420,
+      "w": 270,
+      "h": 130,
+      "title": "25Q4 29.7%",
+      "lines": [
+        "回升"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q4",
+      "x": 960,
+      "y": 420,
+      "w": 270,
+      "h": 130,
+      "title": "26Q1 31.7%",
+      "lines": [
+        "營收 52.9 億"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "q5",
+      "x": 1250,
+      "y": 420,
+      "w": 260,
+      "h": 130,
+      "title": "26Q2 34.2%",
+      "lines": [
+        "營收 58.8 億，創高"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 16
+    },
+    {
+      "type": "arrow",
+      "to": "q2",
+      "from": "q1"
+    },
+    {
+      "type": "arrow",
+      "to": "q3",
+      "from": "q2"
+    },
+    {
+      "type": "arrow",
+      "to": "q4",
+      "from": "q3"
+    },
+    {
+      "type": "arrow",
+      "to": "q5",
+      "from": "q4"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 600,
+      "w": 1480,
+      "h": 225,
+      "label": "從合併淨利到每股盈餘（1H26，千元）"
+    },
+    {
+      "type": "box",
+      "id": "ni",
+      "x": 90,
+      "y": 650,
+      "w": 320,
+      "h": 150,
+      "title": "合併淨利",
+      "lines": [
+        "2,480,027",
+        "淨利率 22.19%"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "nci",
+      "x": 450,
+      "y": 650,
+      "w": 320,
+      "h": 150,
+      "title": "非控制權益",
+      "lines": [
+        "254,154",
+        "台星科 52.55% 少數股權"
+      ],
+      "style": "muted",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "par",
+      "x": 810,
+      "y": 650,
+      "w": 320,
+      "h": 150,
+      "title": "歸母淨利",
+      "lines": [
+        "2,225,873",
+        "W＝0.8975"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "eps",
+      "x": 1170,
+      "y": 650,
+      "w": 340,
+      "h": 150,
+      "title": "EPS 4.65 元",
+      "lines": [
+        "流通 4.78 億股",
+        "（扣庫藏 565.8 萬股）"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "nci",
+      "from": "ni"
+    },
+    {
+      "type": "arrow",
+      "to": "par",
+      "from": "nci"
+    },
+    {
+      "type": "arrow",
+      "to": "eps",
+      "from": "par"
+    }
+  ]
+}

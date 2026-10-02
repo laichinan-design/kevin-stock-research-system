@@ -1,0 +1,298 @@
+{
+  "id": "04",
+  "name": "產能與資本支出時程",
+  "title": "產能：湖口二廠 2026/7 量產、中興三廠 2027Q1 完工，capex 指引上修至 88 億",
+  "subtitle": "時程依年報「擴充廠房之預期效益」；湖口二廠量產月份與 88 億指引為法說後媒體報導",
+  "source": "2025 年報 p.76（2025 capex 53.1 億）、p.81（中興三廠、台星科、湖口二廠）、p.82–83（關係企業）；115Q2 合併財報 p.60–61；鉅亨網 2026-05-06",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 150,
+      "w": 1480,
+      "h": 250,
+      "label": "擴產時程"
+    },
+    {
+      "type": "box",
+      "id": "e1",
+      "x": 90,
+      "y": 200,
+      "w": 262,
+      "h": 170,
+      "title": "2024/10",
+      "lines": [
+        "台星科購竹科廠房",
+        "16.95 億（先進封裝）"
+      ],
+      "style": "primary",
+      "title_size": 26,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "e2",
+      "x": 382,
+      "y": 200,
+      "w": 262,
+      "h": 170,
+      "title": "2024/11",
+      "lines": [
+        "中興三廠動土",
+        "投資 26 億"
+      ],
+      "style": "primary",
+      "title_size": 26,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "e3",
+      "x": 674,
+      "y": 200,
+      "w": 262,
+      "h": 170,
+      "title": "2026/02",
+      "lines": [
+        "董事會通過",
+        "購湖口二廠 15.4 億"
+      ],
+      "style": "primary",
+      "title_size": 26,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "e4",
+      "x": 966,
+      "y": 200,
+      "w": 262,
+      "h": 170,
+      "title": "2026/07",
+      "lines": [
+        "湖口二廠量產",
+        "（法說，媒體轉述）"
+      ],
+      "style": "solid",
+      "title_size": 26,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "e5",
+      "x": 1258,
+      "y": 200,
+      "w": 262,
+      "h": 170,
+      "title": "2027Q1",
+      "lines": [
+        "中興三廠完工",
+        "樓板 36,340 ㎡"
+      ],
+      "style": "solid",
+      "title_size": 26,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "e2",
+      "from": "e1"
+    },
+    {
+      "type": "arrow",
+      "to": "e3",
+      "from": "e2"
+    },
+    {
+      "type": "arrow",
+      "to": "e4",
+      "from": "e3"
+    },
+    {
+      "type": "arrow",
+      "to": "e5",
+      "from": "e4"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 425,
+      "w": 720,
+      "h": 400,
+      "label": "資本支出（億元）"
+    },
+    {
+      "type": "box",
+      "id": "c1",
+      "x": 90,
+      "y": 475,
+      "w": 200,
+      "h": 150,
+      "title": "53.1",
+      "lines": [
+        "2025 實際",
+        "年報 p.76"
+      ],
+      "style": "secondary",
+      "title_size": 34,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "c2",
+      "x": 320,
+      "y": 475,
+      "w": 200,
+      "h": 150,
+      "title": "66.0",
+      "lines": [
+        "2026H1 實際",
+        "部門資本支出"
+      ],
+      "style": "solid",
+      "title_size": 34,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "c3",
+      "x": 550,
+      "y": 475,
+      "w": 200,
+      "h": 150,
+      "title": "88",
+      "lines": [
+        "2026 指引",
+        "由 59 億上修"
+      ],
+      "style": "primary",
+      "title_size": 34,
+      "line_size": 17
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 680,
+      "text": "2026H1 資本支出已超過 2025 全年，",
+      "size": 18,
+      "color": "muted"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 710,
+      "text": "營業現金流 40.2 億 < capex 現金流出 60.9 億，",
+      "size": 18,
+      "color": "muted"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 740,
+      "text": "2026Q2 起轉為淨負債（約 23 億）。",
+      "size": 18,
+      "color": "muted"
+    },
+    {
+      "type": "lane",
+      "x": 820,
+      "y": 425,
+      "w": 720,
+      "h": 400,
+      "label": "廠區（年報揭露）"
+    },
+    {
+      "type": "box",
+      "id": "f1",
+      "x": 850,
+      "y": 475,
+      "w": 320,
+      "h": 90,
+      "title": "北興廠（總部）",
+      "lines": [
+        "竹東"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "f2",
+      "x": 1190,
+      "y": 475,
+      "w": 320,
+      "h": 90,
+      "title": "中興廠／中興三廠",
+      "lines": [
+        "竹東，聚焦 AI、ASIC、車用"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "f3",
+      "x": 850,
+      "y": 585,
+      "w": 320,
+      "h": 90,
+      "title": "湖口一廠／二廠",
+      "lines": [
+        "湖口工業區"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "f4",
+      "x": 1190,
+      "y": 585,
+      "w": 320,
+      "h": 90,
+      "title": "AIT 廠、誠遠科技",
+      "lines": [
+        "測試；封裝及測試"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "f5",
+      "x": 850,
+      "y": 695,
+      "w": 320,
+      "h": 110,
+      "title": "台星科",
+      "lines": [
+        "持股 47.45%",
+        "竹科先進封裝廠房"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "f6",
+      "x": 1190,
+      "y": 695,
+      "w": 320,
+      "h": 110,
+      "title": "矽格聯測、矽興蘇州",
+      "lines": [
+        "竹科測試；蘇州測試軟體"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "id": "01",
+  "name": "封測流程總覽",
+  "title": "封測流程：從凸塊、晶圓測試到成品測試一條龍，八成營收來自測試",
+  "subtitle": "深色＝測試工序；流程依公司年報「產製過程」，各工序細項依「商品（服務）項目」與「計畫開發之新產品」",
+  "source": "2025 年報 p.48（營業比重、服務項目）、p.48–49（新產品）、p.58（認證）、p.61（產製過程）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "w",
+      "x": 60,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "晶圓投片",
+      "lines": [
+        "客戶／晶圓代工",
+        "（非矽格工序）"
+      ],
+      "style": "muted",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "b",
+      "x": 275,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "晶圓凸塊",
+      "lines": [
+        "Solder Bump",
+        "Cu-pillar、WLCSP"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "cp",
+      "x": 490,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "晶圓測試 CP",
+      "lines": [
+        "探針卡＋Prober",
+        "區分晶粒良窳"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "pk",
+      "x": 705,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "IC 封裝",
+      "lines": [
+        "覆晶 Flip Chip",
+        "wBGA、切割"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "ft",
+      "x": 920,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "成品測試 FT",
+      "lines": [
+        "Load board",
+        "＋Handler"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "bi",
+      "x": 1135,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "Burn-in／SLT",
+      "lines": [
+        "預燒、系統級",
+        "測試（擴產中）"
+      ],
+      "style": "solid",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "box",
+      "id": "sh",
+      "x": 1350,
+      "y": 165,
+      "w": 190,
+      "h": 175,
+      "title": "運送服務",
+      "lines": [
+        "Drop shipment",
+        "RMA"
+      ],
+      "style": "primary",
+      "title_size": 22,
+      "line_size": 16
+    },
+    {
+      "type": "arrow",
+      "to": "b",
+      "from": "w"
+    },
+    {
+      "type": "arrow",
+      "to": "cp",
+      "from": "b"
+    },
+    {
+      "type": "arrow",
+      "to": "pk",
+      "from": "cp"
+    },
+    {
+      "type": "arrow",
+      "to": "ft",
+      "from": "pk"
+    },
+    {
+      "type": "arrow",
+      "to": "bi",
+      "from": "ft"
+    },
+    {
+      "type": "arrow",
+      "to": "sh",
+      "from": "bi"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 390,
+      "w": 1480,
+      "h": 205,
+      "label": "測試服務　2025 營收 158.4 億（80.87%）"
+    },
+    {
+      "type": "box",
+      "id": "t1",
+      "x": 90,
+      "y": 435,
+      "w": 340,
+      "h": 135,
+      "title": "Logic／Mixed-Signal",
+      "lines": [
+        "手機 SoC、Wi-Fi SoC",
+        "AI 加速器、ASIC"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "t2",
+      "x": 455,
+      "y": 435,
+      "w": 340,
+      "h": 135,
+      "title": "RF／mmWave",
+      "lines": [
+        "5G 毫米波、Wi-Fi 7",
+        "低軌衛星、NFC"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "t3",
+      "x": 820,
+      "y": 435,
+      "w": 340,
+      "h": 135,
+      "title": "Power／Memory／Sensor",
+      "lines": [
+        "電源管理、記憶體",
+        "感測器"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "t4",
+      "x": 1185,
+      "y": 435,
+      "w": 330,
+      "h": 135,
+      "title": "車用高可靠度",
+      "lines": [
+        "IATF 16949",
+        "ISO 26262 ASIL D 流程"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 620,
+      "w": 1480,
+      "h": 205,
+      "label": "封裝服務　2025 營收 35.9 億（18.33%）"
+    },
+    {
+      "type": "box",
+      "id": "p1",
+      "x": 90,
+      "y": 665,
+      "w": 340,
+      "h": 135,
+      "title": "8／12 吋 WLCSP",
+      "lines": [
+        "晶圓級晶片尺寸封裝",
+        "手機、電源管理"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "p2",
+      "x": 455,
+      "y": 665,
+      "w": 340,
+      "h": 135,
+      "title": "凸塊 Bump",
+      "lines": [
+        "Solder Bump",
+        "Cu-pillar 無鉛"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "p3",
+      "x": 820,
+      "y": 665,
+      "w": 340,
+      "h": 135,
+      "title": "覆晶 Flip Chip",
+      "lines": [
+        "FC-BGA 布局中",
+        "矽光子基板與封裝"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "p4",
+      "x": 1185,
+      "y": 665,
+      "w": 330,
+      "h": 135,
+      "title": "wBGA／DPS",
+      "lines": [
+        "Die Processing",
+        "Service"
+      ],
+      "style": "secondary",
+      "title_size": 22,
+      "line_size": 17
+    }
+  ]
+}

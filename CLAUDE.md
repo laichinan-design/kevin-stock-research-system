@@ -4,7 +4,7 @@
 
 ## 個股研究：kevin-stock-research plugin（主流程）
 
-本 repo 內建 plugin `plugins/kevin-stock-research/`（0.6.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
+本 repo 內建 plugin `plugins/kevin-stock-research/`（0.7.0），經 `.claude/settings.json` 以專案 marketplace `kevin-research-bundle` 自動啟用，雲端與本機 session 都會載入。
 
 | 使用者要求 | 由誰處理 |
 |---|---|
@@ -39,6 +39,8 @@
 |---|---|---|
 | 智邦 2345 | `投資組合-台股/智邦2345` | `1DsnUljDO0kaNToZAVOjCAWu8SJYvz-GQ` |
 | 智邦 2345 研究資料夾 | `投資組合-台股/智邦2345/智邦2345研究` | `1ejj72dCsUwto2Pw_CS1AKW1-ZsPbQKLD` |
+| 矽格 6257 | `投資組合-台股/矽格6257` | `12pKaZ0oqRd02x9sksEc1zxXUG6ecjSCW` |
+| 矽格 6257 研究資料夾 | `投資組合-台股/矽格6257/矽格6257研究` | `1MA01iKzAtfojAHFhZplxyomkFWJL0yrp` |
 
 ### 官方資料來源
 

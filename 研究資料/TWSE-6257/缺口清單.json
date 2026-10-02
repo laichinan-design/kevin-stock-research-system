@@ -1,0 +1,224 @@
+{
+  "security": "TWSE:6257",
+  "asof": "2026-10-02",
+  "generated": "2026-10-02T16:34:25+08:00",
+  "gaps": [
+    {
+      "id": "manual-2026Q1-drive-only",
+      "kind": "held_not_read",
+      "item": "2026Q1 合併季報（Drive 既有 202601_6257_AI1_20260524_220946.pdf，7.2MB）",
+      "category": "03_季報",
+      "need": "Drive 連接器下載 7.2MB 檔時連線中斷；本機用 Google Drive 桌面版讀取後 classify-pdfs --apply",
+      "drive_file_id": "1x1BwiU29x1XCGfV5Aaqs4uHmfLW-Idb-",
+      "impact": "1Q26 單季數字暫以 115Q2 財報 1H 減 Q2 推得；附註細項未讀"
+    },
+    {
+      "id": "mops-AI1-2024",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202404_6257_AI1.pdf",
+      "due": "2025-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202401_6257_AI1.pdf",
+      "due": "2024-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202402_6257_AI1.pdf",
+      "due": "2024-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2024Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2024Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 113）",
+      "mops_filename": "202403_6257_AI1.pdf",
+      "due": "2024-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025 年度合併財報",
+      "category": "02_年度財報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202504_6257_AI1.pdf",
+      "due": "2026-03-31",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202501_6257_AI1.pdf",
+      "due": "2025-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q2",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q2 合併季報_含上半年累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202502_6257_AI1.pdf",
+      "due": "2025-08-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2025Q3",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2025Q3 合併季報_含前三季累計",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 114）",
+      "mops_filename": "202503_6257_AI1.pdf",
+      "due": "2025-11-14",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "mops-AI1-2026Q1",
+      "auto": true,
+      "kind": "statutory_missing",
+      "item": "2026Q1 合併季報_第一季",
+      "category": "03_季報",
+      "need": "MOPS AI1（discover kind=A, ROC 115）",
+      "mops_filename": "202601_6257_AI1.pdf",
+      "due": "2026-05-15",
+      "impact": "法定文件未持有"
+    },
+    {
+      "id": "source-a757fb09ea",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "鉅亨網：矽格 Q1 EPS 2.1 元，資本支出上修至 88 億元",
+      "category": "earnings_call",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://news.cnyes.com/news/id/6443706",
+      "note": "雲端網路政策擋下，僅搜尋摘要",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-7282ab7d72",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "優分析：AI 營收占比快追平手機業務，矽格擴產 88 億元（1–5 月應用別占比）",
+      "category": "earnings_call",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://uanalyze.com.tw/articles/2966351898",
+      "note": "應用別占比為法說會二手整理",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-8177611071",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "矽格 115Q1 合併財務報告（MOPS 202601_6257_AI1，Drive 既有 7.2MB）",
+      "category": "filing",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://drive.google.com/file/d/1x1BwiU29x1XCGfV5Aaqs4uHmfLW-Idb-",
+      "note": "Drive 連接器下載 7.2MB 檔時連線中斷；Q1 數字以 115Q2 財報 H1−Q2 推得",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-0d91e5c832",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "Bigdata.com 矽格 company tearsheet（FMP：季度損益、資產負債、現金流、股價 2026-10-01 收盤 256.5）",
+      "category": "financials",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://bigdata.com",
+      "note": "25Q2–25Q4 季度數字與股價；未以 MOPS 原檔逐項核對",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-f056fe1f10",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "公開資訊觀測站（環境網路政策封鎖，未取得）",
+      "category": "identity",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://mops.twse.com.tw/",
+      "note": "verify-identity 待本機執行",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-9d184cafb4",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "投資組合_2026_09_11_updated.xlsx（CPO概念表矽格列、Anchor設定、季報調節）",
+      "category": "model",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://drive.google.com/file/d/1uBaGGruNJj16206k7Blp8hfyFkOzN3i4/view",
+      "note": "1–8月營收 15,257,594 千元；錨定 00891 PE 28、大盤 31.26／17",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-53c3e2bc08",
+      "auto": true,
+      "kind": "source_metadata",
+      "item": "Bigdata.com 同業 tearsheet：京元電子 2449、欣銓 3264、日月光投控 3711（FMP，2026-10-01）",
+      "category": "peers",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://bigdata.com",
+      "note": "TTM P/E、毛利率、股價",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-956a70d45a",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "科技新報：矽格 7 月營收 20.14 億元（YoY +26.6%）",
+      "category": "revenue",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://finance.technews.tw/2026/08/05/sigurd-6257-202607-financial-report",
+      "note": "雲端網路政策擋下，僅搜尋摘要",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "source-155391fd23",
+      "auto": true,
+      "kind": "source_blocked",
+      "item": "工商時報：矽格月營收再破 20 億元，前 8 月成長 2 成（8月 20.69 億、YoY +28.6%）",
+      "category": "revenue",
+      "need": "本機重新抓取或人工下載",
+      "url": "https://www.ctee.com.tw/news/20260907701432-430201",
+      "note": "雲端網路政策擋下，僅搜尋摘要",
+      "impact": "證據未完整取得"
+    },
+    {
+      "id": "identity",
+      "auto": true,
+      "kind": "identity",
+      "item": "官方公司身分 verify-identity",
+      "need": "交易所／MOPS 公司基本資料 HTTPS URL",
+      "impact": "facts／value／daily 會被擋"
+    }
+  ],
+  "partial": [],
+  "rules": "年度財報 3/31、Q1 5/15、Q2 8/14、Q3 11/14（一般業）；年報依股東會日期，以 6/30 為檢查點"
+}

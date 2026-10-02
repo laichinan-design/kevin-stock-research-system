@@ -2,7 +2,7 @@
 import ast,json,re,sys
 from pathlib import Path
 
-VERSION='0.6.0'
+VERSION='0.7.0'
 
 def validate(root):
     root=Path(root);errors=[];manifests=[]
@@ -33,7 +33,7 @@ def validate(root):
         for relative in re.findall(r'\.\./\.\./[A-Za-z0-9_./-]+',text):
             if not (p.parent/relative.rstrip('.')).exists():errors.append('missing skill reference: '+relative)
     industries=list((root/'profiles/industries').glob('*.json'))
-    if len(industries)!=9:errors.append('expected 9 industries')
+    if len(industries)!=10:errors.append('expected 10 industries')
     methods={'kevin_legacy','scenario_pe','scenario_pb','nav'}
     for p in industries:
         try:

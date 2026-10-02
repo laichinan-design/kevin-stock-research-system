@@ -1,3 +1,7 @@
+# 0.7.0 — 2026-10-02
+- 新產業模組 osat（半導體封裝測試，含純測試廠）：KPI 為測試／封裝營收結構、應用別占比、稼動率與機台產能、capex／折舊／EBITDA 率、經營槓桿、客戶結構、新技術測試（先進封裝、HBM、矽光子、CPO）、自由現金流與少數股權；guards 涵蓋折舊固定成本與新廠投產、客戶包產能不等於長約、商業模式不可直接套倍數、客戶提供機台（consigned tester）、美元匯兌與基期 EPS、擴產期現金流、新技術占比不得推估與 H2 ramp 情境 B、子公司少數股權口徑；同業規則分純測試、封測一體、先進封裝，記憶體封測另列，ATE／探針卡供應商不列同業。candidate_methods 另開 scenario_pb 供景氣谷底參考。init／set-industry 可用，Kevin 模型開放，產業模板 9→10。封測公司不再套 semiconductor 通用或 semiconductor-equipment。
+- research-router、engineering-visuals、cli.md、capabilities.md 補 osat 分流與圖組。測試 122→123。
+
 # 0.6.0 — 2026-10-02
 - 新產業模組 datacenter-networking（資料中心網通與交換器 ODM／JDM）：KPI 為速率世代組合、交換晶片平台與客戶專案、客戶集中度、產品組合、毛利率／營益率結構（料件 pass-through）、存貨與營業現金流、產能地點；guards 涵蓋 pass-through、世代轉換備料、未公告專案與 CPO／LPO、匯兌、單一客戶；同業規則分白牌 ODM／JDM、品牌、EMS。init／set-industry 可用，產業模板 8→9。網通公司不再套 semiconductor-equipment。
 - 產業 profile 新增選用欄位 visual_templates（工程圖解建議圖組）與 deck_focus（整合簡報重點）；semiconductor-equipment 同步補上。engineering-visuals 改為優先依 profile 選圖，integrated-deck 依 deck_focus 安排財務與競爭頁。

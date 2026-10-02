@@ -1,0 +1,100 @@
+{
+  "security": "TWSE:6257",
+  "name": "矽格",
+  "generated": "2026-10-02T16:21:36+08:00",
+  "rule": "{公司}_{代碼}_{會計年度或文件日期}_{文件類別}_{語言}.pdf；外部研究採 {發布機構}_{日期}_{主題}_{語言}.pdf；同標題不同SHA256加 _來源版{SHA前8碼}",
+  "counts": {
+    "01_年報": 2,
+    "02_年度財報": 0,
+    "03_季報": 1,
+    "04_法說會資料": 0,
+    "05_技術簡報": 0,
+    "06_券商研究": 0,
+    "07_產業資料": 0,
+    "08_股東會與公司治理": 0
+  },
+  "files": [
+    {
+      "sha256": "2f73642d40cb74f9312169a66c3419cde89131949a1757dd6254d38e3daa5c83",
+      "category": "01_年報",
+      "label": "2024",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "矽格",
+      "name": "矽格_6257_2024_年報_中文.pdf",
+      "pages": 102,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/17Kd8AndtqsArE03aAD8LuiX0eqhaipq8"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "2024_6257_20250529F04_20260524_221013.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "2025-05-29 股東常會年報（會計年度 2024）；Drive 另有同 SHA256 複本 1kEtQuWnyy7ytp8zcfUVFwmPziPVkhyib",
+      "path": "分類PDF/01_年報/矽格_6257_2024_年報_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "17Kd8AndtqsArE03aAD8LuiX0eqhaipq8"
+    },
+    {
+      "sha256": "ee14fec4160a24290579744677110f30a3a7df1dc9de9894297874253eb35833",
+      "category": "01_年報",
+      "label": "2025",
+      "date_meaning": "會計年度",
+      "title": "年報",
+      "language": "中文",
+      "publisher": "矽格",
+      "name": "矽格_6257_2025_年報_中文.pdf",
+      "pages": 111,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "2025_6257_20260529F04_20260508_122341.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "2026-05-29 股東常會年報（會計年度 2025）；營運概況 p.48–66（營業比重 p.48、銷售地區與市占 p.57、主要客戶 p.62）",
+      "path": "分類PDF/01_年報/矽格_6257_2025_年報_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk"
+    },
+    {
+      "sha256": "22db89c5bd879085a591f42b65b7a376490740f3ce306d2dd9e51546554c92d4",
+      "category": "03_季報",
+      "label": "2026Q2",
+      "date_meaning": "季度及年初至當季累計",
+      "title": "合併季報_含上半年累計",
+      "language": "中文",
+      "publisher": "矽格",
+      "name": "矽格_6257_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "pages": 68,
+      "original_path": "",
+      "source_ids": [],
+      "source_urls": [
+        "https://drive.google.com/file/d/1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2"
+      ],
+      "published_dates": [],
+      "original_filenames": [
+        "202602_6257_AI1_20260824_212706.pdf"
+      ],
+      "classification_basis": "manifest指定",
+      "note": "115Q2 合併財報；損益表 p.8–9、其他利益及損失 p.38–39、股本與庫藏股 p.31、部門資訊 p.60、台星科非控制權益 p.61；Q2／Q3含累計報表；未將累計數直接標成單季數。",
+      "path": "分類PDF/03_季報/矽格_6257_2026Q2_合併季報_含上半年累計_中文.pdf",
+      "storage": "hardlink",
+      "drive_file_id": "1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2"
+    }
+  ],
+  "unclassified": [],
+  "conflicts": [],
+  "mops_codes": {
+    "AI1": "合併財務報告（YYYYQQ；QQ=01–03 季報，04 全年財報）",
+    "F04": "股東會年報（中文；檔名年度為會計年度）",
+    "FE4": "股東會年報（英文）"
+  }
+}

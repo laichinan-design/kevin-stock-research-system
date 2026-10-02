@@ -1,0 +1,103 @@
+{
+  "generated": "2026-10-02T08:30:08",
+  "command": "visual-build",
+  "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+  "results": [
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/01_封測流程總覽.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/01_封測流程總覽.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/01_封測流程總覽.json",
+      "bytes": 206362,
+      "texts_outlined": 51,
+      "unique_glyphs": 250,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/02_測試平台架構.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/02_測試平台架構.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/02_測試平台架構.json",
+      "bytes": 201585,
+      "texts_outlined": 43,
+      "unique_glyphs": 242,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/03_新技術測試路線.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/03_新技術測試路線.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/03_新技術測試路線.json",
+      "bytes": 196696,
+      "texts_outlined": 42,
+      "unique_glyphs": 241,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/04_產能與資本支出時程.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/04_產能與資本支出時程.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/04_產能與資本支出時程.json",
+      "bytes": 203037,
+      "texts_outlined": 47,
+      "unique_glyphs": 228,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/05_產業價值鏈位置.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/05_產業價值鏈位置.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/05_產業價值鏈位置.json",
+      "bytes": 229034,
+      "texts_outlined": 39,
+      "unique_glyphs": 272,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    },
+    {
+      "svg": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/06_折舊槓桿與獲利結構.svg",
+      "png": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/PNG預覽/06_折舊槓桿與獲利結構.png",
+      "spec": "/home/user/kevin-stock-research-system/研究資料/TWSE-6257/工程圖解/原始碼/06_折舊槓桿與獲利結構.json",
+      "bytes": 174818,
+      "texts_outlined": 43,
+      "unique_glyphs": 196,
+      "missing_glyphs": "",
+      "fake_bold": false,
+      "font_source": "font_dir:/tmp/claude-0/-home-user-kevin-stock-research-system/6c3fb136-cc42-5532-b04c-67e6b0cab3dd/scratchpad/fonts/nt",
+      "qa": {
+        "status": "passed",
+        "issues": [],
+        "warnings": []
+      }
+    }
+  ]
+}

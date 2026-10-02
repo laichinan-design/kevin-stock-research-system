@@ -1,0 +1,76 @@
+{
+  "drive_folder": "投資組合-台股/矽格6257/矽格6257研究",
+  "files": {
+    "分類PDF/03_季報/矽格_6257_2026Q2_合併季報_含上半年累計_中文.pdf": {
+      "sha256": "22db89c5bd879085a591f42b65b7a376490740f3ce306d2dd9e51546554c92d4",
+      "bytes": 4048529,
+      "synced_at": "2026-10-02T18:27:19+08:00",
+      "via": "manual",
+      "drive_file_id": "1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2"
+    },
+    "分類PDF/01_年報/矽格_6257_2025_年報_中文.pdf": {
+      "sha256": "ee14fec4160a24290579744677110f30a3a7df1dc9de9894297874253eb35833",
+      "bytes": 5899685,
+      "synced_at": "2026-10-02T18:27:24+08:00",
+      "via": "manual",
+      "drive_file_id": "1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk"
+    },
+    "分類PDF/01_年報/矽格_6257_2024_年報_中文.pdf": {
+      "sha256": "2f73642d40cb74f9312169a66c3419cde89131949a1757dd6254d38e3daa5c83",
+      "bytes": 2344771,
+      "synced_at": "2026-10-02T18:27:24+08:00",
+      "via": "manual",
+      "drive_file_id": "17Kd8AndtqsArE03aAD8LuiX0eqhaipq8"
+    },
+    "模型/valuation-20261002-kevin-provisional.json": {
+      "sha256": "6df61aaa35e5c8899d82d9ae830c43542e80450cfa482631f501176113ea91ea",
+      "bytes": 2641,
+      "synced_at": "2026-10-02T18:28:03+08:00",
+      "via": "connector",
+      "drive_file_id": "1MJYwbWiRxCFH8BFAs84jJ1IqQDRh7bIK"
+    },
+    "模型/kevin-request-20261002.json": {
+      "sha256": "40f54726e4518324a8662a9aad656b3582efa6f7b02546856bb9178472e5d122",
+      "bytes": 1941,
+      "synced_at": "2026-10-02T18:28:03+08:00",
+      "via": "connector",
+      "drive_file_id": "13b0fmDzJ-hGclcsRKgZQofc6NUg0mkNR"
+    },
+    "財務數據/peers-20261002.json": {
+      "sha256": "264cb5dc191ad491294c7a117a454c9bf0b90b11d5c8697ef8d6ae3d92c8e28d",
+      "bytes": 2771,
+      "synced_at": "2026-10-02T18:28:35+08:00",
+      "via": "connector",
+      "drive_file_id": "1HJ9CC8Ug8q5Pqh6nwdnePKCEbHBYt7gj"
+    },
+    "模型/valuation-20261002-kevin-provisional-normalized.json": {
+      "sha256": "742b018984c746f3613bcfbec7404c4642a9ccee520373d0983e9baa9ffbbf7e",
+      "bytes": 2969,
+      "synced_at": "2026-10-02T18:28:41+08:00",
+      "via": "connector",
+      "drive_file_id": "1qGTUFsEwZTtBIQVacpQd_x9u29PuEwB8"
+    },
+    "thesis.json": {
+      "sha256": "f4fc8f241cca1cc4557ae5c1705325ab79df89c0bcd177e188d9f2a9158bcfc8",
+      "bytes": 5488,
+      "synced_at": "2026-10-02T18:29:11+08:00",
+      "via": "connector",
+      "drive_file_id": "1Xiqm6IbpaS4F19tmK-xV5fBq_WEF3Atw"
+    },
+    "README.md": {
+      "sha256": "11a1ca914ee11f1e4a2d53ca8c9e23cb55f329cda4d3f9127eb96398a8e2036a",
+      "bytes": 4843,
+      "synced_at": "2026-10-02T18:29:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1hhwWjmz2B2P92cEFkEgKxMUADfsovgQb"
+    },
+    "待下載清單.md": {
+      "sha256": "7b23555ec423deb178e8c39f0da416808a3293f1d2da4bce31c92bff5745e52b",
+      "bytes": 3338,
+      "synced_at": "2026-10-02T18:29:59+08:00",
+      "via": "connector",
+      "drive_file_id": "10nOLjCEvkNTAEuFlPiTj2AZRn1I0S_oT"
+    }
+  },
+  "last_sync": "2026-10-02T18:29:59+08:00"
+}
