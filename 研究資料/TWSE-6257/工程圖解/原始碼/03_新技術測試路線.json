@@ -1,0 +1,231 @@
+{
+  "id": "03",
+  "name": "新技術測試路線",
+  "title": "新技術：矽光子由電晶片 EIC 延伸到光晶片 PIC，CPO 與先進封裝測試是下一階段",
+  "subtitle": "分欄依年報「研發成果」與「計畫開發之新產品」；各項目營收占比公司未揭露，不推估",
+  "source": "2025 年報 p.1–2（GaN）、p.48–49（計畫開發新產品）、p.54（115 年度研發成果）、p.55–56（矽光子 EIC→PIC）、p.58（ASIL D）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 150,
+      "w": 480,
+      "h": 660,
+      "label": "已量產"
+    },
+    {
+      "type": "box",
+      "id": "m1",
+      "x": 85,
+      "y": 195,
+      "w": 430,
+      "h": 132,
+      "title": "矽光子 EIC 測試",
+      "lines": [
+        "TIA、Driver",
+        "112Gbaud 光通訊"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "m2",
+      "x": 85,
+      "y": 347,
+      "w": 430,
+      "h": 132,
+      "title": "3 奈米測試",
+      "lines": [
+        "量產規模與良率提升"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "m3",
+      "x": 85,
+      "y": 499,
+      "w": 430,
+      "h": 132,
+      "title": "RF／毫米波",
+      "lines": [
+        "5G mmWave、Wi-Fi 7",
+        "低軌衛星 RF"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "m4",
+      "x": 85,
+      "y": 651,
+      "w": 430,
+      "h": 132,
+      "title": "車用功能安全",
+      "lines": [
+        "ISO 26262 ASIL D",
+        "台灣首家封測廠通過"
+      ],
+      "style": "solid",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "lane",
+      "x": 560,
+      "y": 150,
+      "w": 480,
+      "h": 660,
+      "label": "擴充／開發中"
+    },
+    {
+      "type": "box",
+      "id": "d1",
+      "x": 585,
+      "y": 195,
+      "w": 430,
+      "h": 132,
+      "title": "矽光子 PIC 測試",
+      "lines": [
+        "整合光信號儀器",
+        "由電延伸到光"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "d2",
+      "x": 585,
+      "y": 347,
+      "w": 430,
+      "h": 132,
+      "title": "CPO 封裝",
+      "lines": [
+        "共同封裝光學",
+        "量產準備"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "d3",
+      "x": 585,
+      "y": 499,
+      "w": 430,
+      "h": 132,
+      "title": "Burn-in／SLT",
+      "lines": [
+        "AI、HPC、車用",
+        "預燒與系統級擴產"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "d4",
+      "x": 585,
+      "y": 651,
+      "w": 430,
+      "h": 132,
+      "title": "2.5D／3D／CoWoS",
+      "lines": [
+        "先進封裝相關",
+        "測試技術與量產"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "lane",
+      "x": 1060,
+      "y": 150,
+      "w": 480,
+      "h": 660,
+      "label": "準備／研究"
+    },
+    {
+      "type": "box",
+      "id": "r1",
+      "x": 1085,
+      "y": 195,
+      "w": 430,
+      "h": 132,
+      "title": "2 奈米測試",
+      "lines": [
+        "技術研發",
+        "量產準備"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "r2",
+      "x": 1085,
+      "y": 347,
+      "w": 430,
+      "h": 132,
+      "title": "FOPLP",
+      "lines": [
+        "面板級封裝",
+        "相關測試技術"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "r3",
+      "x": 1085,
+      "y": 499,
+      "w": 430,
+      "h": 132,
+      "title": "玻璃基板",
+      "lines": [
+        "子公司布局",
+        "先進封裝基板"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "r4",
+      "x": 1085,
+      "y": 651,
+      "w": 430,
+      "h": 132,
+      "title": "GaN 化合物",
+      "lines": [
+        "氮化鎵相關",
+        "測試產能擴充"
+      ],
+      "style": "secondary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "d1",
+      "from": "m1"
+    }
+  ]
+}

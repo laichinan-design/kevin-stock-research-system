@@ -1,0 +1,281 @@
+{
+  "id": "05",
+  "name": "產業價值鏈位置",
+  "title": "價值鏈：位於晶圓代工之後的專業測試，七成營收內銷，前三大客戶合計 45%",
+  "subtitle": "客戶以代號揭露，不推定名稱；欣銓為研究者補列之同業，應用別占比為法說二手資料",
+  "source": "2025 年報 p.53–57（產業結構、競爭）、p.57（銷售地區、市占）、p.61（主要原料）、p.62（主要客戶）；優分析 2026-06（應用別）",
+  "asof": "2026-10-02",
+  "illustrative": true,
+  "elements": [
+    {
+      "type": "box",
+      "id": "ic",
+      "x": 60,
+      "y": 200,
+      "w": 330,
+      "h": 170,
+      "title": "IC 設計／IDM",
+      "lines": [
+        "Fabless 客戶",
+        "國外 IDM 釋出委外"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "fab",
+      "x": 430,
+      "y": 200,
+      "w": 330,
+      "h": 170,
+      "title": "晶圓代工",
+      "lines": [
+        "3 奈米、2 奈米",
+        "晶圓投片"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "box",
+      "id": "sg",
+      "x": 800,
+      "y": 180,
+      "w": 380,
+      "h": 210,
+      "title": "矽格（OSAT）",
+      "lines": [
+        "測試 80.9%、封裝 18.3%",
+        "台灣封測市占 2.8%",
+        "2025 營收 195.9 億"
+      ],
+      "style": "solid",
+      "title_size": 28,
+      "line_size": 18
+    },
+    {
+      "type": "box",
+      "id": "sys",
+      "x": 1220,
+      "y": 200,
+      "w": 320,
+      "h": 170,
+      "title": "模組與系統",
+      "lines": [
+        "手機、AI 伺服器",
+        "網通、車用"
+      ],
+      "style": "primary",
+      "title_size": 24,
+      "line_size": 17
+    },
+    {
+      "type": "arrow",
+      "to": "fab",
+      "from": "ic"
+    },
+    {
+      "type": "arrow",
+      "to": "sg",
+      "from": "fab"
+    },
+    {
+      "type": "arrow",
+      "to": "sys",
+      "from": "sg"
+    },
+    {
+      "type": "line",
+      "points": [
+        225,
+        370,
+        225,
+        420,
+        990,
+        420
+      ],
+      "color": "secondary",
+      "width": 3
+    },
+    {
+      "type": "arrow",
+      "points": [
+        990,
+        420,
+        990,
+        394
+      ],
+      "color": "secondary"
+    },
+    {
+      "type": "text",
+      "x": 330,
+      "y": 445,
+      "text": "測試程式開發與轉移、客戶下單",
+      "size": 16,
+      "color": "muted"
+    },
+    {
+      "type": "lane",
+      "x": 60,
+      "y": 480,
+      "w": 480,
+      "h": 345,
+      "label": "上游原料（年報主要原料）"
+    },
+    {
+      "type": "box",
+      "id": "u1",
+      "x": 85,
+      "y": 525,
+      "w": 430,
+      "h": 86,
+      "title": "基板",
+      "lines": [
+        "日月光電子、南亞電路板"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "u2",
+      "x": 85,
+      "y": 620,
+      "w": 430,
+      "h": 86,
+      "title": "金線、錫球",
+      "lines": [
+        "田中、MKE；邦揚、DUKSAN"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "u3",
+      "x": 85,
+      "y": 715,
+      "w": 430,
+      "h": 86,
+      "title": "膠餅、粘著劑、Tape",
+      "lines": [
+        "力森諾科、Henkel、三井"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "lane",
+      "x": 560,
+      "y": 480,
+      "w": 480,
+      "h": 345,
+      "label": "客戶與市場（2025）"
+    },
+    {
+      "type": "box",
+      "id": "k1",
+      "x": 585,
+      "y": 525,
+      "w": 430,
+      "h": 86,
+      "title": "前三大客戶 45.3%",
+      "lines": [
+        "甲 22.3%、丁 11.6%、乙 11.4%"
+      ],
+      "style": "secondary",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "k2",
+      "x": 585,
+      "y": 620,
+      "w": 430,
+      "h": 86,
+      "title": "內銷 72.7%",
+      "lines": [
+        "亞洲 18.6%、美洲 5.5%"
+      ],
+      "style": "secondary",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "k3",
+      "x": 585,
+      "y": 715,
+      "w": 430,
+      "h": 86,
+      "title": "應用（2026/1–5）",
+      "lines": [
+        "手機 31%、AI 等 23%、網通 22%"
+      ],
+      "style": "secondary",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "lane",
+      "x": 1060,
+      "y": 480,
+      "w": 480,
+      "h": 345,
+      "label": "競爭者"
+    },
+    {
+      "type": "box",
+      "id": "c1",
+      "x": 1085,
+      "y": 525,
+      "w": 430,
+      "h": 86,
+      "title": "大型 OSAT",
+      "lines": [
+        "日月光、Amkor（年報列舉）"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "c2",
+      "x": 1085,
+      "y": 620,
+      "w": 430,
+      "h": 86,
+      "title": "專業測試廠",
+      "lines": [
+        "京元電（年報列舉）、欣銓"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    },
+    {
+      "type": "box",
+      "id": "c3",
+      "x": 1085,
+      "y": 715,
+      "w": 430,
+      "h": 86,
+      "title": "IDM 自有封測",
+      "lines": [
+        "Intel、Samsung、TI"
+      ],
+      "style": "muted",
+      "title_size": 20,
+      "line_size": 15
+    }
+  ]
+}
