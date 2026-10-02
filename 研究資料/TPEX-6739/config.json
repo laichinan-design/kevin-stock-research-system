@@ -32,7 +32,7 @@
   },
   "storage": {
     "drive_folder": "投資組合-台股/竹陞6739/竹陞6739研究",
-    "local_sync_root": null,
+    "local_sync_root": "G:/我的雲端硬碟",
     "connector_max_bytes": 100000
   }
 }

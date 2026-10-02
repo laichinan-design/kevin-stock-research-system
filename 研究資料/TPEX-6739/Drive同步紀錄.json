@@ -16,11 +16,11 @@
       "drive_file_id": "1crNUdlqUIB8GS_kPPM0P6t1YRC515MkP"
     },
     "README.md": {
-      "sha256": "be3f9918e480b2d6bb0017064a08dc2f041a1950f7587e40aecbe393fae26298",
+      "sha256": "55d3b4dadf35a67b2a6505ce899f68d3bfff93036748a319a6d6ea556124e70a",
       "bytes": 3823,
-      "synced_at": "2026-10-02T15:12:37+08:00",
+      "synced_at": "2026-10-02T15:19:49+08:00",
       "via": "connector",
-      "drive_file_id": "1T5tNj5M0Qj2OdNvwz0nfCxyAJMat_Iax"
+      "drive_file_id": "16vAQfQRfbyA52dwSGfXuS6Vt0HYQzbBv"
     },
     "分類PDF/整理說明.md": {
       "sha256": "bb22657a55fef8f02174b808266720b2125c71962909497ae58e453995e17b5e",
@@ -35,7 +35,28 @@
       "synced_at": "2026-10-02T15:13:05+08:00",
       "via": "connector",
       "drive_file_id": "1UJQaT_xMA0twSWGx9v5iUdntSpoHPmzB"
+    },
+    "config.json": {
+      "sha256": "cab28c79db260c4f4b37282d45fb3f4a1f2c99099d9969e3c2137dbb29efba41",
+      "bytes": 1118,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1DUXlHfGJVhqXutQxg99Zgl_1g_b2IT3g"
+    },
+    "工程圖解/驗證紀錄.json": {
+      "sha256": "8b2735a6983abdfedd2b3b3e6514e89d958124a69c04a3ad2a12e05e335c9918",
+      "bytes": 4166,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1331pUeludD_L977DiHYd1pCOW4jrhAr0"
+    },
+    "分類PDF/PDF分類索引.json": {
+      "sha256": "2a169be26699422ffd3ea3bd193a76278159e51ccdfb2aabe3fbbff7d2cd606a",
+      "bytes": 3739,
+      "synced_at": "2026-10-02T15:18:59+08:00",
+      "via": "connector",
+      "drive_file_id": "1w47kQoOyGQ442KWLnuQBuUAVUkCHIT03"
     }
   },
-  "last_sync": "2026-10-02T15:13:05+08:00"
+  "last_sync": "2026-10-02T15:19:49+08:00"
 }
