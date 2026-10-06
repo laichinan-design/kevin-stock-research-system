@@ -2,7 +2,7 @@
 import ast,json,re,sys
 from pathlib import Path
 
-VERSION='0.7.0'
+VERSION='0.8.1'
 
 def validate(root):
     root=Path(root);errors=[];manifests=[]
@@ -47,7 +47,12 @@ def validate(root):
         anchors=json.loads((root/'profiles/anchors.json').read_text(encoding='utf-8'))
         if set(anchors['categories'])!={'portfolio','cpo','potential'}:errors.append('anchors.json categories changed')
         for k,c in anchors['categories'].items():
-            if not all(isinstance(c.get(r),(int,float)) and 0<c[r]<=2 for r in ('ratio_p','ratio_q')) or not c.get('etf'):errors.append('invalid anchor category: '+k)
+            if not c.get('etf') or any(r in c for r in ('ratio_p','ratio_q')):errors.append('invalid anchor category (v3.7b has no dual-anchor ratios): '+k)
+        for k in ('excess_cap','low_base_growth','shortfall_floor','peak_pe','stale_days'):
+            if not isinstance(anchors.get(k),(int,float)) or anchors[k]<=0:errors.append('invalid anchors.json '+k)
+        if anchors.get('excluded_theme')!='記憶體' or not anchors.get('memory_codes'):errors.append('anchors.json must list the excluded memory-theme codes')
+        known=anchors.get('last_known',{})
+        if set(known.get('categories',{}))!={'portfolio','cpo','potential'} or not known.get('asof') or not known.get('source'):errors.append('anchors.json last_known incomplete')
         if not all(isinstance(anchors['rule'].get(r),(int,float)) for r in ('high_ratio','low_ratio','high_adj','low_adj')):errors.append('invalid anchor rule')
     except Exception as e:errors.append('profiles/anchors.json: '+str(e))
     return {'status':'passed' if not errors else 'failed','errors':errors,'skills':len(skills),'manifests':len(manifests),'scope':'offline structural and privacy checks only'}

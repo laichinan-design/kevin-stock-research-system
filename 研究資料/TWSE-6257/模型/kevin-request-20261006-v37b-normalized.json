@@ -1,0 +1,81 @@
+{
+ "security": "TWSE:6257",
+ "industry": "osat",
+ "method": "kevin_legacy",
+ "currency": "TWD",
+ "asof": "2026-10-06",
+ "assumptions_asof": "2026-10-06",
+ "assumptions_verified": true,
+ "source_ids": [
+  "MOPS:202602_6257_AI1（Drive 1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2）p.8–9 損益、p.31 股本、p.38–39 其他利益及損失、p.61 非控制權益",
+  "MOPS:2025 年報 F04（Drive 1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk）p.1 2025 EPS 6.14",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收；分類 CPO 概念）",
+  "ANCHOR:Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
+  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 286 元（漲停 +10%）"
+ ],
+ "provisional_note": "公司身分未以官方 URL verify-identity（雲端擋 MOPS）；G/H/W/股本/非經常性取自官方 115Q2 財報 PDF。7、8 月個別營收為新聞稿百萬元精度，兩月合計＝1–8 月累計 − H1 財報營收（精確）。",
+ "inputs": {
+  "revenue_ytd": 15257594,
+  "months": 8,
+  "owner_ratio": 0.89752,
+  "capital_thousands": 4839123,
+  "par": 10,
+  "previous_eps": 7.16,
+  "previous_eps_basis": "normalized",
+  "earnings_quality": {
+   "scope": "consolidated",
+   "revenue": 11174473,
+   "pretax": 2955507,
+   "tax": 475480,
+   "net_income": 2480027,
+   "nonrecurring": {
+    "fx": 61346,
+    "fvtpl": 44053,
+    "disposals": 37463
+   }
+  },
+  "anchor": {
+   "category": "cpo",
+   "etf": "00891",
+   "trailing_pe": 38.6352,
+   "growth_ttm": 0.222974,
+   "growth_prior": 0.528864,
+   "excluded_themes": [
+    "記憶體"
+   ],
+   "excluded_count": 2,
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "asof": "2026-10-03",
+   "source": "Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
+  },
+  "target_premium": 1,
+  "run_rate": {
+   "recent_months": [
+    2014121,
+    2069000
+   ],
+   "margin_period": "2026Q2",
+   "earnings_quality": {
+    "scope": "consolidated",
+    "revenue": 5880697,
+    "pretax": 1575792,
+    "tax": 217473,
+    "net_income": 1358319,
+    "nonrecurring": {
+     "fx": -28725,
+     "fvtpl": 30276,
+     "disposals": 10088
+    }
+   },
+   "margin_basis": "consolidated",
+   "pull_in_suspected": false,
+   "inorganic_monthly": 0
+  },
+  "previous_eps_reported": 6.14,
+  "previous_eps_note": "2025Q2 新台幣急升匯損 760,239 千元（115Q2 財報 p.38 比較期）；以 25Q2 稅前加回匯損、按 25Q1 有效稅率 19.73%、25Q2 歸母占比 0.8647 還原，25Q2 EPS 0.70→1.72，2025 EPS 6.14→7.16",
+  "price": 286,
+  "price_date": "2026-10-06"
+ },
+ "model_version": "Kevin v3.7b（plugin 0.8.1）"
+}
