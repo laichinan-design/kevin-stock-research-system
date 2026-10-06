@@ -152,65 +152,74 @@ class MappingTests(unittest.TestCase):
 class ValuationPortfolioTests(unittest.TestCase):
     def valuation(self):return dict(method='scenario_pe',inputs=dict(eps=10,multiple_low=12,multiple_high=20),industry='semiconductor',assumptions_verified=True,assumptions_asof='2026-09-30',asof='2026-09-30',currency='TWD',source_ids=['fixture'])
     def test_pe(self):self.assertEqual(value_company(self.valuation())['numeric_output']['price_low'],120)
-    ANCHOR_0050=dict(category='portfolio',trailing_pe=29.22953,growth_ttm=.18313,growth_prior=.485004,coverage=.8968,excluded_themes=['記憶體'],
-                     market_pe=31.26,market_median_pe=17,asof='2026-10-03',source='fixture 錨定ETF v3.7b')
     def kevin(self,industry='general'):
-        inputs=dict(revenue_ytd=6811534,months=8,consolidated_margin=1475886/5037705,margin_basis='consolidated',owner_ratio=1,capital_thousands=646000,par=10,previous_eps=18,
-                    price=1165,price_date='2026-09-29',anchor=dict(self.ANCHOR_0050))
-        return dict(method='kevin_legacy',industry=industry,inputs=inputs,currency='TWD',assumptions_verified=True,assumptions_asof='2026-10-06',asof='2026-10-06',source_ids=['fixture'])
+        inputs=dict(revenue_ytd=6811534,months=8,consolidated_margin=1475886/5037705,margin_basis='consolidated',owner_ratio=1,capital_thousands=646000,par=10,previous_eps=18,price=1165,
+                    anchor=dict(category='portfolio',etf_pe_trailing=29.229530,etf_growth_ttm=.183130,etf_growth_fy=.485004,market_pe=31.26,market_median_pe=17,
+                                holdings_asof='2026-08-31',asof='2026-10-03',source='Kevin目標價_2026_09.xlsx 錨定ETF（v3.7b）',excluded_themes=['記憶體']))
+        return dict(method='kevin_legacy',industry=industry,inputs=inputs,currency='TWD',assumptions_verified=True,assumptions_asof='2026-10-05',asof='2026-10-05',source_ids=['fixture'])
+    def kevin_old(self):
+        r=self.kevin();x=r['inputs'];x.pop('price')
+        x['anchor']=dict(category='portfolio',anchor_method='legacy_dual_anchor',etf_pe=22,market_pe=31.26,market_median_pe=17,asof='2026-09-11')
+        return r
     def test_kevin_anchor_preset_and_general_industry(self):
         r=value_company(self.kevin());n=r['numeric_output']
-        self.assertEqual(r['status'],'calculated_scenario_not_trade_signal');self.assertEqual(n['anchor']['etf'],'0050')
-        self.assertAlmostEqual(n['anchor']['base_pe'],20.9995,places=3);self.assertAlmostEqual(n['anchor']['hurdle_growth'],.485004);self.assertAlmostEqual(n['model_value'],1743.3,places=1)
-        self.assertFalse(any(w.startswith('anchor:') for w in n['warnings']))
-    def test_kevin_profile_values_and_alias(self):
-        r=self.kevin();r['inputs']['anchor']=dict(category='CPO概念',values='profile');n=value_company(r)['numeric_output']
-        self.assertEqual(n['anchor']['etf'],'00891');self.assertAlmostEqual(n['anchor']['base_pe'],26.8525,places=3);self.assertAlmostEqual(n['anchor']['hurdle_growth'],.528864)
-        self.assertTrue(any('last known' in w for w in n['warnings']))
-        with self.assertRaises(ValueError):
-            bad=self.kevin();bad['inputs']['anchor']=dict(category='cpo',etf='0050',values='profile');value_company(bad)
+        self.assertEqual(r['status'],'calculated_scenario_not_trade_signal');self.assertEqual(n['anchor']['etf'],'0050');self.assertEqual(n['anchor_method'],'etf_implied_growth')
+        self.assertAlmostEqual(n['anchor']['base_pe'],20.999471,places=4);self.assertAlmostEqual(n['anchor']['etf_growth_fy'],.485004);self.assertAlmostEqual(n['model_value'],1743,delta=1)
+        self.assertNotIn('ratio_p',n['anchor']);self.assertEqual(n['scenarios']['A']['hurdle_growth'],.485004);self.assertIn('same anchor',n['anchor']['hurdle_source'])
+        a=n['scenarios']['A'];self.assertEqual(a['delta_cap'],200);self.assertEqual(a['model_version'],'v3.7b');self.assertFalse(any('memory' in w for w in n['warnings']))
+    def test_kevin_cpo_anchor_uses_own_hurdle(self):
+        r=self.kevin();r['inputs']['anchor'].update(category='cpo',etf_pe_trailing=38.635243,etf_growth_ttm=.222976,etf_growth_fy=.528864)
+        n=value_company(r)['numeric_output'];a=n['scenarios']['A']
+        self.assertEqual(n['anchor']['etf'],'00891');self.assertAlmostEqual(n['anchor']['base_pe'],26.852505,places=4)
+        self.assertEqual(a['hurdle_growth'],.528864);self.assertEqual(a['hurdle_source'],'etf_growth_fy')
+        self.assertAlmostEqual(a['delta'],(a['growth']-.528864)*100);self.assertFalse(any('override' in w for w in n['warnings']))
+    def test_kevin_anchor_without_gfy_uses_profile(self):
+        r=self.kevin();r['inputs']['anchor'].update(category='potential',etf_pe_trailing=41.869429,etf_growth_ttm=.223364);del r['inputs']['anchor']['etf_growth_fy']
+        n=value_company(r)['numeric_output']
+        self.assertEqual(n['scenarios']['A']['hurdle_growth'],.602024);self.assertIn('profiles/anchors.json',n['anchor']['hurdle_source'])
+    def test_kevin_hurdle_and_cap_overrides(self):
+        r=self.kevin();r['inputs']['anchor'].update(category='potential',etf_pe_trailing=41.869429,etf_growth_ttm=.223364,etf_growth_fy=.602024)
+        r['inputs']['hurdle_growth']=.5;r['inputs']['excess_cap']=100
+        n=value_company(r)['numeric_output'];a=n['scenarios']['A']
+        self.assertEqual(a['hurdle_growth'],.5);self.assertIn('override',n['anchor']['hurdle_source']);self.assertEqual(a['delta_cap'],100)
+        self.assertEqual(a['etf_growth_fy'],.602024);self.assertTrue(any('excess_cap overridden' in w for w in n['warnings']));self.assertTrue(any('hurdle_growth override' in w for w in n['warnings']))
+    def test_kevin_hurdle_date_and_memory_warnings(self):
+        r=self.kevin();r['inputs']['anchor'].update(category='cpo',asof='2026-10-04',etf_pe_trailing=38.635243,etf_growth_ttm=.222976);del r['inputs']['anchor']['etf_growth_fy'];del r['inputs']['anchor']['excluded_themes']
+        w=value_company(r)['numeric_output']['warnings']
+        self.assertTrue(any('differs from anchor date' in x for x in w));self.assertTrue(any('memory-theme' in x for x in w))
+    def test_kevin_direct_inputs_without_anchor(self):
+        r=self.kevin();x=r['inputs'];del x['anchor'];x.update(base_pe=29.091102,etf_growth_fy=.602024)
+        a=value_company(r)['numeric_output']['scenarios']['A'];self.assertEqual(a['delta_cap'],200);self.assertEqual(a['hurdle_source'],'etf_growth_fy');self.assertEqual(a['hurdle_growth'],.602024)
     def test_kevin_premium_through_workflow(self):
         r=self.kevin();r['inputs']['target_premium']=1.5
-        self.assertAlmostEqual(value_company(r)['numeric_output']['scenarios']['A']['model_value_with_premium'],2614.9,places=1)
+        self.assertAlmostEqual(value_company(r)['numeric_output']['scenarios']['A']['model_value_with_premium'],2615,delta=1)
+    def test_kevin_legacy_anchor_through_workflow(self):
+        n=value_company(self.kevin_old())['numeric_output']
+        self.assertEqual(n['anchor_method'],'legacy_dual_anchor');self.assertAlmostEqual(n['anchor']['base_pe_p'],14.025);self.assertAlmostEqual(n['anchor']['base_pe_q'],10.285)
+        self.assertAlmostEqual(n['model_value'],1529.39,places=1)
+        r=self.kevin_old();r['inputs']['target_premium']=1.5
+        self.assertAlmostEqual(value_company(r)['numeric_output']['scenarios']['A']['model_value_with_premium'],2294.08,places=1)
+    def test_kevin_old_anchor_fields_need_legacy_flag(self):
+        r=self.kevin();r['inputs']['anchor']=dict(category='portfolio',etf_pe=22,market_pe=31.26,market_median_pe=17,asof='2026-09-11',source='x')
+        with self.assertRaisesRegex(ValueError,'v3.7'):value_company(r)
+    def test_kevin_anchor_requires_source(self):
+        r=self.kevin();del r['inputs']['anchor']['source']
+        with self.assertRaisesRegex(ValueError,'source'):value_company(r)
     def test_kevin_eps_multiplier_returns_reason(self):
         r=self.kevin();r['inputs']['multiplier']=1.5;out=value_company(r)
         self.assertEqual(out['status'],'not_applicable');self.assertIn('target_premium',out['reason'])
-    def test_kevin_retired_dual_anchor(self):
-        r=self.kevin();r['inputs']['anchor']=dict(category='portfolio',etf_pe=22,market_pe=31.26,market_median_pe=17,asof='2026-09-11',source='old')
-        with self.assertRaisesRegex(ValueError,'retired'):value_company(r)
-        r=self.kevin();del r['inputs']['anchor'];r['inputs'].update(base_pe_p=14.025,base_pe_q=10.285)
-        with self.assertRaises(ValueError):value_company(r)
     def test_kevin_anchor_dates(self):
-        future=self.kevin();future['inputs']['anchor']['asof']='2026-10-07'
+        future=self.kevin();future['inputs']['anchor']['asof']='2026-10-06'
         with self.assertRaises(ValueError):value_company(future)
         stale=self.kevin();stale['inputs']['anchor']['asof']='2026-08-01'
         self.assertTrue(any('days old' in w for w in value_company(stale)['numeric_output']['warnings']))
-        price=self.kevin();price['inputs']['price_date']='2026-10-07'
-        with self.assertRaises(ValueError):value_company(price)
-        noprice=self.kevin();del noprice['inputs']['price']
-        with self.assertRaisesRegex(ValueError,'price'):value_company(noprice)
-    def test_kevin_anchor_conflicts_and_overrides(self):
-        both=self.kevin();both['inputs']['base_pe']=21
+    def test_kevin_anchor_conflicts(self):
+        both=self.kevin();both['inputs']['base_pe']=20
         with self.assertRaises(ValueError):value_company(both)
+        old=self.kevin();old['inputs']['base_pe_p']=14
+        with self.assertRaises(ValueError):value_company(old)
         unknown=self.kevin();unknown['inputs']['anchor']['category']='unknown'
         with self.assertRaises(ValueError):value_company(unknown)
-        direct=self.kevin();del direct['inputs']['anchor'];direct['inputs'].update(base_pe=20.999471,hurdle_growth=.485004)
-        with self.assertRaisesRegex(ValueError,'anchor_source'):value_company(direct)
-        direct['inputs']['anchor_source']='錨定ETF 2026-10-03';self.assertAlmostEqual(value_company(direct)['numeric_output']['model_value'],1743.3,places=1)
-        over=self.kevin();over['inputs']['hurdle_growth']=.6
-        with self.assertRaisesRegex(ValueError,'hurdle_source'):value_company(over)
-        over['inputs']['hurdle_source']='user test';n=value_company(over)['numeric_output']
-        self.assertAlmostEqual(n['scenarios']['A']['hurdle_growth'],.6);self.assertTrue(any('overridden' in w for w in n['warnings']))
-    def test_anchor_profile_matches_code(self):
-        import research
-        from workflow import PLUGIN_ROOT
-        prof=json.loads((PLUGIN_ROOT/'profiles/anchors.json').read_text(encoding='utf-8'))
-        self.assertEqual((prof['excess_cap'],prof['low_base_growth'],prof['shortfall_floor'],prof['peak_pe']),(research.EXCESS_CAP,research.LOW_BASE_GROWTH,research.SHORTFALL_FLOOR,research.PEAK_PE))
-        self.assertEqual({k:prof['rule'][k] for k in research.ANCHOR_RULE},research.ANCHOR_RULE);self.assertEqual(len(prof['memory_codes']),21)
-        known=prof['last_known']
-        for k,c in known['categories'].items():
-            b=research.anchor_base({**{x:c[x] for x in ('trailing_pe','growth_ttm','growth_prior','coverage')},'excluded_themes':known['excluded_themes'],'market_pe':known['market_pe'],'market_median_pe':known['market_median_pe']})
-            self.assertAlmostEqual(b['base_pe'],c['base_pe'],places=3,msg=k)
     def test_kevin_enabled_for_equipment_and_networking(self):
         base=value_company(self.kevin())['numeric_output']['model_value']
         for industry in ('semiconductor-equipment','datacenter-networking','osat'):

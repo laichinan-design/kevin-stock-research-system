@@ -103,10 +103,10 @@ JSON陣列，每筆例如：
 {"security":"TWSE:2330","industry":"semiconductor","method":"kevin_legacy","currency":"TWD","asof":"2026-09-30","assumptions_asof":"2026-09-30","assumptions_verified":true,"source_ids":["ACTUAL_EVIDENCE_ID"],
  "inputs":{"revenue_ytd":800,"months":8,"owner_ratio":1,"capital_thousands":100,"par":10,"previous_eps":20,
   "earnings_quality":{"scope":"consolidated","revenue":600,"pretax":200,"tax":40,"net_income":160,"nonrecurring":{"fvtpl":0,"disposals":0,"fx":5}},
-  "price":500,"price_date":"2026-09-30",
-  "anchor":{"category":"potential","trailing_pe":40,"growth_ttm":0.2,"growth_prior":0.6,"coverage":0.9,"excluded_themes":["記憶體"],"market_pe":25,"market_median_pe":17,"asof":"2026-09-30","source":"錨定ETF工作表（合成示例）"}}}
+  "price":100,
+  "anchor":{"category":"potential","etf_pe_trailing":40,"etf_growth_ttm":0.3,"etf_growth_fy":0.8,"market_pe":25,"market_median_pe":17,"asof":"2026-09-30","source":"Kevin目標價_YYYY_MM.xlsx 錨定ETF"}}}
 ```
-回傳scenarios.A（主要）、選用的scenarios.B、earnings_quality、anchor（b、門檻、剔除記憶體）、warnings、flags（景氣高峰、低基期）。v3.7b：b＝ETF落後PE÷(1+G_TTM)×M_adj，門檻＝同一ETF的G_FY，Δ上限200。anchor可改寫{"category":"cpo","values":"profile"}採外掛內建的最近已知值（會警示）。溢價用target_premium，只乘模型價；雙層錨定欄位（etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q、base_pe_low／base_pe_high）與multiplier（≠1）會被拒絕並提示新欄位。
+回傳scenarios.A（主要，含base_pe、etf_growth_fy、hurdle_growth、hurdle_source、delta、delta_cap、branch、peak_earnings、low_base、pe_cons／pe_opt、price_cons／price_opt）、選用的scenarios.B、earnings_quality、anchor、warnings、flags。0.8.0起預設為v3.7 ETF隱含成長錨定，0.8.1起為v3.7b（錨定剔除記憶體股、超額門檻＝類別ETF剔除記憶體後的G_FY、Δ上限200、低基期旗標；可用hurdle_growth、excess_cap單次覆寫）；anchor.etf_pe、ratio_p／ratio_q或base_pe_p／base_pe_q須另加"anchor_method":"legacy_dual_anchor"，否則拒絕並說明新公式。溢價用target_premium，只乘模型價；0.2.0的multiplier（≠1）與base_pe_low／base_pe_high會被拒絕並提示新欄位。
 
 ## portfolio-batch.json
 account：account_id、snapshot_id、asof、currency、investable_assets、available_cash、loss_budget_remaining、sector_values（sector→市值）。

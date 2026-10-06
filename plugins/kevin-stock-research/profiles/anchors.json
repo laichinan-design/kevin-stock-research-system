@@ -1,7 +1,19 @@
 {
-  "version": 2,
-  "model": "v3.7b",
-  "description": "Kevin ETF 內涵成長錨定法（v3.7b）：b = ETF 加權落後 PE ÷ (1 + G_TTM) × M_adj；超額門檻 = 同一 ETF 的 G_FY；ETF 錨定值剔除記憶體題材股、剩餘權重重新歸一。",
+  "version": 3,
+  "model_version": "v3.7b",
+  "method": "etf_implied_growth",
+  "description": "Kevin v3.7b ETF 隱含成長錨定：base_pe（b）= ETF（剔除記憶體題材股、權重重新歸一）落後本益比 ÷ (1 + ETF 內涵成長 G_TTM) × M_adj；個股只對超過同一檔 ETF（剔除記憶體）內涵成長 G_FY 的部分（Δ，上限 excess_cap）加本益比溢價；預期 EPS 成長 > 300%（非景氣高峰）標示低基期。",
+  "inputs": {
+    "etf_pe_trailing": "ETF 持股（剔除記憶體題材股、權重重新歸一）加權落後本益比 = 1 ÷ Σ 權重 ×（近四季 EPS ÷ 股價）",
+    "etf_growth_ttm": "G_TTM：ETF 內涵成長，近四季 EPS → 預期 EPS（小數，0.19 = 19%）",
+    "etf_growth_fy": "G_FY：類別 ETF（剔除記憶體）內涵成長，去年全年 EPS → 預期 EPS（小數）；v3.7b 即超額門檻",
+    "market_pe": "大盤本益比",
+    "market_median_pe": "大盤 10 年中位本益比",
+    "asof": "股價日（必填，晚於估值截止日拒絕）",
+    "source": "來源（必填；優先使用每月輸出檔 投資組合-台股/演算法/Kevin目標價_YYYY_MM.xlsx 工作表「錨定ETF」）",
+    "hurdle_growth": "選填，單次覆寫超額門檻（小數）；未填時 = etf_growth_fy",
+    "excess_cap": "Δ 上限（百分點），預設見 excess_cap；可單次覆寫"
+  },
   "rule": {
     "high_ratio": 1.3,
     "low_ratio": 0.8,
@@ -9,51 +21,135 @@
     "low_adj": 1.15,
     "description": "M = 大盤 PE ÷ 10 年中位 PE；M > 1.3 → 0.85，M < 0.8 → 1.15，其餘 1.0（邊界值不調整）。"
   },
+  "excluded_themes": [
+    "記憶體"
+  ],
+  "excluded_codes": {
+    "2344": "華邦電",
+    "6770": "力積電",
+    "3006": "晶豪科",
+    "5386": "青雲",
+    "4973": "廣穎電通",
+    "8096": "擎亞",
+    "2408": "南亞科",
+    "2337": "旺宏",
+    "8299": "群聯",
+    "3260": "威剛",
+    "2451": "創見",
+    "8271": "宇瞻",
+    "4967": "十銓",
+    "5289": "宜鼎",
+    "5351": "鈺創",
+    "3135": "凌航",
+    "8112": "至上",
+    "6265": "方土昶",
+    "8088": "品安",
+    "6485": "點序",
+    "6531": "愛普"
+  },
+  "exclusion_note": "記憶體超級循環（華邦電 EPS 0.88→17.8、南亞科 2.13→58.7）把 00891／00935 內涵成長灌高到 83.4%／80.4%（v3.7），故 v3.7b 起 ETF 錨定計算剔除記憶體題材股、剩餘權重重新歸一。記憶體股本身屬特殊個案，由使用者人工判斷。",
+  "hurdle_rule": "category_etf_growth_fy",
+  "hurdle_note": "超額門檻 = 類別 ETF 自身的 G_FY（剔除記憶體後重算）：投資組合 0050、CPO 00891、潛力股 00935。2026-10-06 曾考慮三類統一用 0050 的 G_FY，使用者決定不採用。",
   "excess_cap": 200,
   "low_base_growth": 3.0,
-  "shortfall_floor": 0.25,
-  "peak_pe": 8,
-  "stale_days": 45,
+  "low_base_warning": "低基期：預期 EPS 成長 X%，需人工判斷（剔除或改用兩年平均 EPS）",
   "categories": {
     "portfolio": {
       "name": "投資組合",
-      "etf": "0050"
+      "etf": "0050",
+      "latest_known": {
+        "etf_pe_trailing": 29.22953,
+        "etf_growth_ttm": 0.18313,
+        "etf_pe_forward": 24.70526,
+        "m_adj": 0.85,
+        "base_pe": 20.999471,
+        "etf_growth_fy": 0.485004,
+        "holdings_count": 24,
+        "weight_coverage": 0.8968,
+        "excluded_count": 1,
+        "excluded_names": [
+          "南亞科"
+        ],
+        "hurdle_growth": 0.485004
+      }
     },
     "cpo": {
       "name": "CPO概念",
-      "etf": "00891"
+      "etf": "00891",
+      "latest_known": {
+        "etf_pe_trailing": 38.635243,
+        "etf_growth_ttm": 0.222976,
+        "etf_pe_forward": 31.591182,
+        "m_adj": 0.85,
+        "base_pe": 26.852505,
+        "etf_growth_fy": 0.528864,
+        "holdings_count": 13,
+        "weight_coverage": 0.8149,
+        "excluded_count": 2,
+        "excluded_names": [
+          "華邦電",
+          "南亞科"
+        ],
+        "hurdle_growth": 0.528864
+      }
     },
     "potential": {
       "name": "潛力股",
-      "etf": "00935"
+      "etf": "00935",
+      "latest_known": {
+        "etf_pe_trailing": 41.869429,
+        "etf_growth_ttm": 0.223364,
+        "etf_pe_forward": 34.224825,
+        "m_adj": 0.85,
+        "base_pe": 29.091102,
+        "etf_growth_fy": 0.602024,
+        "holdings_count": 23,
+        "weight_coverage": 0.87,
+        "excluded_count": 2,
+        "excluded_names": [
+          "華邦電",
+          "南亞科"
+        ],
+        "hurdle_growth": 0.602024
+      }
     }
   },
-  "category_aliases": {
-    "投資組合": "portfolio",
-    "CPO": "cpo",
-    "CPO概念": "cpo",
-    "潛力股": "potential"
-  },
-  "excluded_theme": "記憶體",
-  "memory_codes": {
-    "2344": "華邦電", "6770": "力積電", "3006": "晶豪科", "5386": "青雲", "4973": "廣穎電通",
-    "8096": "擎亞", "2408": "南亞科", "2337": "旺宏", "8299": "群聯", "3260": "威剛",
-    "2451": "創見", "8271": "宇瞻", "4967": "十銓", "5289": "宜鼎", "5351": "鈺創",
-    "3135": "凌航", "8112": "至上", "6265": "方土昶", "8088": "品安", "6485": "點序",
-    "6531": "愛普"
-  },
-  "last_known": {
+  "latest_known": {
     "asof": "2026-10-03",
-    "source": "Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b（2026-10-03 收盤實算、持股 2026-08-31、剔除記憶體題材股）；與帳戶 skill kevin-stock-pricing-model v3.7b 內建值一致",
-    "market_pe": 31.26,
-    "market_median_pe": 17,
-    "excluded_themes": ["記憶體"],
-    "categories": {
-      "portfolio": {"trailing_pe": 29.22953, "growth_ttm": 0.18313, "growth_prior": 0.485004, "coverage": 0.8968, "excluded_count": 1, "base_pe": 20.999471},
-      "cpo": {"trailing_pe": 38.6352, "growth_ttm": 0.222974, "growth_prior": 0.528864, "coverage": null, "excluded_count": 2, "base_pe": 26.852505},
-      "potential": {"trailing_pe": 41.8694, "growth_ttm": 0.223364, "growth_prior": 0.602024, "coverage": null, "excluded_count": 2, "base_pe": 29.091102}
-    },
-    "note": "只在請求寫 anchor.values = \"profile\" 時採用，並輸出警示；每月 11 日排程更新後應改用新的「錨定ETF」值。coverage 未知者以 null 表示，程式改記為未揭露。"
+    "holdings_asof": "2026-08-31",
+    "source": "Kevin目標價_2026_09.xlsx 工作表「錨定ETF」（v3.7b：2026-10-03 收盤價、ETF 持股 2026-08-31、剔除記憶體題材股）",
+    "stale_after_days": 45,
+    "note": "最新已知值僅供參考與回歸測試。ETF 本益比、內涵成長與 M_adj 每月變動，估值請求必須在 inputs.anchor 提供當月數值並附 asof 與 source；asof 距估值截止日超過 45 天輸出警示。直接引用本表時，asof 填 2026-10-03、source 照抄上列。v3.7b：超額門檻即各類別 etf_growth_fy（剔除記憶體），與 anchor 同月份更新。",
+    "previous_v3_7": {
+      "base_pe": {
+        "portfolio": 20.748211,
+        "cpo": 23.515962,
+        "potential": 26.557095
+      },
+      "etf_growth_fy": {
+        "portfolio": 0.511662,
+        "cpo": 0.834407,
+        "potential": 0.803965
+      },
+      "delta_cap": 100,
+      "note": "v3.7（0.8.0）未剔除記憶體；只供對照"
+    }
   },
-  "note": "方法參數與最近已知值。正式估值請在 inputs.anchor 提供當月 ETF 錨定摘要或成分股明細，並附 asof 與 source。"
+  "legacy_dual_anchor": {
+    "description": "0.2.1–0.7.0 雙層錨定（僅 anchor_method=legacy_dual_anchor 時使用，供重現舊 workbook）：base_pe_p = ETF PE × ratio_p × M_adj；base_pe_q = ETF PE × ratio_q × M_adj；PE_P = base_pe_p + √(g×100)，PE_Q = base_pe_q + (g×100)^(2/3)。",
+    "ratios": {
+      "portfolio": {
+        "ratio_p": 0.75,
+        "ratio_q": 0.55
+      },
+      "cpo": {
+        "ratio_p": 0.85,
+        "ratio_q": 0.62
+      },
+      "potential": {
+        "ratio_p": 0.85,
+        "ratio_q": 0.62
+      }
+    }
+  }
 }

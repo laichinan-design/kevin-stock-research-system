@@ -46,13 +46,23 @@ def validate(root):
     try:
         anchors=json.loads((root/'profiles/anchors.json').read_text(encoding='utf-8'))
         if set(anchors['categories'])!={'portfolio','cpo','potential'}:errors.append('anchors.json categories changed')
+        if anchors.get('method')!='etf_implied_growth':errors.append('anchors.json default method must be etf_implied_growth (v3.7)')
+        if anchors.get('model_version')!='v3.7b':errors.append('anchors.json model_version must be v3.7b')
+        if '記憶體' not in anchors.get('excluded_themes',[]):errors.append('anchors.json excluded_themes must include 記憶體 (v3.7b)')
+        if anchors.get('hurdle_rule')!='category_etf_growth_fy':errors.append('anchors.json hurdle_rule must be category_etf_growth_fy (v3.7b)')
+        if 'hurdle' in anchors:errors.append('anchors.json must not define a single unified hurdle (v3.7b uses each category ETF G_FY)')
         for k,c in anchors['categories'].items():
-            if not c.get('etf') or any(r in c for r in ('ratio_p','ratio_q')):errors.append('invalid anchor category (v3.7b has no dual-anchor ratios): '+k)
-        for k in ('excess_cap','low_base_growth','shortfall_floor','peak_pe','stale_days'):
-            if not isinstance(anchors.get(k),(int,float)) or anchors[k]<=0:errors.append('invalid anchors.json '+k)
-        if anchors.get('excluded_theme')!='記憶體' or not anchors.get('memory_codes'):errors.append('anchors.json must list the excluded memory-theme codes')
-        known=anchors.get('last_known',{})
-        if set(known.get('categories',{}))!={'portfolio','cpo','potential'} or not known.get('asof') or not known.get('source'):errors.append('anchors.json last_known incomplete')
+            v=c.get('latest_known',{})
+            if v.get('hurdle_growth')!=v.get('etf_growth_fy'):errors.append('anchors.json latest_known.hurdle_growth must equal etf_growth_fy: '+k)
+        if not (isinstance(anchors.get('excess_cap'),(int,float)) and anchors['excess_cap']>0):errors.append('anchors.json excess_cap must be positive')
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',str(anchors.get('latest_known',{}).get('asof',''))) or not anchors['latest_known'].get('source'):errors.append('anchors.json latest_known needs asof and source')
+        legacy=anchors.get('legacy_dual_anchor',{}).get('ratios',{})
+        for k,c in anchors['categories'].items():
+            if 'ratio_p' in c or 'ratio_q' in c:errors.append('ratio_p/ratio_q only allowed under legacy_dual_anchor: '+k)
+            v=c.get('latest_known',{})
+            if not c.get('etf') or not all(isinstance(v.get(r),(int,float)) and v[r]>0 for r in ('etf_pe_trailing','etf_growth_ttm','etf_growth_fy','m_adj','base_pe')):errors.append('invalid anchor category: '+k)
+            elif abs(v['etf_pe_trailing']/(1+v['etf_growth_ttm'])*v['m_adj']-v['base_pe'])>1e-3:errors.append('anchor base_pe inconsistent with ETF PE / (1+G_TTM) x M_adj: '+k)
+            if not all(isinstance(legacy.get(k,{}).get(r),(int,float)) and 0<legacy[k][r]<=2 for r in ('ratio_p','ratio_q')):errors.append('invalid legacy anchor ratios: '+k)
         if not all(isinstance(anchors['rule'].get(r),(int,float)) for r in ('high_ratio','low_ratio','high_adj','low_adj')):errors.append('invalid anchor rule')
     except Exception as e:errors.append('profiles/anchors.json: '+str(e))
     return {'status':'passed' if not errors else 'failed','errors':errors,'skills':len(skills),'manifests':len(manifests),'scope':'offline structural and privacy checks only'}

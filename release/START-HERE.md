@@ -20,7 +20,9 @@ codex plugin add kevin-stock-research@kevin-research-bundle
 
 已安裝0.1.0者：這個發行包使用獨立marketplace名稱。新版本確認可載入後，在Plugins停用舊personal來源的同名外掛，避免重複技能。既有研究及排程不因安裝自動遷移；先dry-run檢查再切換。
 已安裝0.2.x–0.7.0者：以本版資料夾重新註冊後更新，確認顯示0.8.1；舊研究資料夾執行 set-storage 設定 Drive 資料夾、readme 產生自動區塊；既有研究資料夾開啟時自動補建分類PDF、工程圖解、整合簡報資料夾，不動既有檔案。舊版產生的工程圖 SVG 若文字不顯示，執行 visual-outline 轉外框。
-已安裝0.7.0以前版本者：Kevin模型改為v3.7b（ETF內涵成長錨定、剔除記憶體），雙層錨定欄位（etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q、base_pe_low／base_pe_high）與multiplier≠1會被拒絕；請求要補price、price_date與anchor摘要（含source），依references/kevin-model.md最後一節改寫。舊版存檔的估值是舊口徑，需重算。
+已安裝0.7.0以前版本者：Kevin模型預設改為v3.7 ETF隱含成長錨定，舊請求的etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q會被拒絕，改填etf_pe_trailing、etf_growth_ttm、etf_growth_fy與source；只想重現舊workbook數字時加anchor_method=legacy_dual_anchor，見references/kevin-model.md「0.7.0 → 0.8.0 遷移」。
+已安裝0.8.0者：Kevin模型改為v3.7b（ETF錨定與超額門檻都剔除記憶體題材股後重算、Δ上限200、成長>300%標示低基期）；請求改填剔除記憶體後的etf_pe_trailing、etf_growth_ttm、etf_growth_fy（Kevin目標價_YYYY_MM.xlsx「錨定ETF」），見references/kevin-model.md「0.8.0 → 0.8.1 遷移」。
+已安裝0.2.0者：0.2.0的Kevin估值請求若含multiplier≠1或base_pe_low／base_pe_high會被拒絕，依references/kevin-model.md最後一節改寫。
 
 ## Claude
 方法A（Claude App／帳戶）：在 Customize → Plugins 使用上傳自訂plugin的入口，選擇解壓後 `kevin-stock-research.plugin`，完成確認後開新對話。若上傳介面不接受此副檔名，改名為.zip再試（內容是標準zip）。上傳到帳戶的plugin會同步到Claude Code。Cowork可先開Cowork頁再進Customize。選擇的是內層.plugin檔，不是總ZIP。
@@ -43,12 +45,13 @@ claude plugin install kevin-stock-research@kevin-research-bundle
 - Excel股票鍵／欄位／指紋檢查、只更新副本。
 - 共用資金的批次部位試算、獨立監控狀態與去重。
 - 測試、空白設定範本、CLI文件與舊版dry-run遷移。
-- 0.2.1：Kevin模型盈餘品質與本業淨利率、基期EPS調整、情境A／B、溢價只乘模型價（當時的雙層錨定已於0.8.1停用）。
+- 0.2.1：Kevin雙層錨定（三類錨定比例、盈餘品質與本業淨利率、基期EPS調整、情境A／B、溢價只乘模型價）。
 - 0.3.0：分類PDF（8類命名、SHA256去重、來源版、硬連結、索引json/xlsx/html）、下載前去重（已持有的年報／財報不重抓）、研究資料夾新結構。
 - 0.5.0：Google Drive 同步（storage.drive_folder；本機 Google Drive 桌面版直接複製，雲端則產生連接器／手動上傳清單）、缺口與待下載清單（法定文件期限推算、部分覆蓋）、README 自動區塊、半導體設備與自動化產業模板。
 - 0.6.0：資料中心網通與交換器產業模組（datacenter-networking）、產業 profile 的工程圖解圖組與簡報重點、設備模板可跑 Kevin 模型的修正。
 - 0.7.0：半導體封裝測試產業模組（osat，含純測試廠）。
-- 0.8.1：Kevin模型v3.7b（ETF內涵成長錨定：b＝ETF落後PE÷(1+G_TTM)×M_adj、超額門檻＝同ETF的G_FY、錨定剔除記憶體題材股、Δ上限200、景氣高峰與低基期旗標），與帳戶skill同口徑。
+- 0.8.0：Kevin模型v3.7 ETF隱含成長錨定（基準本益比＝ETF落後本益比÷（1＋內涵成長）×M_adj，只對超過ETF內涵成長的部分加溢價，景氣高峰檢查）；舊雙層錨定改為須明示的legacy模式。
+- 0.8.1：Kevin模型v3.7b（ETF錨定剔除記憶體題材股；超額門檻＝各類別ETF剔除記憶體後的G_FY 48.50%／52.89%／60.20%；Δ上限200、可設定；成長>300%標示低基期）。
 - 0.4.0：工程圖解 spec→SVG（文字轉外框，任何檢視器都能顯示）＋PNG預覽；整合簡報 deck_style（10配色×3字型）、原生可編輯圖表PPTX、溢字／0軸／來源檢查、PDF匯出。
 
 ## 實際範圍

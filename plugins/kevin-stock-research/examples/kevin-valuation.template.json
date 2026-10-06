@@ -32,23 +32,23 @@
     },
     "margin_choice": null,
     "price": null,
-    "price_date": null,
     "anchor": {
       "category": null,
-      "trailing_pe": null,
-      "growth_ttm": null,
-      "growth_prior": null,
-      "coverage": null,
+      "etf_pe_trailing": null,
+      "etf_growth_ttm": null,
+      "etf_growth_fy": null,
+      "hurdle_growth": null,
       "excluded_themes": [
         "記憶體"
       ],
-      "excluded_count": null,
       "market_pe": null,
       "market_median_pe": null,
+      "holdings_asof": null,
       "asof": null,
       "source": null
     },
     "target_premium": 1,
+    "excess_cap": null,
     "run_rate": {
       "recent_months": [],
       "margin_period": null,
@@ -59,5 +59,5 @@
       "inorganic_monthly": null
     }
   },
-  "note": "模板不可直接執行。anchor 填類別 ETF（portfolio 0050／cpo 00891／potential 00935）剔除記憶體後的錨定摘要（或改填 constituents 成分股明細），優先取當月「錨定ETF」工作表；暫無資料時可改寫 {\"category\":…, \"values\":\"profile\"} 採外掛最近已知值並警示。price 與 price_date 必填（景氣高峰判斷）。門檻預設同一 ETF 的 G_FY，覆寫用 hurdle_growth＋hurdle_source。earnings_quality 與 consolidated_margin 擇一（後者須附 margin_basis=consolidated）；非經常性占稅前≥10%須填 margin_choice；previous_eps_basis=normalized 須填 previous_eps_reported 與 previous_eps_note；不用情境B時刪除 run_rate。規格見 references/kevin-model.md。"
+  "note": "模板不可直接執行。Kevin v3.7b（0.8.1 預設）：anchor 填 category（portfolio／cpo／potential）、剔除記憶體題材股後的 ETF 落後本益比 etf_pe_trailing、內涵成長 etf_growth_ttm 與 etf_growth_fy（小數，類別 ETF 剔除記憶體後；etf_growth_fy 即超額門檻）、大盤 market_pe 與 10 年中位 market_median_pe，並附 asof、source 與 excluded_themes（含「記憶體」）；hurdle_growth 留空＝用 etf_growth_fy 當超額門檻；只有要單次覆寫門檻時才填（會輸出警示）。excess_cap 留空＝200。數值優先取自每月 Kevin目標價_YYYY_MM.xlsx 工作表「錨定ETF」（新 base、內涵成長、超額門檻欄）；profiles/anchors.json 為最新已知值。也可不填 anchor，改在 inputs 直接給 base_pe 與 etf_growth_fy。price 填估值截止日收盤價（股價 ÷ EPS < 8 視為景氣高峰）；成長 > 300% 會標示低基期需人工判斷。舊雙層錨定只在加 anchor_method=legacy_dual_anchor 時接受 etf_pe／ratio_p／ratio_q。earnings_quality 與 consolidated_margin 擇一（後者須附 margin_basis=consolidated）；非經常性占稅前≥10%須填 margin_choice；previous_eps_basis=normalized 須填 previous_eps_reported 與 previous_eps_note；不用情境B時刪除 run_rate。規格見 references/kevin-model.md。"
 }

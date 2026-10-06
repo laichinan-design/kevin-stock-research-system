@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse, copy, json, math, re, sqlite3, sys, uuid, zipfile
 from datetime import date, datetime
 from pathlib import Path
-from research import VERSION, Store, read, dump, digest, identity, number, kevin_valuation, anchor_base, size_position, audit_model, update_copy
+from research import VERSION, Store, read, dump, digest, identity, number, kevin_valuation, anchor_bases, DEFAULT_ANCHOR, LEGACY_ANCHOR, size_position, audit_model, update_copy
 
 PLUGIN_ROOT=Path(__file__).resolve().parents[1]
 MARKETS={'TWSE':('Asia/Taipei','TWD'),'TPEX':('Asia/Taipei','TWD'),
@@ -29,7 +29,7 @@ def finite(value,name,minimum=None):
 
 def capability(market):
     return {'research':'agent_with_verified_evidence','facts':'validated_import',
-            'valuation':'kevin_v3.7b_etf_implied_growth_or_scenario_pe_pb_nav',
+            'valuation':'kevin_dual_anchor_or_scenario_pe_pb_nav',
             'live_market':'twse_candidate_requires_per_run_validation' if market=='TWSE' else 'unsupported_use_verified_import',
             'portfolio':'same_currency_combined_proposals','scheduling':'host_specific_user_request_required'}
 
@@ -156,49 +156,52 @@ def mapped_update(root,original,destination,mapping_path,changes_path):
 
 ANCHOR_STALE_DAYS=45
 
+def resolve_hurdle(a,x,profile,cutoff):
+    """v3.7b 超額門檻 = 類別 ETF 自身的 G_FY（剔除記憶體）。依序：inputs.hurdle_growth／anchor.hurdle_growth（單次覆寫）→
+    同一份 anchor 的 etf_growth_fy → profiles/anchors.json 該類別的 latest_known.etf_growth_fy（最新已知值）。"""
+    for where,src in (('inputs',x),('anchor',a)):
+        if src.get('hurdle_growth') is not None:
+            return {'growth':src['hurdle_growth'],'source':f'{where}.hurdle_growth (request override)','asof':src.get('hurdle_asof') or a.get('asof'),'override':True}
+    if a.get('etf_growth_fy') is not None:
+        return {'growth':a['etf_growth_fy'],'source':f"anchor.etf_growth_fy ({a.get('etf') or a.get('category')}, same anchor)",'asof':a.get('asof'),'override':False}
+    c=(profile.get('categories') or {}).get(a.get('category')) or {}
+    g=(c.get('latest_known') or {}).get('etf_growth_fy')
+    if g is None:raise ValueError('etf_growth_fy required (v3.7b hurdle = category ETF G_FY ex-memory)')
+    return {'growth':g,'source':f"profiles/anchors.json {a.get('category')} latest_known.etf_growth_fy",'asof':(profile.get('latest_known') or {}).get('asof'),'override':False}
+
 def resolve_anchor(x,cutoff):
-    """inputs.anchor（類別 ETF 的內涵成長錨定摘要或成分股明細）轉成 base_pe 與 hurdle_growth（v3.7b）。
-    與直接輸入 base_pe＋hurdle_growth 擇一；hurdle_growth 可搭配 anchor 單次覆寫門檻（輸出警示）。"""
-    for k in ('price','price_date'):
-        if x.get(k) is None:raise ValueError(f'{k} required: Kevin v3.7b uses the price for the cycle-peak test (price / forecast EPS < 8)')
-    if iso(x['price_date'])>iso(cutoff):raise ValueError('price date after valuation cutoff')
-    x={k:v for k,v in x.items() if k!='price_date'}
-    if x.get('anchor') is None:
-        if x.get('base_pe') is None or x.get('hurdle_growth') is None:raise ValueError('provide inputs.anchor, or both base_pe and hurdle_growth')
-        if not str(x.get('anchor_source') or '').strip():raise ValueError('direct base_pe/hurdle_growth requires anchor_source')
-        return {k:v for k,v in x.items() if k!='anchor_source'},None
-    if 'base_pe' in x:raise ValueError('provide anchor or base_pe, not both')
-    a=dict(x['anchor']);profile=read(PLUGIN_ROOT/'profiles/anchors.json');warnings=[]
-    category=profile['category_aliases'].get(a.get('category'),a.get('category'))
-    if category is not None:
-        preset=profile['categories'].get(category)
+    """inputs.anchor（類別ETF＋當月 ETF 落後PE／內涵成長／大盤 P/E）轉成 base_pe、etf_growth_fy（v3.7b：類別 ETF 剔除記憶體後的 G_FY 即超額門檻）；
+    anchor_method=legacy_dual_anchor 時才轉成舊 base_pe_p/base_pe_q。anchor 與直接輸入的 base 欄位擇一；hurdle_growth 可單次覆寫。"""
+    if x.get('anchor') is None:return x,None
+    if any(k in x for k in ('base_pe','etf_growth_fy','base_pe_p','base_pe_q')):raise ValueError('provide anchor or direct base_pe/hurdle_growth (legacy: base_pe_p/base_pe_q), not both')
+    a=dict(x['anchor']);profile=read(PLUGIN_ROOT/'profiles/anchors.json')
+    method=a.setdefault('anchor_method',x.get('anchor_method',DEFAULT_ANCHOR))
+    if x.get('anchor_method',method)!=method:raise ValueError('anchor.anchor_method conflicts with inputs.anchor_method')
+    if a.get('category') is not None:
+        preset=profile['categories'].get(a['category'])
         if preset is None:raise ValueError('unknown anchor category: '+str(a['category']))
-        if a.setdefault('etf',preset['etf'])!=preset['etf']:raise ValueError(f"category {category} anchors on {preset['etf']}, not {a['etf']}")
-        a['category']=category
-    if a.get('values')=='profile':
-        if category is None:raise ValueError('anchor.values=profile requires category')
-        known=profile['last_known']
-        a={**{k:known[k] for k in ('asof','source','market_pe','market_median_pe','excluded_themes')},**known['categories'][category],**{k:v for k,v in a.items() if k!='values'}}
-        a.pop('base_pe',None)
-        warnings.append(f"anchor uses the plugin's last known values ({known['asof']}); replace with the monthly 錨定ETF sheet when available")
-    elif a.get('values') is not None:raise ValueError('anchor.values only accepts "profile"')
+        a.setdefault('etf',preset['etf'])
+        if method==LEGACY_ANCHOR:
+            for k in ('ratio_p','ratio_q'):a.setdefault(k,profile['legacy_dual_anchor']['ratios'][a['category']][k])
     a.setdefault('rule',{k:profile['rule'][k] for k in ('high_ratio','low_ratio','high_adj','low_adj')})
-    if not a.get('asof'):raise ValueError('anchor.asof (date of the ETF anchor) required')
-    if not str(a.get('source') or '').strip():raise ValueError('anchor.source required')
+    if not a.get('asof'):raise ValueError('anchor.asof (date of the ETF and market P/E) required')
+    if method!=LEGACY_ANCHOR and not str(a.get('source') or '').strip():
+        raise ValueError('anchor.source required for v3.7b (preferred: Kevin目標價_YYYY_MM.xlsx sheet 錨定ETF)')
     if iso(a['asof'])>iso(cutoff):raise ValueError('anchor date after valuation cutoff')
-    base=anchor_base(a,profile['memory_codes'])
-    resolved={**base,**{k:a.get(k) for k in ('category','etf','asof','source','market_pe','market_median_pe','market_pe_ratio')},
-              'age_days':(iso(cutoff)-iso(a['asof'])).days,'hurdle_source':f"{a.get('etf') or 'ETF'} G_FY (same anchor)"}
-    resolved['warnings']=warnings+base['warnings']
-    y={k:v for k,v in x.items() if k not in ('anchor','hurdle_source','hurdle_asof')}
-    y['base_pe']=base['base_pe']
-    if x.get('hurdle_growth') is not None:
-        if not str(x.get('hurdle_source') or '').strip():raise ValueError('hurdle_growth override requires hurdle_source')
-        if x.get('hurdle_asof') and iso(x['hurdle_asof'])>iso(cutoff):raise ValueError('hurdle date after valuation cutoff')
-        resolved.update(hurdle_source=x['hurdle_source'],hurdle_asof=x.get('hurdle_asof'))
-        resolved['warnings'].append(f"hurdle overridden to {x['hurdle_growth']:.2%} ({x['hurdle_source']}); v3.7b default is the category ETF G_FY {base['growth_prior']:.2%}")
-    else:y['hurdle_growth']=base['growth_prior']
-    resolved['hurdle_growth']=y['hurdle_growth']
+    fields=('category','etf','etf_pe','ratio_p','ratio_q','market_pe','market_median_pe','asof') if method==LEGACY_ANCHOR else            ('category','etf','etf_pe_trailing','etf_growth_ttm','market_pe','market_median_pe','holdings_asof','asof','source','excluded_themes')
+    if method!=LEGACY_ANCHOR:
+        h=resolve_hurdle(a,x,profile,cutoff)
+        if h['asof'] and iso(h['asof'])>iso(cutoff):raise ValueError('hurdle date after valuation cutoff')
+        a=dict(a,**({'hurdle_growth':h['growth']} if h['override'] else {'etf_growth_fy':h['growth']}))
+    resolved={**anchor_bases(a),**{k:a.get(k) for k in fields},'age_days':(iso(cutoff)-iso(a['asof'])).days}
+    if method!=LEGACY_ANCHOR:
+        resolved.update(hurdle_source=h['source'],hurdle_asof=h['asof'],hurdle_age_days=(iso(cutoff)-iso(h['asof'])).days if h['asof'] else None)
+    y={k:v for k,v in x.items() if k not in ('anchor','hurdle_growth','hurdle_asof')};y['anchor_method']=method
+    if method==LEGACY_ANCHOR:y.update(base_pe_p=resolved['base_pe_p'],base_pe_q=resolved['base_pe_q'])
+    else:
+        y.update(base_pe=resolved['base_pe'])
+        if resolved.get('hurdle_growth') is not None:y['hurdle_growth']=resolved['hurdle_growth']
+        if resolved.get('etf_growth_fy') is not None:y['etf_growth_fy']=resolved['etf_growth_fy']
     return y,resolved
 
 def value_company(request):
@@ -215,11 +218,16 @@ def value_company(request):
     if method=='kevin_legacy':
         if industry not in KEVIN_INDUSTRIES: return {**out,'reason':'industry not supported by Kevin model'}
         x,anchor=resolve_anchor(x,request['asof'])
+        profile=read(PLUGIN_ROOT/'profiles/anchors.json')
+        if x.get('anchor_method',DEFAULT_ANCHOR)!=LEGACY_ANCHOR and x.get('excess_cap') is None and profile.get('excess_cap') is not None:x=dict(x,excess_cap=profile['excess_cap'])
         try: numeric=kevin_valuation(x)
         except ValueError as exc:return {**out,'reason':str(exc)}
         if anchor:
-            numeric['anchor']=anchor;numeric['warnings']=['anchor: '+w for w in anchor.pop('warnings')]+numeric['warnings']
-            if anchor['age_days']>ANCHOR_STALE_DAYS:numeric['warnings'].append(f"anchor is {anchor['age_days']} days old; refresh the ETF anchor (錨定ETF sheet)")
+            numeric['anchor']=anchor
+            if anchor['age_days']>ANCHOR_STALE_DAYS:numeric['warnings'].append(f"anchor P/E is {anchor['age_days']} days old; refresh ETF and market P/E (Kevin目標價_YYYY_MM.xlsx 錨定ETF)")
+            if (anchor.get('hurdle_age_days') or 0)>ANCHOR_STALE_DAYS:numeric['warnings'].append(f"excess-growth hurdle is {anchor['hurdle_age_days']} days old; supply the current month's etf_growth_fy")
+            if anchor.get('hurdle_asof') and anchor.get('hurdle_asof')!=anchor.get('asof'):numeric['warnings'].append(f"hurdle date {anchor['hurdle_asof']} differs from anchor date {anchor['asof']}; use the same month's category ETF G_FY when available")
+            if 'excluded_themes' in anchor and '記憶體' not in (anchor.get('excluded_themes') or []):numeric['warnings'].append('anchor does not state that memory-theme stocks were excluded (v3.7b rule)')
     elif method in ('scenario_pe','scenario_pb'):
         metric='eps' if method=='scenario_pe' else 'book_value_per_share'
         for k in (metric,'multiple_low','multiple_high'):finite(x[k],k,0)
