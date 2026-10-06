@@ -5,7 +5,7 @@ import urllib.request, urllib.parse
 from datetime import datetime, date, timezone, timedelta
 from pathlib import Path
 
-VERSION = '0.7.0'
+VERSION = '0.8.1'
 TZ = timezone(timedelta(hours=8))
 def now(): return datetime.now(TZ).isoformat(timespec='seconds')
 def digest(b): return hashlib.sha256(b).hexdigest()
@@ -159,10 +159,17 @@ def single_quarter(current,previous=None):
  if number(previous.get('value')) is None: raise ValueError('missing previous value')
  return current['value']-previous['value']
 
-# ---- Kevin 雙層錨定模型（0.2.1）----
+# ---- Kevin 模型 v3.7b（ETF 內涵成長錨定，plugin 0.8.1）----
 EQ_WARN, EQ_CHOOSE = .05, .10   # 非經常性占稅前：<5% 乾淨、5–10% 警示、≥10% 須明確選帳面或本業
 ANCHOR_RULE = {'high_ratio':1.3,'low_ratio':0.8,'high_adj':0.85,'low_adj':1.15}
-RENAMED = {'base_pe_low':'base_pe_p (√ growth term, P)','base_pe_high':'base_pe_q (^(2/3) growth term, Q)'}
+EXCESS_CAP = 200.0      # 超額成長 Δ 上限（百分點）
+LOW_BASE_GROWTH = 3.0   # 預期 EPS 成長 > 300% 標示低基期，由使用者判斷
+SHORTFALL_FLOOR = .25   # Δ<0 時保守腿折減下限
+PEAK_PE = 8             # 股價 ÷ 預期 EPS < 8 視為景氣高峰
+MEMORY_THEME = '記憶體'
+RETIRED = {'base_pe_low':'the dual anchor (retired in 0.8.1)','base_pe_high':'the dual anchor (retired in 0.8.1)',
+           'base_pe_p':'the dual anchor (retired in 0.8.1)','base_pe_q':'the dual anchor (retired in 0.8.1)'}
+RETIRED_HINT = 'use inputs.anchor (ETF trailing_pe, growth_ttm, growth_prior) or base_pe + hurdle_growth; see references/kevin-model.md'
 
 def _num(x,k,positive=False,minimum=None):
  v=x.get(k)
@@ -171,14 +178,53 @@ def _num(x,k,positive=False,minimum=None):
  if minimum is not None and v<minimum: raise ValueError(k+' below minimum')
  return v
 
-def anchor_bases(a):
- """雙層錨定：base_pe = ETF PE × 比例 × M_adj；M = 大盤PE ÷ 10年中位PE。"""
- for k in ('etf_pe','ratio_p','ratio_q','market_pe','market_median_pe'): _num(a,k,True)
- if a['ratio_p']>2 or a['ratio_q']>2: raise ValueError('anchor ratio out of range')
- rule={**ANCHOR_RULE,**(a.get('rule') or {})}
- m=a['market_pe']/a['market_median_pe']
- adj=rule['high_adj'] if m>rule['high_ratio'] else rule['low_adj'] if m<rule['low_ratio'] else 1.0
- return {'m_ratio':m,'m_adj':adj,'base_pe_p':a['etf_pe']*a['ratio_p']*adj,'base_pe_q':a['etf_pe']*a['ratio_q']*adj}
+def market_adjust(a,rule=None):
+ """M＝大盤 PE ÷ 10 年中位 PE（或直接給 market_pe_ratio）；M>1.3 → 0.85、M<0.8 → 1.15，其餘 1.0（邊界值不調整）。"""
+ rule={**ANCHOR_RULE,**(rule or {})}
+ if a.get('market_pe_ratio') is not None:
+  if a.get('market_pe') is not None or a.get('market_median_pe') is not None: raise ValueError('provide market_pe_ratio or market_pe/market_median_pe, not both')
+  m=_num(a,'market_pe_ratio',True)
+ else: m=_num(a,'market_pe',True)/_num(a,'market_median_pe',True)
+ return m,rule['high_adj'] if m>rule['high_ratio'] else rule['low_adj'] if m<rule['low_ratio'] else 1.0
+
+def anchor_base(a,memory_codes=()):
+ """ETF 內涵成長錨定：b = ETF 加權落後 PE ÷ (1 + G_TTM) × M_adj；超額門檻 = 同一 ETF 的 G_FY。
+ 摘要模式給 trailing_pe／growth_ttm／growth_prior／coverage；成分股模式給 constituents，盈餘殖利率加權後取倒數，記憶體題材股自動剔除、剩餘權重重新歸一。"""
+ if 'ratio_p' in a or 'ratio_q' in a or 'etf_pe' in a:
+  raise ValueError('anchor ratio_p/ratio_q/etf_pe belong to the dual anchor retired in 0.8.1; '+RETIRED_HINT)
+ warnings=[]; memory={str(c) for c in memory_codes}
+ if a.get('constituents') is not None:
+  if any(a.get(k) is not None for k in ('trailing_pe','growth_ttm','growth_prior')): raise ValueError('provide constituents or the anchor summary, not both')
+  rows=a['constituents']
+  if not isinstance(rows,list) or not rows: raise ValueError('constituents empty')
+  exclude=a.get('exclude_memory',True)
+  if not isinstance(exclude,bool): raise ValueError('exclude_memory requires boolean')
+  is_memory=lambda r:str(r.get('code','')).strip() in memory or r.get('theme')==MEMORY_THEME
+  excluded=[r for r in rows if is_memory(r)] if exclude else []
+  rows=[r for r in rows if not (exclude and is_memory(r))]
+  if not rows: raise ValueError('all constituents excluded as memory stocks')
+  if not exclude: warnings.append('memory-theme stocks not excluded (exclude_memory=false); v3.7b anchors exclude them')
+  coverage=sum(_num(r,'weight',True) for r in rows)
+  if coverage+sum(_num(r,'weight',True) for r in excluded)>1.000001: raise ValueError('constituent weights must be fractions of the full ETF')
+  if coverage<.999999: warnings.append(f'partial ETF coverage {coverage:.2%}; weights renormalized over the included subset')
+  y={k:sum(r['weight']/coverage*_num(r,k)/_num(r,'price',True) for r in rows) for k in ('eps_ttm','eps_forecast','eps_prior')}
+  for k,v in y.items():
+   if v<=0: raise ValueError(k+' aggregate earnings yield must be positive')
+  trailing=1/y['eps_ttm']; g_ttm=y['eps_forecast']/y['eps_ttm']-1; g_fy=y['eps_forecast']/y['eps_prior']-1
+  themes=[MEMORY_THEME] if exclude else []; excluded_info=[str(r.get('code') or r.get('name') or '?') for r in excluded]
+ else:
+  trailing=_num(a,'trailing_pe',True); g_ttm=_num(a,'growth_ttm'); g_fy=_num(a,'growth_prior')
+  if a.get('coverage') is None: coverage=None; warnings.append('anchor coverage not reported')
+  else:
+   coverage=_num(a,'coverage',True)
+   if coverage>1: raise ValueError('coverage cannot exceed 1')
+  themes=list(a.get('excluded_themes') or []); excluded_info=a.get('excluded_count')
+  if MEMORY_THEME not in themes: warnings.append('anchor summary does not state that memory-theme stocks were excluded (excluded_themes should include 記憶體)')
+ if g_ttm<=-1 or g_fy<=-1: raise ValueError('ETF growth must be above -100%')
+ m,adj=market_adjust(a,a.get('rule'))
+ forward=trailing/(1+g_ttm)
+ return {'trailing_pe':trailing,'growth_ttm':g_ttm,'growth_prior':g_fy,'forward_pe':forward,'m_ratio':m,'m_adj':adj,
+         'base_pe':forward*adj,'coverage':coverage,'excluded_themes':themes,'excluded':excluded_info,'warnings':warnings}
 
 def earnings_quality(q):
  """帳面與本業淨利率（合併、未扣少數股權）。非經常性逐項列示：股票評價FVTPL、一次性處分、匯兌等。"""
@@ -202,7 +248,7 @@ def _margin(src,choice,label,warnings):
  if has_m:
   if src.get('margin_basis')!='consolidated': raise ValueError(label+': owner_ratio must not be applied to parent-attributable margin')
   warnings.append(label+': earnings quality not checked (non-recurring items unknown)')
-  return _num(src,'consolidated_margin',True),'input',None
+  return _num(src,'consolidated_margin'),'input',None
  eq=earnings_quality(src['earnings_quality'])
  if choice not in (None,'reported','core'): raise ValueError('margin_choice must be reported or core')
  if eq['level']=='choose' and choice is None:
@@ -212,25 +258,51 @@ def _margin(src,choice,label,warnings):
  return eq[choice+'_margin'],choice,eq
 
 def kevin_calculate(x):
- """Kevin 雙層錨定模型純公式。EPS 與成長率不含任何倍率；target_premium 只乘在模型價。"""
- for old,new in RENAMED.items():
-  if old in x: raise ValueError(f'{old} was renamed to {new} in 0.2.1')
+ """Kevin 模型 v3.7b 純公式。base_pe 與 hurdle_growth 來自同一 ETF 錨定；EPS 與成長率不含任何倍率；target_premium 只乘在模型價。"""
+ for old,new in RETIRED.items():
+  if old in x: raise ValueError(f'{old} belongs to {new}; '+RETIRED_HINT)
  if 'multiplier' in x and x['multiplier']!=1:
   raise ValueError('multiplier on EPS was removed in 0.2.1: it also inflated growth and P/E (x1.5 became x1.92 on the target). Use target_premium, which applies to model_value only')
- for k in ('revenue_ytd','consolidated_margin','owner_ratio','capital_thousands','par','previous_eps','base_pe_p','base_pe_q'): _num(x,k,True)
+ for k in ('revenue_ytd','owner_ratio','capital_thousands','par','base_pe','price'): _num(x,k,True)
+ _num(x,'consolidated_margin'); j=_num(x,'previous_eps'); hurdle=_num(x,'hurdle_growth')
+ if hurdle<=-1: raise ValueError('hurdle_growth must be above -100%')
  months=_num(x,'months')
  if not 1<=months<=12 or int(months)!=months: raise ValueError('months out of range')
  if x.get('margin_basis')!='consolidated': raise ValueError('owner_ratio must not be applied to parent-attributable margin')
  if x['owner_ratio']>1 and not x.get('nci_loss_verified'): raise ValueError('ownership ratio requires verification of negative NCI')
  premium=x.get('target_premium',1)
  if isinstance(premium,bool) or not isinstance(premium,(int,float)) or not 0<premium<=3: raise ValueError('target_premium must be in (0,3]')
+ cap=_num(x,'excess_cap',True) if 'excess_cap' in x else EXCESS_CAP
+ warnings=[]
+ if cap!=EXCESS_CAP: warnings.append(f'excess cap set to {cap:g} (v3.7b default {EXCESS_CAP:g})')
  annual=_num(x,'annual_revenue',True) if 'annual_revenue' in x else x['revenue_ytd']*12/months
  eps=annual*x['consolidated_margin']*x['owner_ratio']/x['capital_thousands']*x['par']
- g=eps/x['previous_eps']-1
- if g<0: raise ValueError('original fractional-power model not applicable to negative growth')
- pe_p=x['base_pe_p']+math.sqrt(g*100); pe_q=x['base_pe_q']+(g*100)**(2/3); value=eps*(pe_p+pe_q)/2
- out={'annual_revenue':annual,'eps':eps,'growth':g,'pe_p':pe_p,'pe_q':pe_q,'price_p':eps*pe_p,'price_q':eps*pe_q,'model_value':value,'target_premium':premium}
- if premium!=1: out['model_value_with_premium']=value*premium
+ if eps<=0: raise ValueError('forecast EPS <= 0: Kevin model gives no target')
+ if j>0: g=eps/j-1
+ else: g=1.0; warnings.append('previous EPS <= 0: growth cannot be computed, 100% used')
+ delta=100*(g-hurdle); base=x['base_pe']; price=x['price']
+ override=x.get('cycle_peak')
+ if override is not None and not isinstance(override,bool): raise ValueError('cycle_peak requires boolean')
+ if override is not None and not str(x.get('cycle_reason') or '').strip(): raise ValueError('cycle_peak override requires cycle_reason')
+ auto_peak=price/eps<PEAK_PE; cycle=auto_peak if override is None else override
+ if auto_peak and override is False: warnings.append('forward P/E below 8 but user confirmed no cycle peak: '+x['cycle_reason'])
+ low_base=(not cycle) and g>LOW_BASE_GROWTH
+ if low_base: warnings.append(f'low base: forecast EPS growth {g:.0%}; judge manually (exclude, or use a two-year average EPS)')
+ if cycle:
+  effective=(eps+max(j,0))/2; pe_a=pe_b=base/(1+hurdle); branch='cycle_peak_auto' if override is None else 'cycle_peak_confirmed'
+  warnings.append('cycle peak: EPS uses the average of this year and last year; both legs = base / (1 + hurdle)')
+ elif delta>=0:
+  effective=eps; capped=min(delta,cap); pe_a=base+math.sqrt(capped); pe_b=base+capped**(2/3); branch='excess_growth'
+ else:
+  effective=eps; pe_a=base*min(max((1+g)/(1+hurdle),SHORTFALL_FLOOR),1.0); pe_b=base; branch='below_anchor_growth'
+  warnings.append('forecast growth below the anchor ETF hurdle; the model is built for growth stocks, treat as reference only')
+ if pe_a>pe_b: warnings.append('square-root leg exceeds the 2/3-power leg near zero excess growth; legs sorted for display')
+ pe_lo,pe_hi=sorted((pe_a,pe_b)); value=effective*(pe_lo+pe_hi)/2
+ out={'annual_revenue':annual,'eps':eps,'previous_eps':j,'growth':g,'hurdle_growth':hurdle,'delta_pp':delta,'delta_capped_pp':max(0,min(delta,cap)),
+      'excess_cap':cap,'branch':branch,'cycle_peak':cycle,'low_base':low_base,'effective_eps':effective,'base_pe':base,
+      'pe_conservative':pe_lo,'pe_optimistic':pe_hi,'price_conservative':effective*pe_lo,'price_optimistic':effective*pe_hi,
+      'model_value':value,'price':price,'forward_pe_at_price':price/eps,'upside':value/price-1,'target_premium':premium,'warnings':warnings}
+ if premium!=1: out['model_value_with_premium']=value*premium; out['upside_with_premium']=value*premium/price-1
  return out
 
 def kevin_valuation(x):
@@ -244,12 +316,16 @@ def kevin_valuation(x):
   extra['previous_eps_reported']=_num(x,'previous_eps_reported')
   if not str(x.get('previous_eps_note') or '').strip(): raise ValueError('normalized previous_eps requires previous_eps_note explaining the adjustment')
   extra['previous_eps_note']=x['previous_eps_note']
- keep=('revenue_ytd','months','owner_ratio','capital_thousands','par','previous_eps','base_pe_p','base_pe_q','nci_loss_verified','target_premium','multiplier')+tuple(RENAMED)
+ keep=('revenue_ytd','months','owner_ratio','capital_thousands','par','previous_eps','base_pe','hurdle_growth','price','excess_cap',
+       'cycle_peak','cycle_reason','nci_loss_verified','target_premium','multiplier')+tuple(RETIRED)
  core={k:x[k] for k in keep if k in x}
  a=kevin_calculate({**core,'consolidated_margin':margin,'margin_basis':'consolidated'})
  a.update(margin=margin,margin_source=source)
+ warnings+=['scenario A: '+w for w in a.pop('warnings')]
  if basis=='normalized' and extra['previous_eps_reported']>0: a['growth_vs_reported_eps']=a['eps']/extra['previous_eps_reported']-1
- result={'model':'kevin_dual_anchor','primary':'A','scenarios':{'A':a},'earnings_quality':eq,'previous_eps_basis':basis,**extra,
+ if a['low_base']: flags.append('scenario A: low base (growth > 300%), user judgement required')
+ if a['cycle_peak']: flags.append('scenario A: cycle peak normalization applied')
+ result={'model':'kevin_etf_implied_growth_v3.7b','primary':'A','scenarios':{'A':a},'earnings_quality':eq,'previous_eps_basis':basis,**extra,
          'model_value':a['model_value'],'warnings':warnings,'flags':flags}
  rr=x.get('run_rate')
  if rr is None: return result
@@ -262,7 +338,9 @@ def kevin_valuation(x):
  try:
   b=kevin_calculate({**core,'consolidated_margin':margin_b,'margin_basis':'consolidated','annual_revenue':annual})
   b.update(margin=margin_b,margin_source=source_b,recent_month_average=avg,margin_period=rr.get('margin_period'))
+  warnings+=['scenario B: '+w for w in b.pop('warnings')]
  except ValueError as e: b={'status':'not_applicable','reason':str(e)}
+ if b.get('low_base'): flags.append('scenario B: low base (growth > 300%), user judgement required')
  if rr.get('pull_in_suspected'): flags.append('scenario B: customer pull-in suspected; run-rate may not persist')
  if rr.get('inorganic_monthly') is not None:
   inorganic=_num(rr,'inorganic_monthly',minimum=0); b['inorganic_share_of_recent']=inorganic/avg

@@ -31,12 +31,22 @@
       }
     },
     "margin_choice": null,
+    "price": null,
+    "price_date": null,
     "anchor": {
       "category": null,
-      "etf_pe": null,
+      "trailing_pe": null,
+      "growth_ttm": null,
+      "growth_prior": null,
+      "coverage": null,
+      "excluded_themes": [
+        "記憶體"
+      ],
+      "excluded_count": null,
       "market_pe": null,
       "market_median_pe": null,
-      "asof": null
+      "asof": null,
+      "source": null
     },
     "target_premium": 1,
     "run_rate": {
@@ -49,5 +59,5 @@
       "inorganic_monthly": null
     }
   },
-  "note": "模板不可直接執行。earnings_quality 與 consolidated_margin 擇一（後者須附 margin_basis=consolidated）；非經常性占稅前≥10%須填 margin_choice；previous_eps_basis=normalized 須填 previous_eps_reported 與 previous_eps_note；不用情境B時刪除 run_rate。規格見 references/kevin-model.md。"
+  "note": "模板不可直接執行。anchor 填類別 ETF（portfolio 0050／cpo 00891／potential 00935）剔除記憶體後的錨定摘要（或改填 constituents 成分股明細），優先取當月「錨定ETF」工作表；暫無資料時可改寫 {\"category\":…, \"values\":\"profile\"} 採外掛最近已知值並警示。price 與 price_date 必填（景氣高峰判斷）。門檻預設同一 ETF 的 G_FY，覆寫用 hurdle_growth＋hurdle_source。earnings_quality 與 consolidated_margin 擇一（後者須附 margin_basis=consolidated）；非經常性占稅前≥10%須填 margin_choice；previous_eps_basis=normalized 須填 previous_eps_reported 與 previous_eps_note；不用情境B時刪除 run_rate。規格見 references/kevin-model.md。"
 }

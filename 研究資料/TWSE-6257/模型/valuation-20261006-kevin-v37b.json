@@ -1,0 +1,134 @@
+{
+ "request": "kevin-request-20261006-v37b.json",
+ "plugin_version": "0.8.1",
+ "method": "kevin_legacy",
+ "status": "calculated_scenario_not_trade_signal",
+ "numeric_output": {
+  "model": "kevin_etf_implied_growth_v3.7b",
+  "primary": "A",
+  "scenarios": {
+   "A": {
+    "annual_revenue": 22886391.0,
+    "eps": 9.420721079527931,
+    "previous_eps": 6.14,
+    "growth": 0.5343193940599238,
+    "hurdle_growth": 0.528864,
+    "delta_pp": 0.545539405992379,
+    "delta_capped_pp": 0.545539405992379,
+    "excess_cap": 200.0,
+    "branch": "excess_growth",
+    "cycle_peak": false,
+    "low_base": false,
+    "effective_eps": 9.420721079527931,
+    "base_pe": 26.85250872054516,
+    "pe_conservative": 27.520161637852517,
+    "pe_optimistic": 27.591115115042513,
+    "price_conservative": 259.25976685373314,
+    "price_optimistic": 259.92819977196274,
+    "model_value": 259.5939833128479,
+    "price": 286,
+    "forward_pe_at_price": 30.35861030017156,
+    "upside": -0.09232872967535699,
+    "target_premium": 1,
+    "margin": 0.2219368197497994,
+    "margin_source": "reported"
+   },
+   "B": {
+    "annual_revenue": 23423836.0,
+    "eps": 10.034794083379497,
+    "previous_eps": 6.14,
+    "growth": 0.6343312839380288,
+    "hurdle_growth": 0.528864,
+    "delta_pp": 10.546728393802884,
+    "delta_capped_pp": 10.546728393802884,
+    "excess_cap": 200.0,
+    "branch": "excess_growth",
+    "cycle_peak": false,
+    "low_base": false,
+    "effective_eps": 10.034794083379497,
+    "base_pe": 26.85250872054516,
+    "pe_conservative": 30.100081413157735,
+    "pe_optimistic": 31.661771502813103,
+    "price_conservative": 302.04811887399643,
+    "price_optimistic": 317.7193573457425,
+    "model_value": 309.88373810986946,
+    "price": 286,
+    "forward_pe_at_price": 28.500833960678694,
+    "upside": 0.08350957381073232,
+    "target_premium": 1,
+    "margin": 0.23097925296950345,
+    "margin_source": "reported",
+    "recent_month_average": 2041560.5,
+    "margin_period": "2026Q2",
+    "inorganic_share_of_recent": 0.0
+   }
+  },
+  "earnings_quality": {
+   "reported_margin": 0.2219368197497994,
+   "core_margin": 0.21120893517937006,
+   "nonrecurring": 142862,
+   "nonrecurring_items": {
+    "fx": 61346,
+    "fvtpl": 44053,
+    "disposals": 37463
+   },
+   "nonrecurring_to_pretax": 0.04833756103436737,
+   "tax_rate": 0.16087933474696559,
+   "level": "clean"
+  },
+  "previous_eps_basis": "reported",
+  "model_value": 259.5939833128479,
+  "warnings": [
+   "anchor: anchor coverage not reported",
+   "scenario A: square-root leg exceeds the 2/3-power leg near zero excess growth; legs sorted for display"
+  ],
+  "flags": [],
+  "earnings_quality_B": {
+   "reported_margin": 0.23097925296950345,
+   "core_margin": 0.22927321084889865,
+   "nonrecurring": 11639,
+   "nonrecurring_items": {
+    "fx": -28725,
+    "fvtpl": 30276,
+    "disposals": 10088
+   },
+   "nonrecurring_to_pretax": 0.00738612710306944,
+   "tax_rate": 0.13800869657924397,
+   "level": "clean"
+  },
+  "b_vs_a": 0.19372465476757683,
+  "anchor": {
+   "trailing_pe": 38.6352,
+   "growth_ttm": 0.222974,
+   "growth_prior": 0.528864,
+   "forward_pe": 31.59118673005313,
+   "m_ratio": 1.8388235294117647,
+   "m_adj": 0.85,
+   "base_pe": 26.85250872054516,
+   "coverage": null,
+   "excluded_themes": [
+    "記憶體"
+   ],
+   "excluded": 2,
+   "category": "cpo",
+   "etf": "00891",
+   "asof": "2026-10-03",
+   "source": "Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "market_pe_ratio": null,
+   "age_days": 3,
+   "hurdle_source": "00891 G_FY (same anchor)",
+   "hurdle_growth": 0.528864
+  }
+ },
+ "currency": "TWD",
+ "assumptions_asof": "2026-10-06",
+ "source_ids": [
+  "MOPS:202602_6257_AI1（Drive 1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2）p.8–9 損益、p.31 股本、p.38–39 其他利益及損失、p.61 非控制權益",
+  "MOPS:2025 年報 F04（Drive 1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk）p.1 2025 EPS 6.14",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收；分類 CPO 概念）",
+  "ANCHOR:Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
+  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 286 元（漲停 +10%）"
+ ]
+}

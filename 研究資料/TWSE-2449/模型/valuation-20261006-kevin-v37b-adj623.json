@@ -1,0 +1,140 @@
+{
+ "request": "kevin-request-20261006-v37b-adj623.json",
+ "plugin_version": "0.8.1",
+ "method": "kevin_legacy",
+ "status": "calculated_scenario_not_trade_signal",
+ "numeric_output": {
+  "model": "kevin_etf_implied_growth_v3.7b",
+  "primary": "A",
+  "scenarios": {
+   "A": {
+    "annual_revenue": 44106531.0,
+    "eps": 7.694149816896029,
+    "previous_eps": 6.23,
+    "growth": 0.23501602197368032,
+    "hurdle_growth": 0.528864,
+    "delta_pp": -29.38479780263197,
+    "delta_capped_pp": 0,
+    "excess_cap": 200.0,
+    "branch": "below_anchor_growth",
+    "cycle_peak": false,
+    "low_base": false,
+    "effective_eps": 7.694149816896029,
+    "base_pe": 26.85250872054516,
+    "pe_conservative": 21.691450972788452,
+    "pe_optimistic": 26.85250872054516,
+    "price_conservative": 166.89727353048946,
+    "price_optimistic": 206.60722505538158,
+    "model_value": 186.75224929293552,
+    "price": 298,
+    "forward_pe_at_price": 38.7307249133107,
+    "upside": -0.37331459968813585,
+    "target_premium": 1,
+    "margin": 0.22397519326240878,
+    "margin_source": "reported",
+    "growth_vs_reported_eps": -0.14604330556092904
+   },
+   "B": {
+    "annual_revenue": 45545944.0,
+    "eps": 7.933140675452441,
+    "previous_eps": 6.23,
+    "growth": 0.2733773154819328,
+    "hurdle_growth": 0.528864,
+    "delta_pp": -25.548668451806723,
+    "delta_capped_pp": 0,
+    "excess_cap": 200.0,
+    "branch": "below_anchor_growth",
+    "cycle_peak": false,
+    "low_base": false,
+    "effective_eps": 7.933140675452441,
+    "base_pe": 26.85250872054516,
+    "pe_conservative": 22.365217225680627,
+    "pe_optimistic": 26.85250872054516,
+    "price_conservative": 177.4264144883766,
+    "price_optimistic": 213.0247291688982,
+    "model_value": 195.22557182863738,
+    "price": 298,
+    "forward_pe_at_price": 37.563937435535834,
+    "upside": -0.34488063144752557,
+    "target_premium": 1,
+    "margin": 0.22363389655504193,
+    "margin_source": "reported",
+    "recent_month_average": 4035397.5,
+    "margin_period": "2026Q2",
+    "inorganic_share_of_recent": 0.0
+   }
+  },
+  "earnings_quality": {
+   "reported_margin": 0.22397519326240878,
+   "core_margin": 0.21177609050090407,
+   "nonrecurring": 320491,
+   "nonrecurring_items": {
+    "fx": 120298,
+    "disposals": 200193,
+    "fvtpl": 0
+   },
+   "nonrecurring_to_pretax": 0.054466312022386706,
+   "tax_rate": 0.18796384762872,
+   "level": "warn"
+  },
+  "previous_eps_basis": "normalized",
+  "previous_eps_reported": 9.01,
+  "previous_eps_note": "2025 帳面 EPS 9.01 含停業單位（處分京隆科技(蘇州)）利益 3,053,084 千元，不可比；改用繼續營業單位淨利 8,004,710 千元（2025 年報 p.104），並依 IAS 33 追溯調整 2026-08-03 除權股票股利（每股 0.5 元，611,373 千元）：8,004,710 ÷ 1,283,882 千股＝6.23。繼續營業單位非控制權益視為 0（研究推論：NCI 主要屬已處分之京隆）。",
+  "model_value": 186.75224929293552,
+  "warnings": [
+   "anchor: anchor coverage not reported",
+   "scenario A: non-recurring items are 5.4% of pretax income; reported margin used",
+   "scenario A: forecast growth below the anchor ETF hurdle; the model is built for growth stocks, treat as reference only",
+   "scenario B: non-recurring items are 6.7% of pretax income; reported margin used",
+   "scenario B: forecast growth below the anchor ETF hurdle; the model is built for growth stocks, treat as reference only"
+  ],
+  "flags": [],
+  "earnings_quality_B": {
+   "reported_margin": 0.22363389655504193,
+   "core_margin": 0.2085586753641578,
+   "nonrecurring": 207349,
+   "nonrecurring_items": {
+    "fx": 91006,
+    "disposals": 116343,
+    "fvtpl": 0
+   },
+   "nonrecurring_to_pretax": 0.06741026929776595,
+   "tax_rate": 0.18995352944121544,
+   "level": "warn"
+  },
+  "b_vs_a": 0.045371997219753935,
+  "anchor": {
+   "trailing_pe": 38.6352,
+   "growth_ttm": 0.222974,
+   "growth_prior": 0.528864,
+   "forward_pe": 31.59118673005313,
+   "m_ratio": 1.8388235294117647,
+   "m_adj": 0.85,
+   "base_pe": 26.85250872054516,
+   "coverage": null,
+   "excluded_themes": [
+    "記憶體"
+   ],
+   "excluded": 2,
+   "category": "cpo",
+   "etf": "00891",
+   "asof": "2026-10-03",
+   "source": "Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
+   "market_pe": 31.26,
+   "market_median_pe": 17,
+   "market_pe_ratio": null,
+   "age_days": 3,
+   "hurdle_source": "00891 G_FY (same anchor)",
+   "hurdle_growth": 0.528864
+  }
+ },
+ "currency": "TWD",
+ "assumptions_asof": "2026-10-06",
+ "source_ids": [
+  "MOPS:202602_2449_AI1（Drive 1MfgQA5DHe6ukGI5dckwqlRIsM2bLCX9q）p.7 損益、p.31–32 股本與 8/3 除權股票股利 611,373 千元、p.44 其他利益及損失、p.47 EPS",
+  "MOPS:2025 年報 F04（Drive 1MWwj0K_ZsK88NP4c1EpgnophgkvWyx5_）p.1 EPS 9.01、p.104 繼續營業單位淨利 8,004,710",
+  "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收；分類 CPO 概念）",
+  "ANCHOR:Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
+  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 298 元"
+ ]
+}

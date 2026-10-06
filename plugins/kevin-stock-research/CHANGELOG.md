@@ -1,3 +1,14 @@
+# 0.8.1 — 2026-10-06
+- Kevin 模型改為 v3.7b（ETF 內涵成長錨定），與帳戶 skill kevin-stock-pricing-model／update-portfolio v3.7b 同口徑；雙層錨定（ETF PE × 0.75／0.55 等比例）停用。
+  - 基準 b ＝ ETF 加權落後 PE ÷ (1 + G_TTM) × M_adj；超額門檻 ＝ 同一 ETF 的 G_FY；Δ ＝ (O − 門檻) × 100，上限 200（excess_cap 可調，改值警示）。
+  - Δ ≥ 0：保守 b＋√Δ、樂觀 b＋Δ^(2/3)；Δ < 0：保守 b×clip((1+O)/(1+門檻),0.25,1)、樂觀 b；price ÷ N < 8 自動景氣高峰（EPS 取兩年平均、兩腿 b÷(1+門檻)，cycle_peak 覆寫須附理由）；O > 300% 標 low_base；預期 EPS ≤ 0 不給目標價；去年 EPS ≤ 0 成長以 100% 計。
+  - anchor 支援摘要（trailing_pe、growth_ttm、growth_prior、coverage、excluded_themes）與成分股明細（盈餘殖利率加權、記憶體題材股 21 檔自動剔除並重新歸一）；category 接受中文名稱並檢查 ETF 一致；values="profile" 採內建 2026-10-03 最近已知值（b 20.9995／26.8525／29.0911，門檻 48.50%／52.89%／60.20%）並警示；hurdle_growth 覆寫須附 hurdle_source；直接給 base_pe＋hurdle_growth 須附 anchor_source。
+  - 新增必填 price、price_date；anchor 必填 source。輸出欄位改為 pe_conservative／pe_optimistic／price_conservative／price_optimistic，另列 delta_pp、branch、cycle_peak、low_base、upside；model 名稱 kevin_etf_implied_growth_v3.7b。舊欄位 etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q、base_pe_low／base_pe_high 一律拒絕並提示遷移。
+- profiles/anchors.json 改為 v3.7b 參數（M_adj 規則、上限、低基期、景氣高峰、記憶體代碼、最近已知值）；validate_package 改檢查新結構；測試確認 profile 常數與程式一致。
+- 回歸案例改為 skill v3.7b 範例：貝爾威勒 T ≈ 1,743（×1.5 ≈ 2,615）、松川 440／513／642、矽格 CPO 28.32／28.52。測試 123→131。
+- 文件：kevin-model.md 重寫（含 0.7.0 → 0.8.1 遷移）、cli.md 範例、contract、capabilities、README、kevin-model skill、估值模板。
+- 0.8.0 未單獨發行，版本號直接跳到 0.8.1。
+
 # 0.7.0 — 2026-10-02
 - 新產業模組 osat（半導體封裝測試，含純測試廠）：KPI 為測試／封裝營收結構、應用別占比、稼動率與機台產能、capex／折舊／EBITDA 率、經營槓桿、客戶結構、新技術測試（先進封裝、HBM、矽光子、CPO）、自由現金流與少數股權；guards 涵蓋折舊固定成本與新廠投產、客戶包產能不等於長約、商業模式不可直接套倍數、客戶提供機台（consigned tester）、美元匯兌與基期 EPS、擴產期現金流、新技術占比不得推估與 H2 ramp 情境 B、子公司少數股權口徑；同業規則分純測試、封測一體、先進封裝，記憶體封測另列，ATE／探針卡供應商不列同業。candidate_methods 另開 scenario_pb 供景氣谷底參考。init／set-industry 可用，Kevin 模型開放，產業模板 9→10。封測公司不再套 semiconductor 通用或 semiconductor-equipment。
 - research-router、engineering-visuals、cli.md、capabilities.md 補 osat 分流與圖組。測試 122→123。
