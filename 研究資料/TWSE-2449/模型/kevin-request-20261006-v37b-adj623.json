@@ -10,8 +10,8 @@
   "MOPS:202602_2449_AI1（Drive 1MfgQA5DHe6ukGI5dckwqlRIsM2bLCX9q）p.7 損益、p.31–32 股本與 8/3 除權股票股利 611,373 千元、p.44 其他利益及損失、p.47 EPS",
   "MOPS:2025 年報 F04（Drive 1MWwj0K_ZsK88NP4c1EpgnophgkvWyx5_）p.1 EPS 9.01、p.104 繼續營業單位淨利 8,004,710",
   "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收；分類 CPO 概念）",
-  "ANCHOR:Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
-  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 298 元"
+  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 298 元",
+  "ANCHOR:Kevin目標價_2026_09.xlsx 工作表「錨定ETF」（v3.7b：2026-10-03 收盤價、ETF 持股 2026-08-31、剔除記憶體題材股）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
  ],
  "provisional_note": "公司身分未以官方 URL verify-identity（雲端擋 MOPS 與公司官網）；G/H/W/股本/非經常性取自官方 115Q2 財報 PDF。8 月營收為新聞稿百萬元精度，7、8 月合計＝1–8 月累計 − H1 財報營收（精確）。",
  "inputs": {
@@ -34,18 +34,17 @@
   },
   "anchor": {
    "category": "cpo",
-   "etf": "00891",
-   "trailing_pe": 38.6352,
-   "growth_ttm": 0.222974,
-   "growth_prior": 0.528864,
+   "etf_pe_trailing": 38.635243,
+   "etf_growth_ttm": 0.222976,
+   "etf_growth_fy": 0.528864,
    "excluded_themes": [
     "記憶體"
    ],
-   "excluded_count": 2,
    "market_pe": 31.26,
    "market_median_pe": 17,
+   "holdings_asof": "2026-08-31",
    "asof": "2026-10-03",
-   "source": "Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
+   "source": "Kevin目標價_2026_09.xlsx 工作表「錨定ETF」（v3.7b：2026-10-03 收盤價、ETF 持股 2026-08-31、剔除記憶體題材股）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
   },
   "target_premium": 1,
   "run_rate": {
@@ -74,8 +73,7 @@
   "previous_eps_basis": "normalized",
   "previous_eps_reported": 9.01,
   "previous_eps_note": "2025 帳面 EPS 9.01 含停業單位（處分京隆科技(蘇州)）利益 3,053,084 千元，不可比；改用繼續營業單位淨利 8,004,710 千元（2025 年報 p.104），並依 IAS 33 追溯調整 2026-08-03 除權股票股利（每股 0.5 元，611,373 千元）：8,004,710 ÷ 1,283,882 千股＝6.23。繼續營業單位非控制權益視為 0（研究推論：NCI 主要屬已處分之京隆）。",
-  "price": 298,
-  "price_date": "2026-10-06"
+  "price": 298
  },
- "model_version": "Kevin v3.7b（plugin 0.8.1）"
+ "model_version": "Kevin v3.7b（plugin 0.8.1，Drive 正式版）"
 }

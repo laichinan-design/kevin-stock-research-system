@@ -6,11 +6,11 @@
 - 比較兩檔已研究股票，核對EPS口徑、期間與幣別，列不可比較項。
 - 用指定Excel更新這檔股票，先核對股票鍵、欄位及原檔指紋。
 - 對追蹤清單計算合併資金方案，不要重複使用現金。
-- 用Kevin模型（v3.7b）估值這檔股票：潛力股錨定（00935剔除記憶體）、列出非經常性項目，並並列情境A／B。
+- 用Kevin模型估值這檔股票：潛力股錨定（附當月錨定ETF數值與來源）、列出非經常性項目，並並列情境A／B。
 
-0.8.1起Kevin模型改為v3.7b ETF內涵成長錨定（b＝ETF落後PE÷(1+G_TTM)×M_adj，只對超過同一ETF G_FY的成長加溢價，錨定值剔除記憶體題材股）；溢價只乘在模型價，並檢查盈餘品質與基期EPS。規格見references/kevin-model.md，0.7.0請求的遷移方式見同檔最後一節。
+0.8.0起Kevin模型預設改為v3.7 ETF隱含成長錨定：基準本益比 = ETF落後本益比 ÷（1＋ETF內涵成長）× M_adj，個股只對超過ETF內涵成長的部分加溢價，並檢查景氣高峰；舊雙層錨定須明示 anchor_method=legacy_dual_anchor。溢價只乘在模型價，並檢查盈餘品質與基期EPS；規格與各版遷移方式見references/kevin-model.md。0.8.1起為v3.7b：ETF錨定剔除記憶體題材股，超額門檻＝各類別ETF剔除記憶體後的G_FY（2026-10-03：48.50%／52.89%／60.20%），Δ上限200（profiles/anchors.json 的 excess_cap，可單次覆寫），預期EPS成長>300%標示低基期需人工判斷。
 
-與Kevin帳戶技能的分工：對話內快速估值或加同業用kevin-stock-pricing-model；整本投資組合workbook月度更新用update-portfolio；本外掛負責建立研究資料夾與證據庫的完整研究流程。三者的Kevin公式口徑一致（v3.7b ETF內涵成長錨定、剔除記憶體、合併淨利率×業主淨利占比、溢價只乘目標價）。
+與Kevin帳戶技能的分工：對話內快速估值或加同業用kevin-stock-pricing-model；整本投資組合workbook月度更新用update-portfolio；本外掛負責建立研究資料夾與證據庫的完整研究流程。三者的Kevin公式口徑應一致（v3.7b ETF隱含成長錨定（錨定與超額門檻皆剔除記憶體、上限200）、合併淨利率×業主淨利占比、溢價只乘目標價）；帳戶技能若仍是舊雙層錨定版，數字會不同，須先更新。
 
 10個skills、10個產業模板、6種研究模式。執行細節見references/cli.md；真實支援範圍見references/capabilities.md。此包不包含私人研究文件、工作簿、持股或Drive來源識別。
 Python 3.11+；以宿主既有Python執行。需要時安裝requirements.txt到獨立虛擬環境，不預設修改全域環境。只有可執行程式的平台才能跑計算；沒有工具時不能宣稱已執行。

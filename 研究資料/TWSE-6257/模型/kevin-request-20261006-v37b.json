@@ -10,8 +10,8 @@
   "MOPS:202602_6257_AI1（Drive 1KkP8YEyManXWJmGTDqI7KRcO-i47rRo2）p.8–9 損益、p.31 股本、p.38–39 其他利益及損失、p.61 非控制權益",
   "MOPS:2025 年報 F04（Drive 1gmiRcWNIyytnAOcl4K6rS55Svsts5vIk）p.1 2025 EPS 6.14",
   "PROVISIONAL:workbook-投資組合_2026_09_11_updated.xlsx（CPO概念表：1–8月營收；分類 CPO 概念）",
-  "ANCHOR:Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定",
-  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 286 元（漲停 +10%）"
+  "PRICE:Bigdata.com（FMP）2026-10-06 收盤 286 元（漲停 +10%）",
+  "ANCHOR:Kevin目標價_2026_09.xlsx 工作表「錨定ETF」（v3.7b：2026-10-03 收盤價、ETF 持股 2026-08-31、剔除記憶體題材股）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
  ],
  "provisional_note": "公司身分未以官方 URL verify-identity（雲端擋 MOPS）；G/H/W/股本/非經常性取自官方 115Q2 財報 PDF。7、8 月個別營收為新聞稿百萬元精度，兩月合計＝1–8 月累計 − H1 財報營收（精確）。",
  "inputs": {
@@ -36,18 +36,17 @@
   },
   "anchor": {
    "category": "cpo",
-   "etf": "00891",
-   "trailing_pe": 38.6352,
-   "growth_ttm": 0.222974,
-   "growth_prior": 0.528864,
+   "etf_pe_trailing": 38.635243,
+   "etf_growth_ttm": 0.222976,
+   "etf_growth_fy": 0.528864,
    "excluded_themes": [
     "記憶體"
    ],
-   "excluded_count": 2,
    "market_pe": 31.26,
    "market_median_pe": 17,
+   "holdings_asof": "2026-08-31",
    "asof": "2026-10-03",
-   "source": "Kevin 帳戶 skill kevin-stock-pricing-model v3.7b 內建錨定值（2026-10-03 收盤實算、持股 2026-08-31、00891 剔除記憶體題材股 2 檔；Kevin目標價_2026_09.xlsx「錨定ETF」v3.7b）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
+   "source": "Kevin目標價_2026_09.xlsx 工作表「錨定ETF」（v3.7b：2026-10-03 收盤價、ETF 持股 2026-08-31、剔除記憶體題材股）；大盤 PE 31.26／10 年中位 17 取 workbook Anchor設定"
   },
   "target_premium": 1,
   "run_rate": {
@@ -72,8 +71,7 @@
    "pull_in_suspected": false,
    "inorganic_monthly": 0
   },
-  "price": 286,
-  "price_date": "2026-10-06"
+  "price": 286
  },
- "model_version": "Kevin v3.7b（plugin 0.8.1）"
+ "model_version": "Kevin v3.7b（plugin 0.8.1，Drive 正式版）"
 }

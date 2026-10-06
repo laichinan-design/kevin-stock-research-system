@@ -1,13 +1,17 @@
 # 0.8.1 — 2026-10-06
-- Kevin 模型改為 v3.7b（ETF 內涵成長錨定），與帳戶 skill kevin-stock-pricing-model／update-portfolio v3.7b 同口徑；雙層錨定（ETF PE × 0.75／0.55 等比例）停用。
-  - 基準 b ＝ ETF 加權落後 PE ÷ (1 + G_TTM) × M_adj；超額門檻 ＝ 同一 ETF 的 G_FY；Δ ＝ (O − 門檻) × 100，上限 200（excess_cap 可調，改值警示）。
-  - Δ ≥ 0：保守 b＋√Δ、樂觀 b＋Δ^(2/3)；Δ < 0：保守 b×clip((1+O)/(1+門檻),0.25,1)、樂觀 b；price ÷ N < 8 自動景氣高峰（EPS 取兩年平均、兩腿 b÷(1+門檻)，cycle_peak 覆寫須附理由）；O > 300% 標 low_base；預期 EPS ≤ 0 不給目標價；去年 EPS ≤ 0 成長以 100% 計。
-  - anchor 支援摘要（trailing_pe、growth_ttm、growth_prior、coverage、excluded_themes）與成分股明細（盈餘殖利率加權、記憶體題材股 21 檔自動剔除並重新歸一）；category 接受中文名稱並檢查 ETF 一致；values="profile" 採內建 2026-10-03 最近已知值（b 20.9995／26.8525／29.0911，門檻 48.50%／52.89%／60.20%）並警示；hurdle_growth 覆寫須附 hurdle_source；直接給 base_pe＋hurdle_growth 須附 anchor_source。
-  - 新增必填 price、price_date；anchor 必填 source。輸出欄位改為 pe_conservative／pe_optimistic／price_conservative／price_optimistic，另列 delta_pp、branch、cycle_peak、low_base、upside；model 名稱 kevin_etf_implied_growth_v3.7b。舊欄位 etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q、base_pe_low／base_pe_high 一律拒絕並提示遷移。
-- profiles/anchors.json 改為 v3.7b 參數（M_adj 規則、上限、低基期、景氣高峰、記憶體代碼、最近已知值）；validate_package 改檢查新結構；測試確認 profile 常數與程式一致。
-- 回歸案例改為 skill v3.7b 範例：貝爾威勒 T ≈ 1,743（×1.5 ≈ 2,615）、松川 440／513／642、矽格 CPO 28.32／28.52。測試 123→131。
-- 文件：kevin-model.md 重寫（含 0.7.0 → 0.8.1 遷移）、cli.md 範例、contract、capabilities、README、kevin-model skill、估值模板。
-- 0.8.0 未單獨發行，版本號直接跳到 0.8.1。
+- Kevin 模型改為 v3.7b（使用者 2026-10-06 決定）：①ETF 錨定計算剔除記憶體題材股（華邦電、力積電、晶豪科、青雲、廣穎電通、擎亞、南亞科、旺宏、群聯、威剛、創見、宇瞻、十銓、宜鼎、鈺創、凌航、至上、方土昶、品安、點序、愛普，共 21 檔），剩餘權重重新歸一；②基準 b 與超額成長門檻都用類別自己 ETF 剔除記憶體後重算的值（門檻＝該 ETF 的 G_FY；曾考慮的三類統一 0050 門檻未採用）；③Δ 上限 100 → 200（profiles/anchors.json 的 excess_cap，可單次以 inputs.excess_cap 覆寫）；④預期 EPS 成長 > 300% 且非景氣高峰時輸出 low_base=true 與旗標「低基期：預期 EPS 成長 X%，需人工判斷（剔除或改用兩年平均 EPS）」，數字不自動調整。M_adj 0.85 與其餘規則不變。
+- 改版理由：記憶體超級循環（華邦電 EPS 0.88→17.8、南亞科 2.13→58.7）把 00891／00935 的內涵成長灌高到 83.4%／80.4%，CPO 與潛力股的超額成長被壓低；剔除後為 52.89%／60.20%。
+- kevin_calculate／kevin_valuation：Δ、Δ<0 折減與景氣高峰兩腿都用超額門檻，預設＝etf_growth_fy（類別 ETF 剔除記憶體），新增 hurdle_growth 單次覆寫（輸出警示）；輸出新增 hurdle_growth、hurdle_source、low_base、model_version=v3.7b，delta_cap 反映實際上限。workflow 的 inputs.anchor：inputs／anchor.hurdle_growth（覆寫）→ 同一份 anchor 的 etf_growth_fy → profiles/anchors.json 該類別最新已知 G_FY；門檻逾 45 天、與錨定不同日、未註明剔除記憶體時警示。
+- profiles/anchors.json 改為 v3.7b 最新已知值（2026-10-03 收盤、持股 2026-08-31、剔除記憶體；來源 Kevin目標價_2026_09.xlsx「錨定ETF」）：b 20.999471／26.852505／29.091102，G_FY＝超額門檻 0.485004／0.528864／0.602024（各類別 latest_known.hurdle_growth），hurdle_rule=category_etf_growth_fy，excess_cap 200，excluded_themes ["記憶體"]、excluded_codes；v3.7 舊值移到 latest_known.previous_v3_7 供對照。
+- validate_package 檢查 model_version、excluded_themes、hurdle_rule（不得有單一統一門檻、各類 hurdle_growth＝etf_growth_fy）與 excess_cap。kevin-model.md、kevin-model 技能、估值模板、cli、contract、capabilities、README、START-HERE 同步更新。測試 137→146，改為 v3.7b 回歸值（貝爾威勒 1,743／×1.5 2,615；松川精密 441／513／641；奇鋐 27.33／32.71；緯穎 17.76／21.00；威健高峰 14.14；矽格 CPO 28.34／28.55；麗臺上限 200 與低基期 35.14／55.20），保留 legacy 與以 excess_cap=100＋hurdle_growth 重現 v3.7 的測試。
+
+# 0.8.0 — 2026-10-05
+- Kevin 模型改為 v3.7 ETF 隱含成長錨定（預設）：基準本益比 b = ETF 持股加權落後本益比 ÷（1＋G_TTM）× M_adj；個股只對超過 ETF 內涵成長 G_FY 的超額成長 Δ =（g − G_FY）× 100 加溢價：Δ ≥ 0 時 PE_cons = b＋√min(Δ,100)、PE_opt = b＋min(Δ,100)^(2/3)；Δ < 0 時 PE_cons = b × clip((1＋g)÷(1＋G_FY), 0.25, 1)、PE_opt = b。負成長不再直接拒絕，改走 Δ < 0 折減。
+- 景氣高峰：提供 price 且股價 ÷ EPS < 8 時，EPS 取本期與基期平均、成長率視為 0、兩腿本益比 = b ÷（1＋G_FY），輸出 peak_earnings 與旗標；未提供 price 時輸出警示。
+- 改版理由：ETF 落後本益比已反映市場成長預期，再對個股全部成長加溢價會重複計算；固定比例 0.55／0.75 不隨 ETF 內涵成長變動；workbook 手填的 0050 本益比 22 已過時（2026-09-10 實算 28.4）。
+- inputs.anchor 改填 etf_pe_trailing、etf_growth_ttm、etf_growth_fy、market_pe、market_median_pe、asof、source（也可直接給 base_pe＋etf_growth_fy）；v3.7 錨定必附 source。profiles/anchors.json 改列三類 ETF 的最新已知值（2026-10-03 收盤、持股 2026-08-31、M_adj 0.85，來源 Kevin目標價_2026_09.xlsx「錨定ETF」），逾 45 天警示；ratio_p／ratio_q 移到 legacy_dual_anchor。
+- 舊雙層錨定保留為 anchor_method=legacy_dual_anchor，只供重現舊 workbook（貝爾威勒 1,529／×1.5 2,294 不變）；未明示卻送 etf_pe、ratio_p／ratio_q、base_pe_p／base_pe_q 時拒絕並說明 v3.7。輸出改名 pe_cons／pe_opt、price_cons／price_opt，另列 base_pe、etf_growth_fy、delta、delta_capped、branch、eps_valuation。
+- validate_package 檢查 anchors.json 預設方法、最新已知值與 b = 落後PE ÷（1＋G_TTM）× M_adj 一致、ratio 只在 legacy 區。kevin-model.md、kevin-model 技能、估值模板、cli／contract／capabilities、README 同步更新。測試 123→137（v3.7 回歸：貝爾威勒 1,692／×1.5 2,538、松川精密 387／452／575、Δ<0、景氣高峰、舊欄位拒絕、legacy 重現）。
 
 # 0.7.0 — 2026-10-02
 - 新產業模組 osat（半導體封裝測試，含純測試廠）：KPI 為測試／封裝營收結構、應用別占比、稼動率與機台產能、capex／折舊／EBITDA 率、經營槓桿、客戶結構、新技術測試（先進封裝、HBM、矽光子、CPO）、自由現金流與少數股權；guards 涵蓋折舊固定成本與新廠投產、客戶包產能不等於長約、商業模式不可直接套倍數、客戶提供機台（consigned tester）、美元匯兌與基期 EPS、擴產期現金流、新技術占比不得推估與 H2 ramp 情境 B、子公司少數股權口徑；同業規則分純測試、封測一體、先進封裝，記憶體封測另列，ATE／探針卡供應商不列同業。candidate_methods 另開 scenario_pb 供景氣谷底參考。init／set-industry 可用，Kevin 模型開放，產業模板 9→10。封測公司不再套 semiconductor 通用或 semiconductor-equipment。
